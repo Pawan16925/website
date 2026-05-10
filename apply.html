@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Internship Form...</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref') || 'NAA'; // default if empty
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfLTezVK4xV9zX_1jD_ZKwabaQ3d2psRPE7IkCf_bNuIO8tjw/viewform?usp=pp_url&entry.225331688=" + encodeURIComponent(refCode);
+    window.location.href = formUrl;
+  </script>
+</head>
+<body>
+  <p>Redirecting you to the Internship Form...</p>
+</body>
+</html>

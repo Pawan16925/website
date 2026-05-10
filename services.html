@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - StaxTech | Digital & Learning Solutions</title>
+
+    <meta name="description" content="Explore StaxTech's services: custom software, web & mobile app development, cloud solutions, and hands-on internship programs for students." />
+    <meta name="keywords" content="StaxTech services, software development, web applications, mobile apps, cloud solutions, IT support, internships" />
+    <meta name="author" content="StaxTech" />
+       <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <meta name="theme-color" content="#0a0a1a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #db2777;
+            --bg-dark: #0a0a1a;
+            --bg-medium: #1a1a2e;
+            --bg-light: #1f1f3a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-lg: 0 10px B30px rgba(0, 0, 0, 0.3);
+            --radius-lg: 1rem;
+            --transition-speed: 0.4s;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Page Pre-loader --- */
+        .preloader {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--bg-dark);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid var(--bg-medium);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* --- Animations & Typography --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        h1, h2, h3 { font-weight: 700; line-height: 1.3; color: var(--text-primary); }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); text-align: center; margin-bottom: 3.5rem; }
+        p { color: var(--text-secondary); }
+        .section { padding: 6rem 0; overflow: hidden; position: relative; }
+        .section-subtitle {
+            text-align: center; color: var(--primary-color);
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 0.5rem;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: rgba(10, 10, 26, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0; position: sticky; top: 0; z-index: 1000;
+        }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 1rem; font-weight: 600; position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero { padding: 7rem 0; text-align: center; position: relative; }
+        #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero .container { position: relative; z-index: 2; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 1.5rem auto 0; color: var(--text-secondary); }
+        
+        /* --- Services Grid Section --- */
+        .services-section { background-color: var(--bg-dark); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--bg-medium);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card .aurora-glow {
+            position: absolute; top: 0; left: 0;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, var(--secondary-color), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: aurora-spin 10s linear infinite;
+        }
+        @keyframes aurora-spin { to { transform: rotate(360deg); } }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(79, 70, 229, 0.5);
+        }
+        .service-card:hover .aurora-glow { opacity: 0.1; }
+        .card-content { position: relative; z-index: 2; }
+        .card-content .icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+        .card-content h3 { margin-bottom: 1rem; }
+        .card-content p { color: var(--text-secondary); }
+
+        /* --- Why Choose Us Section --- */
+        .why-choose-us { background-color: var(--bg-medium); }
+        .why-choose-us .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        .why-choose-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        .why-choose-content li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .why-choose-content .icon-check {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 4px;
+        }
+        .why-choose-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .why-choose-image img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+        }
+
+        /* --- CTA & Footer --- */
+        .cta-section { background-color: var(--bg-dark); text-align: center; }
+        .btn {
+            display: inline-block; padding: 1rem 2.5rem; border-radius: 50px;
+            text-decoration: none; font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-primary);
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 5px 20px rgba(79, 70, 229, 0.4);
+            border: none;
+        }
+        .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(79, 70, 229, 0.6); }
+
+        .footer { background-color: var(--bg-dark); border-top: 1px solid var(--border-color); color: var(--text-secondary); padding: 5rem 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-column h4 { color: var(--text-primary); margin-bottom: 1.5rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color var(--transition-speed); }
+        .footer-links a:hover { color: var(--primary-color); }
+        .social-icons a { color: var(--text-secondary); font-size: 1.5rem; transition: color var(--transition-speed); }
+        .social-icons a:hover { color: var(--primary-color); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .why-choose-us .container { grid-template-columns: 1fr; }
+            .why-choose-image { order: -1; margin-bottom: 2rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 2rem 0; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preloader" id="preloader"><div class="spinner"></div></div>
+
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="StaxTech Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x40/4f46e5/FFFFFF?text=StaxTech&font=inter';"></a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="https://staxtech.in/">Internship</a></li>
+                    <li><a href="server.html">Verification</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <canvas id="particle-canvas"></canvas>
+            <div class="container fade-in">
+                <h1>Our Services</h1>
+                <p>At StaxTech, we combine innovation and expertise to deliver top-notch digital solutions. Whether you’re a business looking to scale or an individual seeking tech support, we have the right services for you.</p>
+            </div>
+        </section>
+
+        <section class="section services-section">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-code icon"></i>
+                            <h3>Software Development</h3>
+                            <p>We design and develop custom software solutions tailored to your needs. From small tools to complex enterprise applications, our team ensures robust, scalable, and user-friendly software.</p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-desktop icon"></i>
+                            <h3>Web Application Development</h3>
+                            <p>Our experts build responsive and high-performance web applications that engage users and deliver results. We focus on modern technologies and smooth user experiences.</p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-mobile-alt icon"></i>
+                            <h3>Mobile App Development</h3>
+                            <p>Reach your audience on the go! We create Android and iOS apps with seamless functionality, intuitive design, and top-quality performance.</p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.3s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-cloud icon"></i>
+                            <h3>Cloud Solutions</h3>
+                            <p>Optimize your business operations with our cloud integration and management services. We help you store, access, and secure your data efficiently.</p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.4s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-headset icon"></i>
+                            <h3>IT Solutions & Support</h3>
+                            <p>From troubleshooting to complete IT system management, we provide reliable IT services that keep your business running smoothly.</p>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.5s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-user-graduate icon"></i>
+                            <h3>Internship & Training</h3>
+                            <p>We’re proud to offer hands-on internship programs. Gain real-world experience, work on live projects, and learn industry-ready skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section why-choose-us">
+            <div class="container">
+                <div class="why-choose-content fade-in">
+                    <h3 class="section-subtitle" style="text-align:left;">Our Advantage</h3>
+                    <h2 style="text-align:left;">Why Choose StaxTech?</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle icon-check"></i> <strong>Experienced Team:</strong> Skilled professionals across all domains.</li>
+                        <li><i class="fas fa-check-circle icon-check"></i> <strong>Customized Solutions:</strong> Tailored to your goals and needs.</li>
+                        <li><i class="fas fa-check-circle icon-check"></i> <strong>Innovation Focused:</strong> Always exploring new ideas and technologies.</li>
+                        <li><i class="fas fa-check-circle icon-check"></i> <strong>Learning & Growth:</strong> Empowering students through practical exposure.</li>
+                    </ul>
+                </div>
+                <div class="why-choose-image fade-in" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/500x400/1a1a2e/7c3aed?text=StaxTech+Advantage" alt="Abstract graphic representing technological advantage">
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section">
+            <div class="container fade-in">
+                <h2>Ready to grow with us?</h2>
+                <p style="margin: 1.5rem auto 2rem;">Contact us today and discover how StaxTech can turn your ideas into reality.</p>
+                <a href="contact.html" class="btn">Get In Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+             <div class="footer-grid">
+                 <div class="footer-column"><h4>StaxTech</h4><p>Building futures with innovative technology.</p><div class="social-icons" style="display:flex; gap: 1rem;"><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
+                 <div class="footer-column"><h4>Explore</h4><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="https://staxtech.in/">Internships</a></li><li><a href="#">Contact</a></li></ul></div>
+                 <div class="footer-column"><h4>Legal</h4><ul class="footer-links"><li><a href="terms.html">Terms of Service</a></li><li><a href="terms.html">Privacy Policy</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> StaxTech. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Preloader ---
+        const preloader = document.getElementById('preloader');
+        window.addEventListener('load', () => {
+            preloader.classList.add('hidden');
+        });
+
+        // --- Interactive Particle Nebula ---
+        const canvas = document.getElementById('particle-canvas');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+            let particles = [];
+            
+            class Particle {
+                constructor(x, y, dirX, dirY, size, color) {
+                    this.x = x; this.y = y; this.dirX = dirX; this.dirY = dirY; this.size = size; this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = 'rgba(79, 70, 229, 0.5)';
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.dirX = -this.dirX;
+                    if (this.y > canvas.height || this.y < 0) this.dirY = -this.dirY;
+                    this.x += this.dirX;
+                    this.y += this.dirY;
+                    this.draw();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                let numParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = Math.random() * (innerWidth - size * 2);
+                    let y = Math.random() * (innerHeight - size * 2);
+                    let dirX = (Math.random() * .4) - .2;
+                    let dirY = (Math.random() * .4) - .2;
+                    particles.push(new Particle(x, y, dirX, dirY, size));
+                }
+            }
+
+            function animateParticles() {
+                requestAnimationFrame(animateParticles);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                for (let particle of particles) {
+                    particle.update();
+                }
+            }
+            
+            initParticles();
+            animateParticles();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+                initParticles();
+            });
+        }
+        
+        // --- Shared Intersection Observer for Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // --- Consistent Header, Menu, Footer Logic ---
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    });
+    </script>
+</body>
+</html>

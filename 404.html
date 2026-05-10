@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Lost in Cyberspace | StaxTech</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+
+    <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary-color: #6366f1; /* Indigo */
+            --secondary-color: #ec4899; /* Pink */
+            --text-dark: #1f2937;
+            --text-light: #f9fafb;
+            --text-gray: #d1d5db; /* Lighter Gray */
+            --bg-dark-start: #111827;
+            --bg-dark-end: #1f2937;
+            --radius-xl: 1.5rem;
+            --transition-speed: 0.4s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 1.5rem;
+            
+            /* Animated Gradient Background */
+            background: linear-gradient(315deg, var(--bg-dark-start), var(--bg-dark-end), #3730a3);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .error-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            
+            /* Glassmorphism Card */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+            /* Entrance Animation */
+            animation: fadeInContainer 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInContainer {
+            to { opacity: 1; }
+        }
+
+        .error-illustration {
+            margin-bottom: 2rem;
+            /* Transition for smooth parallax movement */
+            transition: transform 0.2s ease-out;
+        }
+
+        .error-illustration svg {
+             /* Baseline floating animation */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .error-code {
+            font-size: clamp(5rem, 20vw, 10rem);
+            font-weight: 900;
+            line-height: 1;
+            
+            /* Gradient Text */
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Staggered text animations */
+        .error-title, .error-message, .home-button {
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInText 0.6s ease-out forwards;
+        }
+
+        .error-title { animation-delay: 0.2s; }
+        .error-message { animation-delay: 0.4s; }
+        .home-button { animation-delay: 0.6s; }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 5vw, 2.25rem);
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-gray);
+        }
+
+        .home-button {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            
+            /* Gradient Button */
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+
+        .home-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .error-container {
+                padding: 2rem;
+            }
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-title {
+                font-size: 1.5rem;
+            }
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container" id="error-container">
+        <div class="error-illustration" id="illustration">
+             <svg width="180" height="180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20Z" fill="rgba(255,255,255,0.2)"/>
+                <path d="M16.5 14.5C16.5 15.328 15.828 16 15 16H9C8.172 16 7.5 15.328 7.5 14.5C7.5 13.672 8.172 13 9 13H15C15.828 13 16.5 13.672 16.5 14.5Z" fill="rgba(255,255,255,0.4)"/>
+                <path d="M10 11C10.5523 11 11 10.5523 11 10C11 9.44772 10.5523 9 10 9C9.44772 9 9 9.44772 9 10C9 10.5523 9.44772 11 10 11Z" fill="#f9fafb"/>
+                <path d="M14 11C14.5523 11 15 10.5523 15 10C15 9.44772 14.5523 9 14 9C13.4477 9 13 9.44772 13 10C13 10.5523 13.4477 11 14 11Z" fill="#f9fafb"/>
+                <path d="M12 7C12.5523 7 13 6.55228 13 6V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V6C11 6.55228 11.4477 7 12 7Z" fill="rgba(236, 72, 153, 0.8)"/>
+                <circle cx="12" cy="6" r="1.5" fill="#ec4899"/>
+            </svg>
+        </div>
+        <div class="error-code">404</div>
+        <h1 class="error-title">Lost in Cyberspace</h1>
+        <p class="error-message">Looks like you've drifted off course. The page you are looking for might have been moved, deleted, or is temporarily unavailable.</p>
+        <a href="index.html" class="home-button">Return to Base</a>
+    </div>
+
+    <script>
+        // Interactive Parallax Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('error-container');
+            const illustration = document.getElementById('illustration');
+
+            // Maximum movement range
+            const maxMoveX = 20; // in pixels
+            const maxMoveY = 10; // in pixels
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                
+                // Calculate mouse position relative to the container's center
+                const mouseX = e.clientX - rect.left - rect.width / 2;
+                const mouseY = e.clientY - rect.top - rect.height / 2;
+                
+                // Calculate the movement based on mouse position
+                // The further from the center, the more it moves
+                const moveX = (mouseX / (rect.width / 2)) * -maxMoveX;
+                const moveY = (mouseY / (rect.height / 2)) * -maxMoveY;
+
+                // Apply the transform to the illustration
+                illustration.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+
+            // Reset position when mouse leaves the container
+            container.addEventListener('mouseleave', () => {
+                illustration.style.transform = 'translate(0, 0)';
+            });
+        });
+    </script>
+</body>
+</html>

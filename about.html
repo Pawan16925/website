@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - StaxTech | Building the Future of Tech</title>
+    
+    <meta name="description" content="StaxTech is an Indian technology startup creating smart digital solutions and offering hands-on internship programs to bridge the gap between education and industry." />
+    <meta name="keywords" content="About StaxTech, StaxTech team, tech startup India, digital solutions, student internships, web development" />
+    <meta name="author" content="StaxTech" />
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <meta name="theme-color" content="#0a0a1a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #db2777;
+            --bg-dark: #0a0a1a;
+            --bg-medium: #1a1a2e;
+            --bg-light: #1f1f3a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --radius-lg: 1rem;
+            --transition-speed: 0.4s;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Page Pre-loader --- */
+        .preloader {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--bg-dark);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid var(--bg-medium);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- Animations & Typography --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        h1, h2, h3 { font-weight: 700; line-height: 1.3; color: var(--text-primary); }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); text-align: center; margin-bottom: 3rem; }
+        p { color: var(--text-secondary); }
+        .section { padding: 6rem 0; overflow: hidden; position: relative; }
+        .section-subtitle {
+            text-align: center; color: var(--primary-color);
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 0.5rem;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: rgba(10, 10, 26, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 1rem; font-weight: 600; position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+
+        /* --- Hero Section with Particle Nebula --- */
+        .hero {
+            padding: 8rem 0; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        #particle-canvas {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 {
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+        /* Glitch Effect */
+        .hero h1:hover::before, .hero h1:hover::after {
+            content: attr(data-text);
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--bg-dark);
+            overflow: hidden;
+        }
+        .hero h1:hover::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--accent-color);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .hero h1:hover::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--secondary-color), 2px 2px var(--accent-color);
+            animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim-1 { 0% { clip: rect(25px, 9999px, 89px, 0); } 100% { clip: rect(84px, 9999px, 31px, 0); } }
+        @keyframes glitch-anim-2 { 0% { clip: rect(45px, 9999px, 100px, 0); } 100% { clip: rect(6px, 9999px, 76px, 0); } }
+
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 1.5rem auto 2.5rem; color: var(--text-secondary); }
+        .btn {
+            display: inline-block; padding: 1rem 2.5rem; border-radius: 50px;
+            text-decoration: none; font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-primary);
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 5px 20px rgba(79, 70, 229, 0.4);
+            border: none;
+        }
+        .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(79, 70, 229, 0.6); }
+
+        /* --- About Story Section --- */
+        .about-story { background-color: var(--bg-medium); }
+        .about-story .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-story-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 2px solid var(--border-color);}
+
+        /* --- Dual Mission Section with Aurora Hover --- */
+        .mission-section { background: var(--bg-dark); }
+        .mission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .mission-card {
+            background: var(--bg-medium);
+            padding: 2.5rem; border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-speed) ease;
+            position: relative; overflow: hidden;
+        }
+        .mission-card::before { /* Corner Brackets */
+            content: ' corners ';
+            position: absolute;
+            top: 10px; right: 10px;
+            font-family: monospace;
+            color: var(--border-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .mission-card:hover::before { opacity: 1; }
+        .mission-card .aurora-glow { /* Aurora effect */
+            position: absolute; top: 0; left: 0;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, var(--secondary-color), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: aurora-spin 10s linear infinite;
+        }
+        .mission-card:hover .aurora-glow { opacity: 0.1; }
+        @keyframes aurora-spin { to { transform: rotate(360deg); } }
+        .mission-card .card-content { position: relative; z-index: 2; }
+        .mission-card .icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+        .mission-card h3 { margin-bottom: 1rem; }
+
+        /* --- Core Values Section --- */
+        .values-section { background-color: var(--bg-medium); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+        .value-item .icon { font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .value-item h4 { font-size: 1.25rem; color: var(--text-primary); }
+
+        /* --- Stats Section --- */
+        .stats-section { background: var(--bg-dark); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 3.5rem; color: var(--text-primary); background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* --- CTA & Footer --- */
+        .cta-section { background-color: var(--bg-medium); text-align: center; }
+        .footer { background-color: var(--bg-dark); border-top: 1px solid var(--border-color); color: var(--text-secondary); padding: 5rem 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-column h4 { color: var(--text-primary); margin-bottom: 1.5rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color var(--transition-speed); }
+        .footer-links a:hover { color: var(--primary-color); }
+        .social-icons a { color: var(--text-secondary); font-size: 1.5rem; transition: color var(--transition-speed); }
+        .social-icons a:hover { color: var(--primary-color); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .about-story .container { grid-template-columns: 1fr; }
+            .about-story-image { order: -1; margin-bottom: 2rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 2rem 0; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-column .social-icons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader" id="preloader"><div class="spinner"></div></div>
+
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="StaxTech Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x40/4f46e5/FFFFFF?text=StaxTech&font=inter';"></a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="https://staxtech.in/">Internship</a></li>
+                    <li><a href="server.html">Verification</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <canvas id="particle-canvas"></canvas>
+            <div class="container fade-in">
+                <h1 data-text="Bridging Theory and Practice.">Bridging Theory and Practice.</h1>
+                <p>StaxTech is your partner on the journey to success. We're an innovation hub for businesses and a launchpad for the next generation of tech professionals.</p>
+                <a href="#about-story" class="btn">Discover Our Story</a>
+            </div>
+        </section>
+
+        <section id="about-story" class="section about-story">
+            <div class="container">
+                <div class="about-story-content fade-in">
+                    <h3 class="section-subtitle" style="text-align:left;">Who We Are</h3>
+                    <h2 style="text-align:left; margin-bottom: 1.5rem;">An Indian Tech Startup with a Passion for Growth</h2>
+                    <p>StaxTech is passionate about creating smart digital solutions. From software development to mobile and web applications, cloud services, and more, we help businesses and individuals grow with innovative technology.</p>
+                    <p>But we’re more than just tech — <strong>we’re a learning hub for aspiring professionals!</strong></p>
+                </div>
+                <div class="about-story-image fade-in" style="transition-delay: 0.2s;">
+                    <img src="assets/about.png" alt="A team collaborating in a modern office">
+                </div>
+            </div>
+        </section>
+
+        <section class="section mission-section">
+            <div class="container">
+                <h3 class="section-subtitle">Our Dual Mission</h3>
+                <h2>Empowering Businesses & Students</h2>
+                <div class="mission-grid">
+                    <div class="mission-card fade-in">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-briefcase icon"></i>
+                            <h3>For Businesses</h3>
+                            <p>We deliver innovative and scalable digital solutions that help businesses of all sizes thrive in a competitive landscape.</p>
+                        </div>
+                    </div>
+                    <div class="mission-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="aurora-glow"></div>
+                        <div class="card-content">
+                            <i class="fas fa-user-graduate icon"></i>
+                            <h3>For Students</h3>
+                            <p>Our hands-on internship programs give students real-world experience to build projects and launch their careers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section values-section">
+            <div class="container">
+                <h3 class="section-subtitle">Our Philosophy</h3>
+                <h2>How We Work</h2>
+                <div class="values-grid">
+                    <div class="value-item fade-in"><i class="fas fa-tools icon"></i><h4>Learning by Doing</h4></div>
+                    <div class="value-item fade-in" style="transition-delay: 0.2s;"><i class="fas fa-users icon"></i><h4>Growing Together</h4></div>
+                    <div class="value-item fade-in" style="transition-delay: 0.4s;"><i class="fas fa-lightbulb icon"></i><h4>Embracing Innovation</h4></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats-section">
+            <div class="container">
+                <h2>Our Impact by the Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><h3 class="stat-counter" data-target="200">0+</h3><p>Students Trained</p></div>
+                    <div class="stat-item"><h3 class="stat-counter" data-target="50">0+</h3><p>Projects Delivered</p></div>
+                    <div class="stat-item"><h3 class="stat-counter" data-target="1000">0+</h3><p>Community Members</p></div>
+                    <div class="stat-item"><h3 class="stat-counter" data-target="100">0%</h3><p>Satisfaction Rate</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section">
+            <div class="container fade-in">
+                <h2>Join Us Today!</h2>
+                <p>Start building your future with StaxTech!</p>
+                <a href="https://staxtech.in/" class="btn">Explore Internships</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+             <div class="footer-grid">
+                 <div class="footer-column"><h4>StaxTech</h4><p>Building futures with innovative technology.</p><div class="social-icons" style="display:flex; gap: 1rem;"><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
+                 <div class="footer-column"><h4>Explore</h4><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="https://staxtech.in/">Internships</a></li><li><a href="#">Contact</a></li></ul></div>
+                 <div class="footer-column"><h4>Legal</h4><ul class="footer-links"><li><a href="terms.html">Terms of Service</a></li><li><a href="terms.html">Privacy Policy</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> StaxTech. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Preloader ---
+        const preloader = document.getElementById('preloader');
+        window.addEventListener('load', () => {
+            preloader.classList.add('hidden');
+        });
+
+        // --- Interactive Particle Nebula ---
+        const canvas = document.getElementById('particle-canvas');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+
+            let particles = [];
+            let mouse = { x: null, y: null, radius: (canvas.height / 80) * (canvas.width / 80) };
+
+            window.addEventListener('mousemove', (event) => {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            });
+
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = 'rgba(79, 70, 229, 0.5)';
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                    if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                    this.draw();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * .4) - .2;
+                    let directionY = (Math.random() * .4) - .2;
+                    particles.push(new Particle(x, y, directionX, directionY, size));
+                }
+            }
+
+            function animateParticles() {
+                requestAnimationFrame(animateParticles);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+            }
+            
+            initParticles();
+            animateParticles();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+                initParticles();
+            });
+        }
+        
+        // --- Shared Intersection Observer for Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('stat-counter')) {
+                        animateCounter(entry.target);
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in, .stat-counter').forEach(el => observer.observe(el));
+        
+        // --- Stat Counter ---
+        function animateCounter(counter) {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000;
+            let start = null;
+            const step = (timestamp) => {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                counter.innerText = Math.floor(progress * target) + (counter.innerText.match(/[^\d.-]+/) || [''])[0];
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // --- Consistent Header, Menu, Footer Logic ---
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    });
+    </script>
+</body>
+</html>

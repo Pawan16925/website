@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Verified | StaxTech</title>
+
+  <!-- SEO -->
+  <!-- <meta name="description" content="Document successfully verified for internship completion under StaxTech." />
+  <meta name="keywords" content="StaxTech, Internship, Certificate, Document Verification, Tech Intern" />
+  <meta name="author" content="StaxTech" />
+  <link rel="icon" href="https://placehold.co/32x32/0891b2/ffffff?text=S" /> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  <!-- Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #0891b2;
+      --primary-light: #0ea5e9;
+      --bg: #f0f4f8;
+      --white: #ffffff;
+      --dark: #1e293b;
+      --text-gray: #64748b;
+      --radius: 1rem;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    .center-screen {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 3rem 2rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-circle {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-circle i {
+      font-size: 36px;
+      color: var(--primary);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--primary-light);
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Main Card -->
+  <div class="center-screen">
+    <div class="card">
+      <div class="icon-circle">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h1>Document Verified!</h1>
+      <p>Congratulations! You have successfully completed the 1-month internship under <strong>staxtech</strong>.</p>
+      <button onclick="viewCertificate()">View Certificate</button>
+    </div>
+  </div>
+
+  <script>
+    // Start Confetti
+    const confettiSettings = {
+      target: 'confetti-canvas',
+      max: 120,
+      size: 1.2,
+      animate: true,
+      props: ['circle', 'square'],
+      colors: [[8, 145, 178], [14, 165, 233], [255, 255, 255]]
+    };
+    const confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+
+    // Stop after 6s
+    setTimeout(() => confetti.clear(), 6000);
+
+    function viewCertificate() {
+      // Replace this with your actual certificate page or file URL
+      window.location.href = "https://staxtech.in/verifycert-new.html";
+    }
+  </script>
+</body>
+
+</html>

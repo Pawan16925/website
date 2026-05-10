@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StaxTech Cert Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    colors: {
+                        stax: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6', // Primary Teal
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        accent: {
+                            purple: '#a855f7',
+                            pink: '#ec4899',
+                            yellow: '#eab308'
+                        }
+                    },
+                    boxShadow: {
+                        'brutal': '4px 4px 0px 0px rgba(15, 23, 42, 1)',
+                        'brutal-sm': '2px 2px 0px 0px rgba(15, 23, 42, 1)',
+                        'brutal-hover': '2px 2px 0px 0px rgba(15, 23, 42, 1)',
+                        'brutal-active': '0px 0px 0px 0px rgba(15, 23, 42, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            /* Subtle dotted background pattern */
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Custom spinner animation */
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Input styling overrides for brutalist feel */
+        .brutal-input:focus {
+            box-shadow: 4px 4px 0px 0px rgba(20, 184, 166, 0.3);
+            border-color: #14b8a6;
+            outline: none;
+        }
+
+        /* Card animation classes */
+        .slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gradient text utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #14b8a6, #a855f7);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8 selection:bg-stax-200 selection:text-stax-900">
+
+    <div class="w-full max-w-md relative z-10">
+        
+        <!-- Decorative background elements behind the card -->
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-stax-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute -bottom-8 -right-4 w-32 h-32 bg-accent-purple rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+
+        <!-- Main Card Container -->
+        <div class="bg-white border-2 border-slate-900 rounded-3xl shadow-brutal overflow-hidden relative z-10">
+            
+            <!-- Header Section with Gen Z vibe -->
+            <div class="relative p-8 pb-6 border-b-2 border-slate-900 overflow-hidden">
+                <!-- Abstract header background -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-stax-100 to-accent-pink/20 rounded-bl-full -mr-10 -mt-10 z-0"></div>
+                
+                <div class="relative z-10 flex flex-col items-start">
+                    <div class="bg-slate-900 text-white rounded-xl p-3 mb-4 shadow-brutal-sm transform -rotate-3 transition-transform hover:rotate-0">
+                        <i class="ph-fill ph-seal-check text-2xl text-stax-300"></i>
+                    </div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight leading-none mb-2">
+                        Stax<span class="text-gradient">Tech</span>
+                    </h1>
+                    <div class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-stax-100 text-stax-800 border-2 border-stax-200 uppercase tracking-wider">
+                        <i class="ph-bold ph-magnifying-glass mr-1"></i> Verify Cert
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="p-8 bg-slate-50">
+                <div class="mb-6 relative">
+                    <label for="certInput" class="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Enter ID below</label>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="ph ph-hash text-slate-400 group-focus-within:text-stax-500 transition-colors text-lg"></i>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="certInput" 
+                            class="brutal-input block w-full pl-11 pr-4 py-4 border-2 border-slate-300 rounded-2xl bg-white text-slate-900 font-mono text-sm uppercase placeholder:text-slate-400 placeholder:normal-case placeholder:font-sans transition-all duration-200" 
+                            placeholder="e.g. STX-2023-1234"
+                            onkeypress="handleKeyPress(event)"
+                            autocomplete="off"
+                            spellcheck="false">
+                    </div>
+                </div>
+
+                <button 
+                    id="verifyBtn"
+                    onclick="lookup()" 
+                    class="w-full relative group overflow-hidden border-2 border-slate-900 rounded-2xl p-4 font-bold text-lg shadow-brutal hover:shadow-brutal-hover active:shadow-brutal-active transition-all active:translate-y-1 active:translate-x-1">
+                    
+                    <span class="absolute inset-0 bg-stax-400 transition-transform origin-left ease-out group-hover:scale-x-105"></span>
+                    
+                    <span class="relative z-10 flex items-center justify-center text-slate-900 group-hover:text-slate-950">
+                        <span id="loadingSpinner" class="loader !border-slate-900 !border-t-white hidden"></span>
+                        <span id="btnText" class="flex items-center">
+                            LFG <i class="ph-bold ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </span>
+                </button>
+
+                <!-- Custom Notification (Toaster style) -->
+                <div id="notification" class="mt-4 hidden transform transition-all duration-300 ease-out origin-top">
+                    <div class="bg-accent-yellow/20 border-2 border-accent-yellow text-slate-800 p-3 rounded-xl flex items-start text-sm font-medium">
+                        <i class="ph-fill ph-warning-circle text-accent-yellow text-xl mr-2 flex-shrink-0"></i>
+                        <span id="notificationMsg" class="pt-0.5">Please enter an ID first.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Container -->
+            <div id="resultContainer" class="border-t-2 border-slate-200 bg-white hidden relative">
+                
+                <!-- Success View -->
+                <div id="result" class="hidden p-8 slide-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-stax-100 p-2 rounded-xl border-2 border-stax-300 mr-3">
+                            <i class="ph-bold ph-check-circle text-stax-600 text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-extrabold text-slate-900">It's Legit! 🎉</h2>
+                    </div>
+
+                    <!-- Data Cards -->
+                    <div class="space-y-3 mb-6">
+                        <div class="p-4 rounded-xl border-2 border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center hover:border-stax-200 transition-colors group">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0">Holder</span>
+                            <span id="name" class="font-semibold text-slate-900 group-hover:text-stax-600 transition-colors"></span>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl border-2 border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center hover:border-accent-purple/30 transition-colors group">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0">Domain</span>
+                            <span id="domain" class="font-semibold text-slate-900"></span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-4 rounded-xl border-2 border-slate-100 bg-slate-50 flex flex-col">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">ID</span>
+                                <span id="certId" class="font-mono text-xs font-bold text-slate-800 break-all"></span>
+                            </div>
+                            <div class="p-4 rounded-xl border-2 border-slate-100 bg-slate-50 flex flex-col">
+                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Issued</span>
+                                <span id="issue" class="font-semibold text-sm text-slate-900"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a 
+                        id="certLink" 
+                        href="#" 
+                        target="_blank"
+                        class="w-full flex items-center justify-center py-3 px-4 border-2 border-slate-900 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 hover:-translate-y-0.5 hover:shadow-brutal-sm transition-all focus:outline-none focus:ring-4 focus:ring-stax-200">
+                        <i class="ph-bold ph-download-simple mr-2"></i>
+                        Get Certificate
+                    </a>
+                </div>
+
+                <!-- Not Found View -->
+                <div id="notFound" class="hidden p-8 slide-up text-center">
+                    <div class="inline-flex justify-center items-center w-16 h-16 rounded-2xl bg-slate-100 border-2 border-slate-200 mb-4 transform -rotate-6">
+                        <i class="ph-duotone ph-ghost text-4xl text-slate-400"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">Big Yikes</h3>
+                    <p class="text-slate-500 text-sm font-medium mb-4">No cap, we couldn't find a record for that ID. Try checking for typos?</p>
+                    <button onclick="document.getElementById('certInput').focus()" class="text-sm font-bold text-stax-600 hover:text-stax-500 underline decoration-2 underline-offset-4">
+                        Try again
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Footer credit -->
+        <p class="text-center text-xs font-bold text-slate-400 mt-6 uppercase tracking-widest">
+            Powered by StaxTech
+        </p>
+    </div>
+
+    <script>
+        // Allow Enter key to trigger search
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                lookup();
+            }
+        }
+
+        // Custom notification logic
+        function showNotification(message) {
+            const notif = document.getElementById('notification');
+            const msg = document.getElementById('notificationMsg');
+            msg.innerText = message;
+            
+            notif.classList.remove('hidden');
+            // Slight delay for entrance animation to catch if changing display
+            setTimeout(() => {
+                notif.classList.add('opacity-100', 'translate-y-0');
+                notif.classList.remove('opacity-0', '-translate-y-2');
+            }, 10);
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notif.classList.add('opacity-0', '-translate-y-2');
+                notif.classList.remove('opacity-100', 'translate-y-0');
+                setTimeout(() => notif.classList.add('hidden'), 300); // wait for transition
+            }, 3000);
+        }
+
+        async function lookup() {
+            const inputEl = document.getElementById("certInput");
+            const id = inputEl.value.trim().toUpperCase();
+
+            // Elements
+            const resultContainer = document.getElementById("resultContainer");
+            const resultBox = document.getElementById("result");
+            const notFound = document.getElementById("notFound");
+            const btn = document.getElementById("verifyBtn");
+            const btnText = document.getElementById("btnText");
+            const spinner = document.getElementById("loadingSpinner");
+
+            // Reset UI states
+            document.getElementById('notification').classList.add('hidden');
+            resultContainer.classList.add('hidden');
+            resultBox.classList.add('hidden');
+            resultBox.classList.remove('slide-up'); // reset animation
+            notFound.classList.add('hidden');
+            notFound.classList.remove('slide-up');
+
+            if (!id) {
+                showNotification("Gotta enter an ID first!");
+                inputEl.focus();
+                return;
+            }
+
+            // Set Loading State
+            btn.disabled = true;
+            // Disable interactions but keep style mostly intact for visual stability
+            btn.classList.add('pointer-events-none', 'opacity-90');
+            btnText.style.display = 'none';
+            spinner.style.display = 'inline-block';
+            
+            const url = `https://script.google.com/macros/s/AKfycby5u2ltv_0ETx_fBGhM9SQOtskVSIV7Y5H4CrSYDDsSSi1TX94PNrT3971jCHwVimYZhw/exec?cert_id=${id}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                resultContainer.classList.remove('hidden');
+
+                if (data.status === "success") {
+                    // Populate data
+                    document.getElementById("name").innerText = data.name || 'N/A';
+                    document.getElementById("domain").innerText = data.domain || 'N/A';
+                    document.getElementById("certId").innerText = data.id || 'N/A';
+                    
+                    // Format date nicely
+                    if(data.issue_date) {
+                        const dateObj = new Date(data.issue_date);
+                        document.getElementById("issue").innerText = dateObj.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        });
+                    } else {
+                        document.getElementById("issue").innerText = 'N/A';
+                    }
+
+                    // Handle link
+                    const linkEl = document.getElementById("certLink");
+                    if(data.certificate_url) {
+                        linkEl.href = data.certificate_url;
+                        linkEl.style.display = 'flex';
+                    } else {
+                        linkEl.style.display = 'none';
+                    }
+
+                    resultBox.classList.remove('hidden');
+                    // Force reflow to restart animation
+                    void resultBox.offsetWidth;
+                    resultBox.classList.add('slide-up');
+
+                } else {
+                    notFound.classList.remove('hidden');
+                    void notFound.offsetWidth;
+                    notFound.classList.add('slide-up');
+                    document.querySelector('#notFound p').innerText = "No cap, we couldn't find a record for that ID. Try checking for typos?";
+                }
+
+            } catch (error) {
+                console.error("Verification Error:", error);
+                resultContainer.classList.remove('hidden');
+                notFound.classList.remove('hidden');
+                void notFound.offsetWidth;
+                notFound.classList.add('slide-up');
+                
+                document.querySelector('#notFound h3').innerText = "Server says no";
+                document.querySelector('#notFound p').innerText = "Network acting up. Give it another shot in a sec.";
+            } finally {
+                // Reset Loading State
+                btn.disabled = false;
+                btn.classList.remove('pointer-events-none', 'opacity-90');
+                btnText.style.display = 'flex';
+                spinner.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

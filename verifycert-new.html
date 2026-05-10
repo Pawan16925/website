@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Verification | StaxTech</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Favicon (Inline SVG for Verification Theme) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+    <style>
+        /* Apply the Inter font family globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Animated gradient background for a tech feel */
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom glassmorphism effect for cards and header */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5); /* bg-slate-800 with 50% opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5); /* border-slate-700 with 50% opacity */
+        }
+
+        /* Custom transition for a smoother card appearance */
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+         .logo img {
+            height: 50px;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body class="text-slate-300">
+
+    <!-- Header Navigation -->
+    <header class="glass-card sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                     <a href="#home" class="logo"><img src="assets/logo.png"></a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-blue-400 transition-colors">Home</a>
+                    <a href="about.html" class="text-slate-300 hover:text-blue-400 transition-colors">About</a>
+                    <a href="services.html" class="text-slate-300 hover:text-blue-400 transition-colors">Services</a>
+                    <a href="verifycert-new.html" class="font-semibold text-blue-400">Verification</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-blue-400 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card">
+            <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 hover:text-white">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 hover:text-white">About</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 hover:text-white">Services</a>
+                <a href="verifycert-new.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600">Verification</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-[calc(100vh-4rem)] py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+        <div class="max-w-md w-full mx-auto">
+            <div class="glass-card rounded-2xl shadow-2xl shadow-blue-500/10 overflow-hidden">
+                <!-- Card Header -->
+                <div class="p-8 text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-700/50 border-2 border-slate-600 mb-4">
+                        <i class="fas fa-shield-halved text-4xl text-blue-400"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-white mb-2">Certificate Verification</h1>
+                    <p class="text-slate-400">Verify the authenticity of any StaxTech certificate.</p>
+                </div>
+
+                <!-- Search Form & Results -->
+                <div class="p-6 sm:p-8 pt-0">
+                    <div class="relative group">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors"></i>
+                        <input id="certInput" type="text" placeholder="Enter Certificate ID (e.g., STAXA001)" class="w-full pl-12 pr-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-lg text-white placeholder-slate-500" />
+                    </div>
+
+                    <button onclick="lookup()" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/50 text-white font-semibold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 text-lg shadow-lg shadow-blue-600/20 hover:shadow-xl hover:shadow-blue-600/30 transform hover:-translate-y-0.5">
+                        <span>Verify Certificate</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    <!-- Dynamic Content Area: Spinner, Result, Error -->
+                    <div id="dynamic-content" class="mt-6 min-h-[100px]">
+                        <!-- Dynamic content will be injected here -->
+                    </div>
+                </div>
+            </div>
+             <p class="text-center text-slate-500 mt-6 text-sm">&copy; 2025 StaxTech. All rights reserved.</p>
+        </div>
+    </main>
+
+    <script>
+        const certInput = document.getElementById('certInput');
+        const dynamicContent = document.getElementById('dynamic-content');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle Mobile Menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Search on 'Enter' key press
+        certInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                lookup();
+            }
+        });
+        
+        // Main lookup function
+        async function lookup() {
+            const id = certInput.value.trim().toUpperCase();
+            
+            // Clear previous results and show spinner
+            dynamicContent.innerHTML = getSpinnerHTML();
+
+            if (!id) {
+                displayError('Please enter a Certificate ID to begin verification.');
+                return;
+            }
+
+            const url = `https://script.google.com/macros/s/AKfycbxUYEIb-ZdsMPUCsc9d8cKfm6OhFjwX4SxHPzRbCcwJN7pxtnXn9-tQfkeiuk3kiHvV/exec?cert_id=${id}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok. Status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (!data || Object.keys(data).length === 0 || data.error) {
+                    throw new Error(data.error || 'Certificate not found. Please check the ID and try again.');
+                }
+                
+                displayResult(data);
+
+            } catch (error) {
+                console.error('Lookup Error:', error);
+                displayError(error.message);
+            }
+        }
+
+        // --- HTML Template Functions ---
+
+        function getSpinnerHTML() {
+            return `
+                <div class="flex justify-center items-center p-4">
+                    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-400"></div>
+                </div>
+            `;
+        }
+
+        function displayError(message) {
+            dynamicContent.innerHTML = `
+                <div class="p-4 bg-red-500/10 rounded-xl flex items-start gap-4 text-red-300 border border-red-500/20 fade-in-up">
+                    <i class="fas fa-times-circle text-2xl mt-1"></i>
+                    <div>
+                        <h3 class="font-bold">Verification Failed</h3>
+                        <p class="text-sm">${message}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayResult(data) {
+            const name = data['Name'] || 'N/A';
+            const domain = data['Join us as a SOFTWARE DEVELOPER - choose your domain.'] || 'N/A';
+            const issueDate = data['issue_date'] || 'N/A';
+            const certUrl = data['Merged Doc URL - certifacte'] || '#';
+
+            dynamicContent.innerHTML = `
+                <div class="p-6 bg-green-500/10 rounded-xl border border-green-500/20 fade-in-up text-white">
+                    <div class="text-center mb-5">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-3">
+                            <i class="fas fa-check-circle text-green-400 text-4xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">${name}</h2>
+                        <p class="text-green-400 font-semibold">Certificate Verified</p>
+                    </div>
+
+                    <div class="space-y-4 text-md">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-slate-400"><i class="fas fa-code w-5 mr-2"></i>Domain:</span>
+                            <span class="font-semibold text-slate-100 text-right">${domain}</span>
+                        </div>
+                         <hr class="border-slate-700"/>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-slate-400"><i class="fas fa-calendar-alt w-5 mr-2"></i>Issue Date:</span>
+                            <span class="font-semibold text-slate-100">${issueDate}</span>
+                        </div>
+                    </div>
+
+                    <a href="${certUrl}" target="_blank" download class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-500/50 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-lg shadow-green-600/20 hover:shadow-xl hover:shadow-green-600/30 transform hover:-translate-y-0.5">
+                        <i class="fas fa-download"></i>
+                        <span>Download Certificate</span>
+                    </a>
+                </div>
+            `;
+        }
+    </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+<!-- banner offer -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9005733002223091"
+     data-ad-slot="4300871923"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>
+

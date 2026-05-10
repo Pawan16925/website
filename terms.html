@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - StaxTech</title>
+    
+    <meta name="description" content="Read the official Terms & Conditions for StaxTech internship programs and platform usage." />
+    <meta name="keywords" content="StaxTech terms, conditions, internship policy, refund policy, code of conduct" />
+    <meta name="author" content="StaxTech" />
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <meta name="theme-color" content="#0a0a1a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+     <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
+     crossorigin="anonymous"></script>
+     
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #db2777;
+            --bg-dark: #0a0a1a;
+            --bg-medium: #1a1a2e;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b5;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --radius-lg: 1rem;
+            --transition-speed: 0.4s;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); line-height: 1.7; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        /* --- Preloader --- */
+        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .spinner { width: 50px; height: 50px; border: 5px solid var(--bg-medium); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- Header (Consistent) --- */
+        .header { background-color: rgba(10, 10, 26, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 1rem; font-weight: 600; position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        /* --- Terms & Conditions Section --- */
+        .terms-page {
+            min-height: calc(100vh - 160px); /* Adjust for header/footer */
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at top left, var(--bg-medium) 0%, transparent 40%),
+                        radial-gradient(circle at bottom right, var(--bg-medium) 0%, transparent 40%),
+                        var(--bg-dark);
+        }
+
+        /* Abstract background pattern */
+        .terms-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+        .terms-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+        }
+        .terms-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .terms-card {
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glowing Border for Cards */
+        .terms-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--radius-lg);
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .terms-section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .terms-section:last-child { margin-bottom: 0; }
+
+        .terms-section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+        }
+        .terms-section h2 i { font-size: 1.5rem; opacity: 0.8; }
+        .terms-section h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .terms-section h3 i { color: var(--secondary-color); font-size: 1.2rem; }
+
+        .terms-section p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .terms-section p strong { color: var(--text-primary); }
+
+        .terms-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .terms-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .terms-list li::before {
+            content: '\2022'; /* Bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        .note {
+            background: rgba(var(--primary-color-rgb), 0.1); /* Assuming you define --primary-color-rgb like 79,70,229 */
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+        }
+        .note strong { color: var(--text-primary); }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+        .contact-info p { color: var(--text-secondary); margin-bottom: 0.75rem; }
+        .contact-info ul { list-style: none; padding: 0; margin: 0; }
+        .contact-info li {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin-bottom: 0.75rem; color: var(--text-secondary);
+        }
+        .contact-info li:last-child { margin-bottom: 0; }
+        .contact-info i { color: var(--primary-color); width: 24px; text-align: center; }
+
+        .effective-date {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .table-of-contents {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+        .table-of-contents h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+        }
+        .toc-list {
+            list-style: none; padding: 0; margin: 0;
+            columns: 2; column-gap: 2.5rem;
+        }
+        .toc-list li { margin-bottom: 0.75rem; break-inside: avoid; }
+        .toc-list a {
+            color: var(--text-secondary); text-decoration: none;
+            transition: color 0.3s ease; display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .toc-list a:hover { color: var(--primary-color); }
+        .toc-list i { font-size: 0.7rem; color: var(--primary-color); opacity: 0.7; }
+        
+        /* --- Footer (Consistent) --- */
+        .footer { background-color: var(--bg-dark); border-top: 1px solid var(--border-color); color: var(--text-secondary); padding: 2rem 1.5rem; text-align: center; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 2rem 0; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .terms-header h1 { font-size: 2.2rem; }
+            .terms-card { padding: 2rem 1.5rem; }
+            .terms-section h2 { font-size: 1.5rem; }
+            .terms-section h3 { font-size: 1.2rem; }
+            .toc-list { columns: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader" id="preloader"><div class="spinner"></div></div>
+
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="StaxTech Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x40/4f46e5/FFFFFF?text=StaxTech&font=inter';"></a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="https://staxtech.in/">Internship</a></li>
+                    <li><a href="server.html">Verification</a></li>
+                    <li><a href="terms.html" class="active">Terms</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="terms-page">
+            <div class="container">
+                <div class="terms-header">
+                    <h1>Terms & Conditions</h1>
+                    <p>These terms govern your access to and use of StaxTech's internship platform and services. Please read them carefully.</p>
+                </div>
+
+                <div class="terms-card">
+                    <div class="table-of-contents">
+                        <h3>Quick Navigation</h3>
+                        <ul class="toc-list">
+                            <li><a href="#about"><i class="fas fa-arrow-right"></i> About StaxTech</a></li>
+                            <li><a href="#eligibility"><i class="fas fa-arrow-right"></i> Eligibility</a></li>
+                            <li><a href="#process"><i class="fas fa-arrow-right"></i> Internship Process</a></li>
+                            <li><a href="#payments"><i class="fas fa-arrow-right"></i> Payments</a></li>
+                            <li><a href="#certification"><i class="fas fa-arrow-right"></i> Certification</a></li>
+                            <li><a href="#refund"><i class="fas fa-arrow-right"></i> Refund Policy</a></li>
+                            <li><a href="#conduct"><i class="fas fa-arrow-right"></i> Code of Conduct</a></li>
+                            <li><a href="#ip"><i class="fas fa-arrow-right"></i> Intellectual Property</a></li>
+                            <li><a href="#usage"><i class="fas fa-arrow-right"></i> Platform Usage</a></li>
+                            <li><a href="#legal"><i class="fas fa-arrow-right"></i> Legal Information</a></li>
+                            <li><a href="#contact"><i class="fas fa-arrow-right"></i> Contact Information</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="about">
+                        <h2><i class="fas fa-building"></i> About StaxTech</h2>
+                        <p>StaxTech is an online internship platform that offers project-based learning opportunities for students and professionals in various domains like Web Development, Python Programming, Data Science, Digital Marketing, and more. Our model is simple: you enroll, receive a project, complete it independently, and receive a certificate on successful submission and verification.
+                        </p>
+                    </div>
+
+                    <div class="terms-section" id="eligibility">
+                        <h2><i class="fas fa-user-check"></i> Eligibility Requirements</h2>
+                        <ul class="terms-list">
+                            <li>Anyone above the age of 14 is eligible to apply</li>
+                            <li>No prior experience or academic qualification is necessary</li>
+                            <li>Must have basic internet access, a device (computer or smartphone), and an an active email ID
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="process">
+                        <h2><i class="fas fa-tasks"></i> Internship Process</h2>
+                        <ul class="terms-list">
+                            <li><strong>Step 1:</strong> Select your preferred domain from the available options</li>
+                            <li><strong>Step 2:</strong> Pay a one-time non-refundable enrollment fee of ₹19</li>
+                            <li><strong>Step 3:</strong> Receive your internship project link and instructions via email or WhatsApp</li>
+                            <li><strong>Step 4:</strong> Complete the project independently within the deadline (usually 5–15 days)</li>
+                            <li><strong>Step 5:</strong> Pay ₹69 to receive your certificate after project review</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="payments">
+                        <h2><i class="fas fa-credit-card"></i> Payment Terms</h2>
+                        <p>All payments made to StaxTech are final and non-refundable. We use secure payment gateways. Once a payment is confirmed, no cancellation or reversal is permitted.</p>
+                        <ul class="terms-list">
+                            <li>Registration fee of ₹19 covers internship material access</li>
+                            <li>Certificate fee of ₹69 is due after project verification</li>
+                            <li>We are not liable for transaction issues due to technical problems</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="certification">
+                        <h2><i class="fas fa-certificate"></i> Certification Process</h2>
+                        <p>Certificates are awarded only to those who complete the assigned project and pay the final fee of ₹69. Each certificate includes:</p>
+                        <ul class="terms-list">
+                            <li>Your full name and internship domain</li>
+                            <li>Project duration and completion date</li>
+                            <li>Unique certificate ID for online verification</li>
+                            <li>Digital delivery via email or WhatsApp</li>
+                        </ul>
+                        <p class="note"><strong>Note:</strong> Physical certificates are not provided. Projects with plagiarism or poor quality will be rejected.</p>
+                    </div>
+
+                    <div class="terms-section" id="refund">
+                        <h2><i class="fas fa-hand-holding-usd"></i> Refund Policy</h2>
+                        <p>StaxTech maintains a strict no-refund policy for our digital services.</p>
+                        <ul class="terms-list">
+                            <li>No refunds for registration or certificate fees</li>
+                            <li>Accidental payments are non-refundable</li>
+                            <li>Technical failures require proof for review</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>For Payment Issues:</strong></p>
+                            <p>Email <strong>info@staxtech.in</strong> with transaction details. Valid cases will be reviewed within 7 business days.</p>
+                        </div>
+                    </div>
+
+                    <div class="terms-section" id="conduct">
+                        <h2><i class="fas fa-user-shield"></i> Code of Conduct</h2>
+                        <p>We expect all interns to maintain professional conduct and ethics while using our platform.</p>
+                        <ul class="terms-list">
+                            <li>Original work only - no plagiarism or AI-generated content</li>
+                            <li>Professional behavior in all communications</li>
+                            <li>No misrepresentation or fraudulent activities</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="ip">
+                        <h2><i class="fas fa-copyright"></i> Intellectual Property</h2>
+                        <p>All StaxTech content and materials are protected by copyright laws.</p>
+                        <ul class="terms-list">
+                            <li>Materials cannot be redistributed without permission</li>
+                            <li>Intern projects may be used in our portfolio (anonymously)</li>
+                            <li>Commercial use of our materials is prohibited</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="usage">
+                        <h2><i class="fas fa-shield-alt"></i> Platform Usage</h2>
+                        <ul class="terms-list">
+                            <li>No unauthorized system access attempts</li>
+                            <li>Identity impersonation is prohibited</li>
+                            <li>Platform misuse may result in legal action</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section" id="legal">
+                        <h2><i class="fas fa-gavel"></i> Legal Information</h2>
+
+                        <h3><i class="fas fa-briefcase"></i> No Job Guarantee</h3>
+                        <p>Our internships are educational and do not guarantee employment or placement. They are designed for skill development and learning purposes only.</p>
+
+                        <h3><i class="fas fa-exclamation-circle"></i> Liability Limitations</h3>
+                        <p>StaxTech is not liable for any damages related to platform use, data loss, or third-party issues.
+                        </p>
+
+                        <h3><i class="fas fa-file-contract"></i> Terms Updates</h3>
+                        <p>We may update these terms without notice. Changes will be posted here, and continued use implies acceptance.</p>
+
+                    </div>
+
+                    <div class="terms-section" id="contact">
+                        <h2><i class="fas fa-headset"></i> Contact Information</h2>
+                        <div class="contact-info">
+                            <ul>
+                                <li><i class="fas fa-envelope"></i> <strong>Email:</strong> info@staxtech.in</li>
+                                <li><i class="fas fa-phone"></i> <strong>WhatsApp:</strong> +91-9991109613</li>
+                                <li><i class="fas fa-globe"></i> <strong>Website:</strong> https://staxtech.in</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="effective-date">These Terms & Conditions were last updated on October 26, 2023.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> StaxTech. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Preloader ---
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => preloader.classList.add('hidden'));
+
+            // --- Intersection Observer for Fade-in sections ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        // Optional: Unobserve after it's visible if you only want it to animate once
+                        // observer.unobserve(entry.target); 
+                    } else {
+                        // Optional: remove fade-in class if it leaves viewport to re-animate on scroll back
+                        entry.target.classList.remove('fade-in');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }); // Adjusted rootMargin
+
+            document.querySelectorAll('.terms-section').forEach(el => observer.observe(el));
+
+            // --- Consistent Header, Menu, Footer Logic ---
+            const header = document.getElementById('header');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            if (menuToggle) menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+            if (header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+        });
+    </script>
+</body>
+
+</html>

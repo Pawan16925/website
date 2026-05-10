@@ -1,0 +1,1 @@
+=IF(COUNTIF(B:B, A1)=0, A1, "")
