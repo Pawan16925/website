@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Fancy QR Generator</title>
+
+  <!-- QR Styling Library -->
+  <script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      padding:20px;
+    }
+
+    .card{
+      width:420px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      border-radius:25px;
+      padding:25px;
+      color:white;
+      box-shadow:0 0 30px rgba(0,0,0,0.3);
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:20px;
+      font-size:28px;
+    }
+
+    input,select{
+      width:100%;
+      padding:13px;
+      border:none;
+      outline:none;
+      border-radius:12px;
+      margin-bottom:15px;
+      font-size:15px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+    }
+
+    .box{
+      flex:1;
+    }
+
+    label{
+      font-size:14px;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:16px;
+      margin-top:10px;
+      color:white;
+      background:linear-gradient(45deg,#8b5cf6,#06b6d4);
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.02);
+    }
+
+    #qrCode{
+      margin-top:25px;
+      background:white;
+      padding:20px;
+      border-radius:20px;
+      display:flex;
+      justify-content:center;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <h1>✨ Ultimate Fancy QR</h1>
+
+  <input type="text" id="qrText" placeholder="Enter URL or Text">
+
+  <div class="row">
+
+    <div class="box">
+      <label>QR Color</label>
+      <input type="color" id="dotColor" value="#8b5cf6">
+    </div>
+
+    <div class="box">
+      <label>Background</label>
+      <input type="color" id="bgColor" value="#ffffff">
+    </div>
+
+  </div>
+
+  <label>QR Internal Design</label>
+
+  <select id="dotStyle">
+    <option value="square">Square</option>
+    <option value="dots">Dots</option>
+    <option value="rounded">Rounded</option>
+    <option value="classy">Classy</option>
+    <option value="classy-rounded">Classy Rounded</option>
+    <option value="extra-rounded">Extra Rounded</option>
+  </select>
+
+  <label>Corner Style</label>
+
+  <select id="cornerStyle">
+    <option value="square">Square</option>
+    <option value="dot">Dot</option>
+    <option value="extra-rounded">Rounded</option>
+  </select>
+
+  <label>QR Size</label>
+
+  <select id="size">
+    <option value="200">Small</option>
+    <option value="300" selected>Medium</option>
+    <option value="400">Large</option>
+  </select>
+
+  <button onclick="generateQR()">Generate Fancy QR</button>
+
+  <button onclick="downloadQR()">Download PNG</button>
+
+  <div id="qrCode"></div>
+
+</div>
+
+<script>
+
+let qrCode = new QRCodeStyling({
+  width:300,
+  height:300,
+  type:"canvas",
+  data:"https://example.com",
+  image:"",
+  dotsOptions:{
+    color:"#8b5cf6",
+    type:"rounded"
+  },
+  backgroundOptions:{
+    color:"#ffffff"
+  },
+  cornersSquareOptions:{
+    type:"extra-rounded"
+  }
+});
+
+qrCode.append(document.getElementById("qrCode"));
+
+function generateQR(){
+
+  const text = document.getElementById("qrText").value;
+  const dotColor = document.getElementById("dotColor").value;
+  const bgColor = document.getElementById("bgColor").value;
+  const dotStyle = document.getElementById("dotStyle").value;
+  const cornerStyle = document.getElementById("cornerStyle").value;
+  const size = parseInt(document.getElementById("size").value);
+
+  if(text.trim() === ""){
+    alert("Please enter text or URL");
+    return;
+  }
+
+  qrCode.update({
+    width:size,
+    height:size,
+    data:text,
+
+    dotsOptions:{
+      color:dotColor,
+      type:dotStyle
+    },
+
+    backgroundOptions:{
+      color:bgColor
+    },
+
+    cornersSquareOptions:{
+      type:cornerStyle
+    }
+  });
+}
+
+function downloadQR(){
+  qrCode.download({
+    name:"ultimate-fancy-qr",
+    extension:"png"
+  });
+}
+
+</script>
+
+</body>
+</html>
