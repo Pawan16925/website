@@ -1,231 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Internship Info Lookup</title>
-  <meta name="description" content="Look up your internship information with StaxTech. Enter your email or phone to get details.">
-  <meta name="keywords" content="StaxTech, Internship, Lookup, Web Design, Graphic Design">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
-     crossorigin="anonymous"></script>
-  <!-- Tailwind CSS CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StaxTech Internship Portal</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Favicon (Inline SVG) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-  
-  <!-- Font Awesome CDN for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts: Inter -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* Custom styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      /* Animated gradient background */
-      background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #0f172a);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+
+    *{
+      font-family:'Poppins',sans-serif;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body{
+      background:
+      radial-gradient(circle at top left,#2563eb22,transparent 30%),
+      radial-gradient(circle at bottom right,#06b6d422,transparent 30%),
+      linear-gradient(135deg,#020617,#0f172a,#111827);
+      overflow:hidden;
     }
-    
-    /* Custom glassmorphism effect for cards */
-    .glass-card {
-        background: rgba(30, 41, 59, 0.5); /* bg-slate-800 with 50% opacity */
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(51, 65, 85, 0.5); /* border-slate-700 with 50% opacity */
+
+    .glass{
+      background:rgba(255,255,255,0.07);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.1);
     }
+
+    .glow{
+      box-shadow:
+      0 0 40px rgba(37,99,235,.25),
+      0 0 80px rgba(6,182,212,.12);
+    }
+
+    .float{
+      animation:float 5s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-10px);}
+      100%{transform:translateY(0px);}
+    }
+
+    .fadeIn{
+      animation:fadeIn .7s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .btnHover:hover{
+      transform:translateY(-2px) scale(1.02);
+    }
+
   </style>
 </head>
 
-<body class="text-slate-300">
+<body class="min-h-screen flex items-center justify-center p-6">
 
-  <!-- Main Content Section -->
-  <main class="flex flex-col items-center justify-center min-h-screen w-full p-4 sm:p-6 lg:p-8">
-    <div class="w-full max-w-md mx-auto">
-      
-      <!-- Search Card -->
-      <div class="glass-card rounded-2xl shadow-2xl shadow-blue-500/10 p-6 sm:p-8">
-        <div class="text-center mb-8">
-          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-700/50 border border-slate-600 mb-4">
-            <i class="fas fa-satellite-dish text-3xl text-blue-400"></i>
-          </div>
-          <h1 class="text-2xl font-bold text-white">Internship Info Finder</h1>
-          <p class="text-slate-400 mt-2">Enter your registered email or phone to get your details.</p>
-        </div>
-        
-        <!-- Search Form -->
-        <div class="space-y-4">
-          <div class="relative">
-            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
-            <input type="text" id="inputField" placeholder="Enter Gmail or Phone number" class="w-full p-3 pl-12 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" />
-          </div>
-          <button onclick="searchData()" class="w-full flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-white font-semibold shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-blue-500 transform hover:scale-105">
-            <span>Search Info</span>
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
+  <div class="absolute top-0 left-0 w-80 h-80 bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500 opacity-20 blur-3xl rounded-full"></div>
 
-        <!-- Quick Actions -->
-        <div class="mt-6 text-center">
-            <a href="https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8?usp=drive_link" class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors" target="_blank">
-                <i class="fas fa-folder-open"></i>
-                <span>Download Project List</span>
-            </a>
-        </div>
-      </div>
-      
-      <!-- Message Box for alerts -->
-      <div id="messageBox" class="mt-4 text-center"></div>
+  <!-- SEARCH CARD -->
 
-      <!-- Spinner -->
-      <div id="spinner" class="hidden my-6 text-center">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-400"></div>
+  <div id="searchCard"
+       class="glass glow float fadeIn w-full max-w-md rounded-[32px] p-8 text-white relative z-10">
+
+    <div class="text-center">
+
+      <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 flex items-center justify-center text-4xl font-bold shadow-2xl">
+        S
       </div>
 
-      <!-- Results Card -->
-      <div id="output" class="mt-6"></div>
+      <h1 class="text-4xl font-extrabold mt-6 tracking-wide">
+        StaxTech
+      </h1>
+
+      <p class="text-slate-300 mt-3 text-sm leading-relaxed">
+        Internship Offer Letter & Project Portal
+      </p>
 
     </div>
-  </main>
 
-  <script>
-    // The API endpoint for the Google Apps Script
-    const API_URL = 'https://script.google.com/macros/s/AKfycbySIfFfx5Hv26PwZ1IFQX2261MnzYxt6Gl1TF2RMPM8vDa_BKs7GRsP4mcuzLKgNg8ETw/exec';
+    <div class="mt-8 space-y-5">
 
-    // DOM element references
-    const inputField = document.getElementById('inputField');
-    const outputDiv = document.getElementById("output");
-    const spinner = document.getElementById("spinner");
-    const messageBox = document.getElementById('messageBox');
+      <input
+        type="text"
+        id="query"
+        placeholder="Enter Email or Phone Number"
+        class="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/20 outline-none text-white placeholder-slate-300 focus:border-cyan-400 transition-all duration-300"
+      />
 
-    /**
-     * Shows a message to the user.
-     * @param {string} text - The message to display.
-     * @param {string} type - The type of message ('error', 'success', 'info').
-     */
-    function showMessage(text, type = 'error') {
-      let colorClasses = 'bg-red-500/20 text-red-300 border border-red-500/30';
-      if (type === 'success') {
-        colorClasses = 'bg-green-500/20 text-green-300 border border-green-500/30';
-      } else if (type === 'info') {
-        colorClasses = 'bg-blue-500/20 text-blue-300 border border-blue-500/30';
-      }
-      messageBox.innerHTML = `<div class="p-3 rounded-lg ${colorClasses}">${text}</div>`;
+      <button
+        onclick="findOfferLetter()"
+        class="btnHover w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 font-semibold shadow-2xl"
+      >
+        Find Documents
+      </button>
+
+    </div>
+
+    <div id="loading"
+         class="hidden text-center mt-6 text-cyan-300 font-medium animate-pulse">
+      Verifying Student...
+    </div>
+
+    <div id="notFound"
+         class="hidden text-center mt-6 text-red-400 font-semibold">
+      No Record Found
+    </div>
+
+  </div>
+
+<script>
+
+async function findOfferLetter() {
+
+  const query = document.getElementById("query").value.trim();
+
+  const loading = document.getElementById("loading");
+  const notFound = document.getElementById("notFound");
+
+  loading.classList.remove("hidden");
+  notFound.classList.add("hidden");
+
+  const API_URL = "https://script.google.com/macros/s/AKfycbxxgPuh9En6T-Yawa5xgNUQYq1zb9XU9nc6pMUDqP3BPcDkVfALgAzovOIb5htXhG5aZA/exec";
+
+  try {
+
+    const response = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`);
+
+    const data = await response.json();
+
+    loading.classList.add("hidden");
+
+    if(data.status === "success") {
+
+      // HIDE SEARCH CONSOLE
+      document.getElementById("searchCard").innerHTML = `
+
+      <div class="fadeIn text-center">
+
+        <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center text-5xl shadow-2xl">
+          ✓
+        </div>
+
+        <h2 class="text-3xl font-bold mt-6">
+          Student Verified
+        </h2>
+
+        <p class="text-slate-300 mt-4 text-lg font-medium">
+          ${data.name}
+        </p>
+
+        <div class="mt-3 inline-block px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm">
+          ${data.domain}
+        </div>
+
+        <div class="mt-8 space-y-4">
+
+          <a
+            href="${data.offerLetter}"
+            target="_blank"
+            class="btnHover block w-full py-4 rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500 font-semibold shadow-2xl transition-all duration-300"
+          >
+            Download Offer Letter
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8"
+            target="_blank"
+            class="btnHover block w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 font-semibold shadow-2xl transition-all duration-300"
+          >
+            Download Internship Projects
+          </a>
+
+        </div>
+
+        <div class="mt-8 p-4 rounded-2xl bg-white/5 border border-white/10">
+
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Your internship documents are verified and generated successfully.
+          </p>
+
+        </div>
+
+        <p class="text-xs text-slate-500 mt-6">
+          © 2026 StaxTech Internship Program
+        </p>
+
+      </div>
+
+      `;
+
+    } else {
+
+      notFound.classList.remove("hidden");
+
     }
 
-    /**
-     * Clears any messages and results from the UI.
-     */
-    function clearOutput() {
-      outputDiv.innerHTML = "";
-      messageBox.innerHTML = "";
-    }
+  } catch(error) {
 
-    /**
-     * Handles the main search functionality.
-     */
-    async function searchData() {
-      const query = inputField.value.trim();
-      clearOutput();
+    console.log(error);
 
-      if (!query) {
-        showMessage("Please enter your Gmail or phone number.");
-        return;
-      }
+    loading.classList.add("hidden");
+    notFound.classList.remove("hidden");
 
-      spinner.classList.remove('hidden');
+  }
 
-      try {
-        const response = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`);
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
-        }
-        const data = await response.json();
-        
-        if (data.error) {
-          showMessage(data.error);
-        } else {
-          displayResults(data);
-        }
-      } catch (err) {
-        showMessage("Something went wrong. Please check your connection and try again.");
-        console.error("Fetch Error:", err);
-      } finally {
-        spinner.classList.add('hidden');
-      }
-    }
+}
 
-    /**
-     * Renders the fetched data into the output container.
-     * @param {object} data - The data object fetched from the API.
-     */
-    function displayResults(data) {
-      // Mapping of API keys to user-friendly labels
-      const fieldsToShow = {
-        "Name": "Name",
-        "Email Address": "Email",
-        "Contact Number": "Phone",
-        "College": "College",
-        "domain": "Domain",
-        "Current available batch is:*": "Batch",
-        "deadline": "Deadline",
-        "Merged Doc URL - Intership": "Offer Letter"
-      };
-
-      let html = '<div class="glass-card rounded-2xl shadow-2xl shadow-blue-500/10 p-6 sm:p-8 space-y-4 divide-y divide-slate-700">';
-      html += '<h2 class="text-xl font-bold text-center text-white pb-4 border-b border-slate-700">Student Information</h2>';
-
-      // Keep track of rendered fields to avoid duplicates
-      const renderedKeys = new Set();
-      
-      for (const key in fieldsToShow) {
-        if(renderedKeys.has(key)) continue;
-
-        const label = fieldsToShow[key];
-        const value = data[key] || "N/A";
-        
-        if (key === "Merged Doc URL - Intership" && typeof value === 'string' && value.startsWith("http")) {
-          html += `
-            <div class="pt-4">
-              <a href="${value}" class="w-full flex items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-3 text-white font-semibold shadow-lg shadow-green-600/20 hover:bg-green-700 transition-all duration-200 transform hover:scale-105" target="_blank" download>
-                  <i class="fas fa-file-pdf"></i>
-                  <span>View Offer Letter</span>
-              </a>
-            </div>`;
-        } else {
-          html += `
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4">
-              <strong class="text-sm font-medium text-slate-400">${label}</strong>
-              <span class="text-slate-200 text-left sm:text-right mt-1 sm:mt-0 break-all">${value}</span>
-            </div>`;
-        }
-        renderedKeys.add(key);
-      }
-
-      html += "</div>";
-      outputDiv.innerHTML = html;
-    }
-
-    // Allow search on pressing Enter key
-    inputField.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            searchData();
-        }
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
