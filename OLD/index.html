@@ -1,1181 +1,671 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StaxTech - Professional Technology Solutions & Internships</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="StaxTech empowers businesses and students with innovative technology solutions, custom software, and practical hands-on internship programs." />
-    <meta name="keywords"
-        content="IT solutions, digital services, internship, technology training, software development, web apps, mobile apps, StaxTech" />
-    <meta name="author" content="StaxTech" />
-
-    <!-- Open Graph Meta Tags for Social Sharing -->
-    <meta property="og:title" content="StaxTech - Professional Technology Solutions & Internships" />
-    <meta property="og:description"
-        content="Innovative technology solutions and hands-on internship programs empowering businesses and students." />
-    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=StaxTech" />
-    <meta property="og:url" content="https://www.staxtech.in" />
-    <meta property="og:type" content="website" />
-
-    <!-- Favicon and Theme Color -->
+    <!-- Favicon -->
     <link rel="icon" href="assets/favicon.png" type="image/png" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="StaxTech empowers businesses and students with innovative technology solutions, custom software, and practical hands-on internship programs." />
+    <meta name="keywords" content="IT solutions, digital services, internship, technology training, software development, web apps, mobile apps, StaxTech" />
+    <meta name="author" content="StaxTech" />
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Google Fonts: Plus Jakarta Sans (Matching Portal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons (Matching Portal) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Main Stylesheet -->
+    <!-- Three.js for Hero Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e1e9ff',
+                            500: '#3b62ff',
+                            600: '#264bf2',
+                            900: '#14257a',
+                        },
+                        accent: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
+                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: 0, transform: 'translateY(30px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        shimmer: {
+                            'from': { backgroundPosition: '200% 0' },
+                            'to': { backgroundPosition: '-200% 0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --primary-color: #4f46e5;
-            --secondary-color: #7c3aed;
-            --accent-color: #db2777;
-            --bg-dark: #0f172a;
-            /* Slate dark blue */
-            --bg-medium: #1e293b;
-            /* Lighter slate */
-            --bg-light: #334155;
-            /* Even lighter slate */
-            --text-primary: #f8fafc;
-            /* Off-white */
-            --text-secondary: #cbd5e1;
-            /* Lighter gray */
-            --border-color: rgba(255, 255, 255, 0.1);
-            --radius-lg: 1rem;
-            --transition-speed: 0.4s;
-        }
-
-        /* Base and Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
+        /* Modern Glassmorphism Background (Matching Portal) */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
+            min-height: 100vh;
+            position: relative;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        /* Abstract Background Shapes */
+        .bg-shape {
+            position: fixed;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+            animation: float 10s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        
+        .shape-1 {
+            top: -10%;
+            left: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: rgba(59, 98, 255, 0.3);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: -10%;
+            width: 35vw;
+            height: 35vw;
+            background: rgba(56, 189, 248, 0.3);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-delay: -5s;
         }
 
         /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+        #preloader {
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
-        .preloader.hidden {
+        /* Glass Text Effect */
+        .text-gradient {
+            background: linear-gradient(to right, #14257a, #3b62ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
             opacity: 0;
-            visibility: hidden;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--bg-medium);
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Animations & Typography */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        h1,
-        h2,
-        h3 {
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--text-primary);
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        h3 {
-            font-size: 1.75rem;
-        }
-
-        p {
-            color: var(--text-secondary);
-            max-width: 65ch;
-        }
-
-        .section {
-            padding: 7rem 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--primary-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Header */
-        .header {
-            background-color: transparent;
-            padding: 1.25rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .header.scrolled {
-            background-color: rgba(15, 23, 42, 0.85);
-            /* rgba of --bg-dark */
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            margin: 0 1.25rem;
-            font-weight: 600;
-            position: relative;
-            transition: color 0.3s ease;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text-primary);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(ellipse at bottom, var(--bg-medium) 0%, var(--bg-dark) 70%);
-            overflow: hidden;
-        }
-
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            margin: 0 auto 2.5rem;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .hero .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--text-primary);
-            border: none;
-            position: relative;
-            z-index: 1;
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-
-        .btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover i {
-            transform: translateX(4px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(270deg, var(--primary-color), var(--secondary-color));
-            background-size: 200% 200%;
-            animation: gradientShift 8s ease infinite;
-            box-shadow: 0 5px 20px rgba(79, 70, 229, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.5);
-        }
-
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-        }
-
-        /* About Section */
-        .about-section {
-            background-color: var(--bg-dark);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 5rem;
-        }
-
-        .about-image img {
-            border-radius: var(--radius-lg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            width: 100%;
-        }
-
-        .about-content h3 {
-            margin-bottom: 1rem;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-list li:hover {
-            transform: translateX(5px);
-        }
-
-        .feature-list i {
-            color: var(--accent-color);
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        /* Services Section */
-        .services {
-            background-color: var(--bg-medium);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: var(--radius-lg);
-            border: 2px solid transparent;
-            background: conic-gradient(from var(--angle), var(--secondary-color), var(--primary-color), var(--accent-color), var(--secondary-color)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            animation: rotate 4s linear infinite paused;
-            --angle: 0deg;
-        }
-
-        @property --angle {
-            syntax: '<angle>';
-            initial-value: 0deg;
-            inherits: false;
-        }
-
-        @keyframes rotate {
-            to {
-                --angle: 360deg;
-            }
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-            animation-play-state: running;
-        }
-
-        .service-card .icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .service-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--bg-dark);
-        }
-
-        .testimonial-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            cursor: grab;
-        }
-
-        .testimonial-carousel:active {
-            cursor: grabbing;
-        }
-
-        .testimonial-wrapper {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .testimonial-card {
-            min-width: 100%;
-            flex-shrink: 0;
-            background-image: radial-gradient(circle at top left, var(--bg-light), var(--bg-medium));
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            text-align: center;
-            opacity: 0.5;
-            transform: scale(0.9);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '\f10d';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 1.5rem;
-            left: 2rem;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.05);
-            z-index: 1;
-        }
-
-        .testimonial-card>* {
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonial-card.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .testimonial-card p {
-            font-size: 1.15rem;
-            font-style: italic;
-            margin: 0 auto;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-top: 1.5rem;
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.9rem;
-            color: var(--primary-color);
-        }
-
-        .rating {
-            color: #facc15;
-            margin-top: 1rem;
-        }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 110%;
-            left: -5%;
-        }
-
-        .carousel-nav button {
-            background: var(--bg-light);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-nav button:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            transform: scale(1.1);
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 2.5rem;
-            gap: 0.75rem;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            background-color: var(--border-color);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.4s;
-        }
-
-        .carousel-dot.active {
-            background-color: var(--primary-color);
-            transform: scale(1.3);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--bg-medium);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 5rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column p {
-            max-width: none;
-        }
-
-        .footer-column h4 {
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a,
-        .footer-links p {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.4s, padding-left 0.4s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-icons a {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            transition: color 0.4s, transform 0.4s;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            animation-play-state: paused;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-image {
-                order: -1;
-                margin-bottom: 2rem;
-            }
-
-            .about-content h3 {
-                text-align: center;
-            }
-
-            .feature-list {
-                display: inline-block;
-                text-align: left;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero {
-                min-height: 80vh;
-                padding: 5rem 0;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-dark);
-                flex-direction: column;
-                padding: 1rem 0;
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 1rem 0;
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-icons {
-                justify-content: center;
-            }
-
-            .carousel-nav {
-                display: none;
-            }
-
-            .testimonial-card {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
-        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f4ff; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
+<body class="font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white relative">
 
-<body>
+    <!-- Ambient Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
 
     <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="spinner"></div>
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-md flex items-center justify-center">
+        <div class="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"></div>
     </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <a href="#home" class="logo"><img src="assets/logo.png"></a>
-            <nav>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="https://staxtech.in" target="_blank">Internships</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
-            </nav>
+    <!-- Glassmorphism Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/40 backdrop-blur-lg border-b border-white/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <img src="assets/logo2.png" alt="StaxTech Logo" class="h-10 w-auto group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/40x40/3b62ff/ffffff?text=ST';">
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">StaxTech</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-sm font-bold text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:rounded-full">Home</a>
+                    <a href="#about" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">About</a>
+                    <a href="#services" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Services</a>
+                    <a href="#testimonials" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Testimonials</a>
+                    <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg hover:bg-brand-600 hover:shadow-glow transition-all transform hover:-translate-y-0.5">
+                        Apply Now
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden">
+            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
+                <a href="#home" class="block px-3 py-3 text-base font-bold text-brand-600">Home</a>
+                <a href="#about" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">About</a>
+                <a href="#services" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Services</a>
+                <a href="#testimonials" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Testimonials</a>
+                <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="mt-4 w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold shadow-md">Apply Now</a>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" id="home">
-            <canvas id="hero-canvas"></canvas>
-            <div class="container fade-in">
-                <h1>IT Solutions & Internships</h1>
-                <p>StaxTech supports growth with tech and real-world skills.</p>
+        <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+            <!-- 3D Canvas Background -->
+            <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-0 opacity-60"></canvas>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white border-opacity-60 shadow-sm mb-8 text-sm font-bold text-brand-600">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    Empowering the next generation of tech
+                </div>
 
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-6 text-slate-900 leading-[1.1]">
+                    IT Solutions & <br class="hidden md:block"/>
+                    <span class="text-gradient">Real-World Internships</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+                    StaxTech supports your growth with innovative enterprise solutions and hands-on training to build the real-world skills you need.
+                </p>
 
-                <div class="btn-group">
-                    <a href="https://staxtech.in/apply?ref=STAXTECH"
-                        class="btn btn-primary">Our Services <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://staxtech.in/apply?ref=STAXTECH"
-                        target="_blank" class="btn btn-secondary">Join
-                        Internship</a>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#services" class="relative overflow-hidden group w-full sm:w-auto flex justify-center items-center py-4 px-8 rounded-2xl shadow-xl shadow-brand-500/20 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
+                        <span class="flex items-center gap-2 relative z-10">
+                            Our Services <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+                    
+                    <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="w-full sm:w-auto flex justify-center items-center py-4 px-8 rounded-2xl border-2 border-white bg-white/40 backdrop-blur-md text-base font-bold text-slate-800 hover:bg-white hover:border-brand-200 hover:text-brand-600 shadow-glass transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="ph-bold ph-student mr-2"></i> Join Internship
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="section about-section fade-in" id="about">
-            <div class="container">
-                <span class="section-subtitle">Why Choose StaxTech</span>
-                <h2>Modern Solutions for Real-World Problems</h2>
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="assets/index-page-b1.png"
-                            alt="Team collaborating on a project with digital interfaces"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/1e293b/cbd5e1?text=Image+Not+Found';">
-                    </div>
-                    <div class="about-content">
-                        <h3>Your Partner in Digital Transformation</h3>
-                        <p>We provide end-to-end digital services, custom software development, and cloud-based IT
-                            solutions designed to elevate your business and career.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Custom Software & Web Apps</li>
-                            <li><i class="fas fa-check-circle"></i> Mobile App Development</li>
-                            <li><i class="fas fa-check-circle"></i> Cloud Solutions & IT Support</li>
-                            <li><i class="fas fa-check-circle"></i> Internship & Hands-on Training</li>
-                        </ul>
+        <section id="about" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                
+                <div class="bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 md:p-12 lg:p-16 shadow-glass overflow-hidden relative">
+                    <!-- Abstract Decor inside card -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-100 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none"></div>
+
+                    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+                        <div class="order-2 lg:order-1 relative group">
+                            <div class="absolute inset-0 bg-brand-500 rounded-3xl transform rotate-3 scale-105 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Team collaborating" 
+                                 class="relative rounded-3xl shadow-xl w-full object-cover aspect-video lg:aspect-[4/3] border border-white/50"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/800x600/f0f4ff/3b62ff?text=Collaboration';">
+                        </div>
+                        
+                        <div class="order-1 lg:order-2">
+                            <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block">Why Choose StaxTech</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Your Partner in Digital Transformation</h2>
+                            <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+                                We provide end-to-end digital services, custom software development, and cloud-based IT solutions designed to elevate your business and accelerate your career.
+                            </p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-4 bg-white/50 rounded-xl p-3 border border-white/40 hover:bg-white/80 transition-colors">
+                                    <div class="bg-brand-100 p-2 rounded-lg text-brand-600"><i class="ph-bold ph-code text-xl"></i></div>
+                                    <span class="font-semibold text-slate-800">Custom Software & Web Apps</span>
+                                </li>
+                                <li class="flex items-center gap-4 bg-white/50 rounded-xl p-3 border border-white/40 hover:bg-white/80 transition-colors">
+                                    <div class="bg-accent-100 p-2 rounded-lg text-accent-500"><i class="ph-bold ph-device-mobile text-xl"></i></div>
+                                    <span class="font-semibold text-slate-800">Mobile App Development</span>
+                                </li>
+                                <li class="flex items-center gap-4 bg-white/50 rounded-xl p-3 border border-white/40 hover:bg-white/80 transition-colors">
+                                    <div class="bg-indigo-100 p-2 rounded-lg text-indigo-500"><i class="ph-bold ph-cloud text-xl"></i></div>
+                                    <span class="font-semibold text-slate-800">Cloud Solutions & IT Support</span>
+                                </li>
+                                <li class="flex items-center gap-4 bg-white/50 rounded-xl p-3 border border-white/40 hover:bg-white/80 transition-colors">
+                                    <div class="bg-emerald-100 p-2 rounded-lg text-emerald-500"><i class="ph-bold ph-graduation-cap text-xl"></i></div>
+                                    <span class="font-semibold text-slate-800">Internship & Hands-on Training</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section class="section services fade-in" id="services">
-            <div class="container">
-                <span class="section-subtitle">Our Expertise</span>
-                <h2>Services We Offer</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <i class="fas fa-laptop-code icon"></i>
-                        <h3>Web Development</h3>
-                        <p>Building responsive and scalable websites with modern frameworks and tools.</p>
+        <section id="services" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-2 block">Our Expertise</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Services We Offer</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service Card 1 -->
+                    <div class="reveal bg-white/70 backdrop-blur-lg border border-white rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-600 text-3xl mb-6 shadow-sm border border-slate-100 group-hover:scale-110 transition-transform">
+                            <i class="ph-duotone ph-desktop"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Web Development</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Building responsive and scalable websites with modern frameworks and tools tailored to your needs.</p>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-mobile-screen-button icon"></i>
-                        <h3>Mobile Apps</h3>
-                        <p>Designing intuitive mobile experiences for Android and iOS platforms.</p>
+
+                    <!-- Service Card 2 -->
+                    <div class="reveal delay-100 bg-white/70 backdrop-blur-lg border border-white rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-accent-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 text-3xl mb-6 shadow-sm border border-slate-100 group-hover:scale-110 transition-transform">
+                            <i class="ph-duotone ph-device-mobile"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Mobile Apps</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Designing intuitive and high-performance mobile experiences natively for both Android and iOS platforms.</p>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-cloud icon"></i>
-                        <h3>Cloud Solutions</h3>
-                        <p>Secure cloud infrastructure and deployment for small to large-scale businesses.</p>
+
+                    <!-- Service Card 3 -->
+                    <div class="reveal delay-200 bg-white/70 backdrop-blur-lg border border-white rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-indigo-500 text-3xl mb-6 shadow-sm border border-slate-100 group-hover:scale-110 transition-transform">
+                            <i class="ph-duotone ph-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Cloud Solutions</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Deploying secure cloud infrastructure and maintenance protocols for small to large-scale businesses.</p>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-graduation-cap icon"></i>
-                        <h3>Internships</h3>
-                        <p>Hands-on programs to help students gain practical IT skills and industry experience.</p>
+
+                    <!-- Service Card 4 -->
+                    <div class="reveal delay-300 bg-white/70 backdrop-blur-lg border border-white rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-emerald-500 text-3xl mb-6 shadow-sm border border-slate-100 group-hover:scale-110 transition-transform">
+                            <i class="ph-duotone ph-student"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Internships</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Hands-on mentorship programs specifically designed to help students gain practical industry experience.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Section -->
-        <section class="section testimonials fade-in" id="testimonials">
-            <div class="container">
-                <span class="section-subtitle">Testimonials</span>
-                <h2>What Our Students & Clients Say</h2>
-                <div class="testimonial-carousel">
-                    <div class="testimonial-wrapper">
-                        <div class="testimonial-card active">
-                            <p>"The internship at StaxTech was a game-changer. It helped me gain practical skills that
-                                textbooks never taught and prepared me for the real world."</p>
-                            <span class="testimonial-author">Riya Sharma</span>
-                            <span class="testimonial-role">Software Intern</span>
-                            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star-half-alt"></i></div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>"StaxTech's cloud solutions helped our startup scale rapidly without any downtime. Their
-                                team is professional, responsive, and highly skilled."</p>
-                            <span class="testimonial-author">Aman Verma</span>
-                            <span class="testimonial-role">Founder, TechStartup</span>
-                            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p>"The web application they developed for us exceeded all expectations. It's fast,
-                                user-friendly, and has significantly improved our workflow."</p>
-                            <span class="testimonial-author">Priya Singh</span>
-                            <span class="testimonial-role">Operations Manager</span>
-                            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <section id="testimonials" class="py-24 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                <div class="text-center mb-16">
+                    <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-2 block">Testimonials</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">What They Say</h2>
+                </div>
+
+                <div class="relative">
+                    <!-- Carousel Container -->
+                    <div class="overflow-hidden bg-white/60 backdrop-blur-xl border border-white rounded-[2.5rem] shadow-glass" id="testimonial-carousel">
+                        <div class="flex transition-transform duration-500 ease-out" id="testimonial-track">
+                            
+                            <!-- Slide 1 -->
+                            <div class="w-full flex-shrink-0 p-8 md:p-16 text-center relative">
+                                <i class="ph-fill ph-quotes text-6xl text-brand-100 absolute top-8 left-8"></i>
+                                <div class="relative z-10">
+                                    <div class="flex justify-center gap-1 text-yellow-400 mb-6 text-xl">
+                                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                                    </div>
+                                    <p class="text-xl md:text-2xl font-medium text-slate-700 leading-relaxed mb-8 italic">
+                                        "The internship at StaxTech was a game-changer. It helped me gain practical skills that textbooks never taught and prepared me for the real world."
+                                    </p>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Riya Sharma</h4>
+                                        <p class="text-brand-600 font-semibold text-sm">Software Intern</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="w-full flex-shrink-0 p-8 md:p-16 text-center relative">
+                                <i class="ph-fill ph-quotes text-6xl text-brand-100 absolute top-8 left-8"></i>
+                                <div class="relative z-10">
+                                    <div class="flex justify-center gap-1 text-yellow-400 mb-6 text-xl">
+                                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                                    </div>
+                                    <p class="text-xl md:text-2xl font-medium text-slate-700 leading-relaxed mb-8 italic">
+                                        "StaxTech's cloud solutions helped our startup scale rapidly without any downtime. Their team is professional, responsive, and highly skilled."
+                                    </p>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Aman Verma</h4>
+                                        <p class="text-brand-600 font-semibold text-sm">Python Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="w-full flex-shrink-0 p-8 md:p-16 text-center relative">
+                                <i class="ph-fill ph-quotes text-6xl text-brand-100 absolute top-8 left-8"></i>
+                                <div class="relative z-10">
+                                    <div class="flex justify-center gap-1 text-yellow-400 mb-6 text-xl">
+                                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                                    </div>
+                                    <p class="text-xl md:text-2xl font-medium text-slate-700 leading-relaxed mb-8 italic">
+                                        "The web application they developed for us exceeded all expectations. It's fast, user-friendly, and has significantly improved our workflow."
+                                    </p>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900">Priya Singh</h4>
+                                        <p class="text-brand-600 font-semibold text-sm">Frontend Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center mt-8 gap-3" id="carousel-dots">
+                        <button class="w-3 h-3 rounded-full bg-brand-600 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"></button>
+                        <button class="w-3 h-3 rounded-full bg-brand-200 hover:bg-brand-400 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"></button>
+                        <button class="w-3 h-3 rounded-full bg-brand-200 hover:bg-brand-400 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"></button>
+                    </div>
                 </div>
-                <div class="carousel-nav">
-                    <button id="prev" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <button id="next" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="carousel-dots"></div>
             </div>
         </section>
     </main>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/+919991109613?text=Hello%20StaxTech!%20I'm%20interested%20in%20your%20services."
-        class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/+919991109613?text=Hello%20StaxTech!%20I'm%20interested%20in%20your%20services." 
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-2xl flex items-center justify-center text-3xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-[pulse_2s_infinite]" 
+       target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
 
     <!-- Footer -->
-    <footer class="footer fade-in" id="contact">
-        <div class="container footer-grid">
-            <div class="footer-column">
-                <h4>StaxTech</h4>
-                <p>Innovative technology solutions and hands-on internship programs empowering businesses and students.
-                </p>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <footer id="contact" class="bg-white/60 backdrop-blur-md border-t border-white relative z-10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Col -->
+                <div class="space-y-4">
+                    <a href="#home" class="flex items-center gap-2 mb-4">
+                        <img src="assets/logo2.png" alt="StaxTech Logo" class="h-8 w-auto" onerror="this.src='https://placehold.co/32x32/3b62ff/ffffff?text=ST';">
+                        <span class="text-lg font-extrabold tracking-tight text-slate-900">StaxTech</span>
+                    </a>
+                    <p class="text-sm text-slate-500 font-medium leading-relaxed">
+                        Innovative technology solutions and hands-on internship programs empowering businesses and students.
+                    </p>
+                    <div class="flex gap-3 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-accent-50 hover:text-accent-500 hover:border-accent-200 transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links Col -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">About</a></li>
+                        <li><a href="#services" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Services</a></li>
+                        <li><a href="#testimonials" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Testimonials</a></li>
+                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Internship Col -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-6">Internships</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://staxtech.in/apply" target="_blank" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Apply Now</a></li>
+                        <li><a href="verify.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Verify Certificate</a></li>
+                        <li><a href="index.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Offer Letter Portal</a></li>
+                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Refer & Earn</a></li>
+                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Col -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
+                            <i class="ph-fill ph-envelope-simple text-brand-500 mt-1"></i>
+                            <a href="mailto:info@staxtech.in" class="hover:text-brand-600 transition-colors">info@staxtech.in</a>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
+                            <i class="ph-fill ph-phone-call text-brand-500 mt-1"></i>
+                            <a href="tel:+919991109613" class="hover:text-brand-600 transition-colors">+91 9991109613</a>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
+                            <i class="ph-fill ph-map-pin text-brand-500 mt-1"></i>
+                            <span>Haryana, India</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="terms.html">Terms&Conditions</a></li>
-                </ul>
+
+            <div class="pt-8 border-t border-slate-200 text-center">
+                <p class="text-xs font-semibold text-slate-400">&copy; <span id="currentYear"></span> StaxTech Inc. All Rights Reserved.</p>
             </div>
-            <div class="footer-column">
-                <h4>Internships</h4>
-                <ul class="footer-links">
-                    <li><a href="https://staxtech.in" target="_blank">Apply Now</a></li>
-                    <li><a href="https://staxtech.in" target="_blank">Refer & Earn</a></li>
-                    <li><a href="https://staxtech.in" target="_blank">FAQs</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:info@staxtech.in">info@staxtech.in</a></li>
-                    <li><a href="tel:+919991109613">+91 9991109613</a></li>
-                    <li>
-                        <p>Haryana, India</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2025 StaxTech. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- Main Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Set dynamic year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        document.addEventListener('DOMContentLoaded', () => {
+            
             // --- Preloader ---
             const preloader = document.getElementById('preloader');
             window.addEventListener('load', () => {
-                preloader.classList.add('hidden');
+                preloader.style.opacity = '0';
+                setTimeout(() => { preloader.style.visibility = 'hidden'; }, 500);
             });
 
             // --- Header Scroll Effect ---
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 50);
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-md', 'bg-white/80');
+                    header.classList.remove('bg-white/40');
+                } else {
+                    header.classList.remove('shadow-md', 'bg-white/80');
+                    header.classList.add('bg-white/40');
+                }
             });
 
             // --- Mobile Menu Toggle ---
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Change icon
+                const icon = menuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('ph-x');
+                    icon.classList.add('ph-list');
+                } else {
+                    icon.classList.remove('ph-list');
+                    icon.classList.add('ph-x');
+                }
             });
-            document.querySelectorAll('#nav-links a').forEach(link => {
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                    }
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.querySelector('i').classList.remove('ph-x');
+                    menuBtn.querySelector('i').classList.add('ph-list');
                 });
             });
 
-            // --- Fade-in on scroll ---
-            const faders = document.querySelectorAll('.fade-in');
-            const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-            const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            // --- Scroll Reveal Animation ---
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 });
-            }, appearOptions);
-            faders.forEach(fader => appearOnScroll.observe(fader));
+            }, revealOptions);
 
-            // --- Active Nav Link on Scroll ---
-            const sections = document.querySelectorAll('main section[id]');
-            const navLi = document.querySelectorAll('.nav-links a');
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // --- Active Nav Link tracking ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinksDesktop = document.querySelectorAll('nav a[href^="#"]');
+            
             window.addEventListener('scroll', () => {
-                let current = 'home';
+                let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 85) {
+                    if (scrollY >= sectionTop - 150) {
                         current = section.getAttribute('id');
                     }
                 });
 
-                navLi.forEach(a => {
-                    a.classList.remove('active');
-                    if (a.getAttribute('href') === `#${current}`) {
-                        a.classList.add('active');
+                navLinksDesktop.forEach(link => {
+                    if (link.getAttribute('href') === `#${current}`) {
+                        // Apply active styling
+                        link.classList.remove('text-slate-600', 'after:w-0');
+                        link.classList.add('text-brand-600', 'after:w-full');
+                    } else {
+                        link.classList.add('text-slate-600');
+                        link.classList.remove('text-brand-600', 'after:w-full');
                     }
                 });
             });
 
-            // --- Testimonial Carousel with Touch/Swipe Support ---
-            const carousel = document.querySelector('.testimonial-carousel');
-            const wrapper = document.querySelector('.testimonial-wrapper');
-            const cards = document.querySelectorAll('.testimonial-card');
-            const dotsContainer = document.querySelector('.carousel-dots');
-            if (carousel && wrapper && cards.length > 0) {
-                let currentIndex = 0;
-                let isDragging = false, startPos = 0, currentTranslate = 0, prevTranslate = 0;
+            // --- Testimonial Carousel ---
+            const track = document.getElementById('testimonial-track');
+            const slides = track.children;
+            const dots = document.getElementById('carousel-dots').children;
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            let autoPlayInterval;
 
-                cards.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('carousel-dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => { currentIndex = index; updateCarousel(); });
-                    dotsContainer.appendChild(dot);
-                });
-                const dots = document.querySelectorAll('.carousel-dot');
-
-                const updateCarousel = () => {
-                    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    cards.forEach((card, i) => card.classList.toggle('active', i === currentIndex));
-                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-                    prevTranslate = -currentIndex * carousel.offsetWidth;
-                };
-
-                const nextSlide = () => {
-                    currentIndex = (currentIndex + 1) % cards.length;
-                    updateCarousel();
-                };
-
-                const prevSlide = () => {
-                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                    updateCarousel();
-                };
-
-                document.getElementById('prev')?.addEventListener('click', prevSlide);
-                document.getElementById('next')?.addEventListener('click', nextSlide);
-
-                let autoPlayInterval = setInterval(nextSlide, 5000);
-                carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-                carousel.addEventListener('mouseleave', () => autoPlayInterval = setInterval(nextSlide, 5000));
-
-                // Touch events
-                const touchStart = (index) => (e) => {
-                    isDragging = true;
-                    startPos = getPositionX(e);
-                    carousel.classList.add('grabbing');
-                    clearInterval(autoPlayInterval);
-                };
-
-                const touchMove = (e) => {
-                    if (isDragging) {
-                        const currentPosition = getPositionX(e);
-                        currentTranslate = prevTranslate + currentPosition - startPos;
-                        wrapper.style.transform = `translateX(${currentTranslate}px)`;
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                Array.from(dots).forEach((dot, index) => {
+                    if(index === currentSlide) {
+                        dot.className = "w-4 h-3 rounded-full bg-brand-600 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500";
+                    } else {
+                        dot.className = "w-3 h-3 rounded-full bg-brand-200 hover:bg-brand-400 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 cursor-pointer";
                     }
-                };
+                });
+            }
 
-                const touchEnd = () => {
-                    isDragging = false;
-                    carousel.classList.remove('grabbing');
-                    const movedBy = currentTranslate - prevTranslate;
-                    if (movedBy < -100 && currentIndex < cards.length - 1) currentIndex++;
-                    if (movedBy > 100 && currentIndex > 0) currentIndex--;
-                    updateCarousel();
-                    autoPlayInterval = setInterval(nextSlide, 5000);
-                };
-
-                const getPositionX = (e) => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-
-                carousel.addEventListener('mousedown', touchStart(0));
-                carousel.addEventListener('mouseup', touchEnd);
-                carousel.addEventListener('mouseleave', touchEnd);
-                carousel.addEventListener('mousemove', touchMove);
-                carousel.addEventListener('touchstart', touchStart(0));
-                carousel.addEventListener('touchend', touchEnd);
-                carousel.addEventListener('touchmove', touchMove);
-
-                window.addEventListener('resize', updateCarousel);
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
                 updateCarousel();
             }
 
-            // --- Hero Section 3D Animation ---
-            let scene, camera, renderer, particles, animationId;
-            const canvas = document.getElementById('hero-canvas');
+            // Click dots
+            Array.from(dots).forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateCarousel();
+                    resetInterval();
+                });
+            });
 
-            function initThree() {
-                scene = new THREE.Scene();
-                camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            function startInterval() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function resetInterval() {
+                clearInterval(autoPlayInterval);
+                startInterval();
+            }
+
+            // Optional swipe logic for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.getElementById('testimonial-carousel').addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            document.getElementById('testimonial-carousel').addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) { // Swipe left
+                    nextSlide();
+                    resetInterval();
+                }
+                if (touchEndX - touchStartX > 50) { // Swipe right
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                    updateCarousel();
+                    resetInterval();
+                }
+            }, {passive: true});
+
+            startInterval();
+
+            // --- Three.js Background Animation (Light Theme Adaptation) ---
+            const canvas = document.getElementById('hero-canvas');
+            if (canvas && window.THREE) {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
                 camera.position.z = 2.5;
 
-                renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
                 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-                const particleCount = 5000;
+                const particleCount = window.innerWidth > 768 ? 4000 : 1500; // less particles on mobile
                 const positions = new Float32Array(particleCount * 3);
                 for (let i = 0; i < particleCount * 3; i++) {
                     positions[i] = (Math.random() - 0.5) * 10;
@@ -1184,53 +674,59 @@
                 const particlesGeometry = new THREE.BufferGeometry();
                 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
+                // Using Brand Blue color to match the light theme
                 const particlesMaterial = new THREE.PointsMaterial({
-                    color: 0x4f46e5,
+                    color: 0x3b62ff, // brand-500
                     size: 0.02,
-                    blending: THREE.AdditiveBlending,
+                    blending: THREE.NormalBlending, // Normal blending looks better on light bg than additive
                     transparent: true,
-                    opacity: 0.8
+                    opacity: 0.6
                 });
 
-                particles = new THREE.Points(particlesGeometry, particlesMaterial);
+                const particles = new THREE.Points(particlesGeometry, particlesMaterial);
                 scene.add(particles);
 
-                window.addEventListener('resize', onWindowResize);
-                document.addEventListener('visibilitychange', onVisibilityChange);
-            }
+                let animationId;
+                const clock = new THREE.Clock();
 
-            function onWindowResize() {
-                const width = canvas.clientWidth;
-                const height = canvas.clientHeight;
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
-                renderer.setSize(width, height);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            }
+                function animate() {
+                    const elapsedTime = clock.getElapsedTime();
+                    particles.rotation.y = elapsedTime * 0.05;
+                    particles.rotation.x = elapsedTime * 0.02;
+                    
+                    // Gentle wave effect
+                    const positionsAttr = particlesGeometry.attributes.position;
+                    for(let i = 0; i < particleCount; i++) {
+                        const i3 = i * 3;
+                        const x = positionsAttr.array[i3];
+                        // Animate Z based on X and Time
+                        positionsAttr.array[i3 + 2] = Math.sin(elapsedTime * 0.5 + x) * 0.2;
+                    }
+                    positionsAttr.needsUpdate = true;
 
-            function onVisibilityChange() {
-                if (document.hidden) {
-                    cancelAnimationFrame(animationId);
-                } else {
-                    animate();
+                    renderer.render(scene, camera);
+                    animationId = requestAnimationFrame(animate);
                 }
-            }
 
-            const clock = new THREE.Clock();
-            function animate() {
-                const elapsedTime = clock.getElapsedTime();
-                particles.rotation.y = elapsedTime * 0.1;
-                particles.rotation.x = elapsedTime * 0.05;
-                renderer.render(scene, camera);
-                animationId = requestAnimationFrame(animate);
-            }
+                function onWindowResize() {
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                }
 
-            if (canvas) {
-                initThree();
+                window.addEventListener('resize', onWindowResize);
                 animate();
+
+                // Pause on tab switch to save resources
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        cancelAnimationFrame(animationId);
+                    } else {
+                        animate();
+                    }
+                });
             }
         });
     </script>
 </body>
-
 </html>
