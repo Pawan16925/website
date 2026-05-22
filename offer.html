@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StaxTech Offer Letter Finder</title>
+    <title>StaxTech Offer Letter Finder & Portal</title>
     <!-- Using Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor Icons for modern scalable icons -->
@@ -125,7 +125,6 @@
 </head>
 <body class="flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Ambient Background Elements -->
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
@@ -148,7 +147,7 @@
                         <i class="ph ph-files text-4xl text-white"></i>
                     </div>
                     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">StaxTech Portal</h1>
-                    <p class="text-brand-100 font-medium text-sm sm:text-base opacity-90">Secure Document Retrieval System</p>
+                    <p class="text-brand-100 font-medium text-sm sm:text-base opacity-90">Access your documents & submissions</p>
                 </div>
                 
                 <!-- Curved bottom edge -->
@@ -184,7 +183,7 @@
                             </div>
                         </div>
                         <p class="text-[13px] text-slate-500 ml-1 flex items-center gap-1 mt-2">
-                            <i class="ph ph-info text-brand-500"></i> Enter exact details used during application.
+                            <i class="ph ph-info text-brand-500"></i> Search to access your Offer Letter & Files.
                         </p>
                     </div>
 
@@ -202,6 +201,38 @@
                         <div id="btnLoader" class="modern-loader hidden relative z-10"></div>
                     </button>
                 </form>
+
+                <div class="mt-8">
+                    <div class="relative flex py-2 items-center">
+                        <div class="flex-grow border-t border-slate-100"></div>
+                        <span class="flex-shrink-0 mx-4 text-slate-400 text-xs font-semibold uppercase tracking-wider">Quick Links</span>
+                        <div class="flex-grow border-t border-slate-100"></div>
+                    </div>
+                    
+                    <div class="mt-4 space-y-3">
+                        <a href="https://staxtech.in/project-submission" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center justify-between w-full px-5 py-3.5 bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-200 rounded-xl text-slate-700 hover:text-brand-700 font-semibold transition-all duration-300 group">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 text-brand-500 group-hover:scale-110 transition-transform">
+                                    <i class="ph ph-rocket-launch text-lg"></i>
+                                </div>
+                                <span>Project Submission Portal</span>
+                            </div>
+                            <i class="ph ph-caret-right text-slate-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all"></i>
+                        </a>
+
+                        <a href="https://staxtech.in/instructions" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center justify-between w-full px-5 py-3.5 bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-200 rounded-xl text-slate-700 hover:text-amber-700 font-semibold transition-all duration-300 group">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 text-amber-500 group-hover:scale-110 transition-transform">
+                                    <i class="ph ph-book-open text-lg"></i>
+                                </div>
+                                <span>Submission Instructions</span>
+                            </div>
+                            <i class="ph ph-caret-right text-slate-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all"></i>
+                        </a>
+                    </div>
+                </div>
 
                 <div id="resultContainer" class="mt-10 hidden">
                     <div class="flex items-center gap-4 mb-6">
@@ -243,6 +274,7 @@
 
         const API_URL = "https://script.google.com/macros/s/AKfycbxxgPuh9En6T-Yawa5xgNUQYq1zb9XU9nc6pMUDqP3BPcDkVfALgAzovOIb5htXhG5aZA/exec";
         const PROJECTS_URL = "https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8";
+        const SUBMISSION_URL = "https://staxtech.in/project-submission";
 
         function setLoadingState(isLoading) {
             queryInput.disabled = isLoading;
@@ -328,6 +360,17 @@
                                             <i class="ph ph-folder-open text-xl"></i>
                                         </div>
                                         <span>Access Project Files</span>
+                                    </div>
+                                    <i class="ph ph-arrow-up-right text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                                </a>
+
+                                <a href="${SUBMISSION_URL}" target="_blank" rel="noopener noreferrer" 
+                                   class="action-card flex items-center justify-between w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold hover:text-brand-600 group">
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-purple-50 p-2 rounded-lg text-purple-500 group-hover:bg-purple-100 transition-colors">
+                                            <i class="ph ph-rocket-launch text-xl"></i>
+                                        </div>
+                                        <span>Submit Project</span>
                                     </div>
                                     <i class="ph ph-arrow-up-right text-slate-400 group-hover:text-brand-500 transition-colors"></i>
                                 </a>

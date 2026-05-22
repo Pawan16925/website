@@ -1,240 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Lost in Cyberspace | StaxTech</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="assets/favicon.png" type="image/png" />
-
-    <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091"
-     crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | StaxTech Portal</title>
+    <!-- Using Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for modern scalable icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts: Plus Jakarta Sans for a modern, tech-focused look -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e1e9ff',
+                            500: '#3b62ff',
+                            600: '#264bf2',
+                            900: '#14257a',
+                        },
+                        accent: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
+                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'wobble': 'wobble 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        wobble: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        :root {
-            --primary-color: #6366f1; /* Indigo */
-            --secondary-color: #ec4899; /* Pink */
-            --text-dark: #1f2937;
-            --text-light: #f9fafb;
-            --text-gray: #d1d5db; /* Lighter Gray */
-            --bg-dark-start: #111827;
-            --bg-dark-end: #1f2937;
-            --radius-xl: 1.5rem;
-            --transition-speed: 0.4s;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Modern Glassmorphism Background (Same as main portal) */
         body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
             min-height: 100vh;
-            text-align: center;
-            padding: 1.5rem;
-            
-            /* Animated Gradient Background */
-            background: linear-gradient(315deg, var(--bg-dark-start), var(--bg-dark-end), #3730a3);
-            background-size: 400% 400%;
-            animation: gradient-animation 15s ease infinite;
-            overflow: hidden;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Abstract Background Shapes */
+        .bg-shape {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: float 10s ease-in-out infinite alternate;
+        }
+        
+        .shape-1 {
+            top: -10%;
+            left: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: rgba(59, 98, 255, 0.3); /* Brand color */
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
         }
 
-        .error-container {
-            max-width: 600px;
+        .shape-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 35vw;
+            height: 35vw;
+            background: rgba(56, 189, 248, 0.3); /* Accent color */
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-delay: -5s;
+        }
+
+        /* 404 Specific Glitch/Text effect */
+        .text-glitch {
+            position: relative;
+        }
+        .text-glitch::before, .text-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 3rem;
-            
-            /* Glassmorphism Card */
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-            /* Entrance Animation */
-            animation: fadeInContainer 0.8s ease-out forwards;
-            opacity: 0;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .text-glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #38bdf8;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .text-glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #3b62ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 106px, 0); }
+            15% { clip: rect(75px, 9999px, 17px, 0); }
+            20% { clip: rect(86px, 9999px, 56px, 0); }
+            25% { clip: rect(11px, 9999px, 92px, 0); }
+            30% { clip: rect(54px, 9999px, 14px, 0); }
+            35% { clip: rect(72px, 9999px, 12px, 0); }
+            40% { clip: rect(1px, 9999px, 14px, 0); }
+            45% { clip: rect(2px, 9999px, 83px, 0); }
+            50% { clip: rect(41px, 9999px, 1px, 0); }
+            55% { clip: rect(6px, 9999px, 20px, 0); }
+            60% { clip: rect(75px, 9999px, 100px, 0); }
+            65% { clip: rect(98px, 9999px, 12px, 0); }
+            70% { clip: rect(12px, 9999px, 59px, 0); }
+            75% { clip: rect(20px, 9999px, 49px, 0); }
+            80% { clip: rect(13px, 9999px, 12px, 0); }
+            85% { clip: rect(66px, 9999px, 102px, 0); }
+            90% { clip: rect(31px, 9999px, 60px, 0); }
+            95% { clip: rect(84px, 9999px, 1px, 0); }
+            100% { clip: rect(3px, 9999px, 47px, 0); }
         }
 
-        @keyframes fadeInContainer {
-            to { opacity: 1; }
+        /* Card Hover Effects */
+        .action-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .error-illustration {
-            margin-bottom: 2rem;
-            /* Transition for smooth parallax movement */
-            transition: transform 0.2s ease-out;
-        }
-
-        .error-illustration svg {
-             /* Baseline floating animation */
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .error-code {
-            font-size: clamp(5rem, 20vw, 10rem);
-            font-weight: 900;
-            line-height: 1;
-            
-            /* Gradient Text */
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Staggered text animations */
-        .error-title, .error-message, .home-button {
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInText 0.6s ease-out forwards;
-        }
-
-        .error-title { animation-delay: 0.2s; }
-        .error-message { animation-delay: 0.4s; }
-        .home-button { animation-delay: 0.6s; }
-
-        @keyframes fadeInText {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .error-title {
-            font-size: clamp(1.5rem, 5vw, 2.25rem);
-            color: var(--text-light);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .error-message {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-gray);
-        }
-
-        .home-button {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--text-light);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            
-            /* Gradient Button */
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transition: all var(--transition-speed) ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: none;
-        }
-
-        .home-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            filter: brightness(1.1);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-            .error-container {
-                padding: 2rem;
-            }
-            .error-code {
-                font-size: 5rem;
-            }
-            .error-title {
-                font-size: 1.5rem;
-            }
-            .error-message {
-                font-size: 1rem;
-            }
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(59, 98, 255, 0.1), 0 8px 10px -6px rgba(59, 98, 255, 0.1);
+            border-color: #e1e9ff;
         }
     </style>
 </head>
-<body>
-    <div class="error-container" id="error-container">
-        <div class="error-illustration" id="illustration">
-             <svg width="180" height="180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20Z" fill="rgba(255,255,255,0.2)"/>
-                <path d="M16.5 14.5C16.5 15.328 15.828 16 15 16H9C8.172 16 7.5 15.328 7.5 14.5C7.5 13.672 8.172 13 9 13H15C15.828 13 16.5 13.672 16.5 14.5Z" fill="rgba(255,255,255,0.4)"/>
-                <path d="M10 11C10.5523 11 11 10.5523 11 10C11 9.44772 10.5523 9 10 9C9.44772 9 9 9.44772 9 10C9 10.5523 9.44772 11 10 11Z" fill="#f9fafb"/>
-                <path d="M14 11C14.5523 11 15 10.5523 15 10C15 9.44772 14.5523 9 14 9C13.4477 9 13 9.44772 13 10C13 10.5523 13.4477 11 14 11Z" fill="#f9fafb"/>
-                <path d="M12 7C12.5523 7 13 6.55228 13 6V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V6C11 6.55228 11.4477 7 12 7Z" fill="rgba(236, 72, 153, 0.8)"/>
-                <circle cx="12" cy="6" r="1.5" fill="#ec4899"/>
-            </svg>
+<body class="flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Ambient Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <main class="w-full max-w-lg relative z-10 animate-slide-up">
+        
+        <!-- Glassmorphism Container -->
+        <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
+            
+            <header class="relative pt-12 pb-10 px-8 text-center overflow-hidden bg-gradient-to-br from-brand-600 to-brand-900 text-white">
+                <!-- Abstract header decor -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0,0 C30,40 70,10 100,50 L100,0 Z" fill="currentColor" opacity="0.3"></path>
+                        <path d="M0,0 C40,20 60,80 100,30 L100,0 Z" fill="currentColor" opacity="0.2"></path>
+                    </svg>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-6 shadow-inner-light border border-white/20 animate-wobble">
+                        <i class="ph ph-ghost text-5xl text-white"></i>
+                    </div>
+                    <h1 class="text-6xl sm:text-7xl font-extrabold tracking-tighter mb-2 text-glitch" data-text="404">404</h1>
+                    <p class="text-brand-100 font-medium text-base sm:text-lg opacity-90 mt-2">Looks like you're lost in space.</p>
+                </div>
+                
+                <!-- Curved bottom edge -->
+                <div class="absolute bottom-0 left-0 right-0">
+                    <svg viewBox="0 0 1440 120" class="w-full h-[30px] fill-white/80" preserveAspectRatio="none">
+                        <path d="M0,120 C320,120 420,0 720,0 C1020,0 1120,120 1440,120 L1440,120 L0,120 Z"></path>
+                    </svg>
+                </div>
+            </header>
+
+            <div class="p-8 sm:p-10 pt-6 text-center">
+                
+                <h2 class="text-xl font-bold text-slate-800 mb-2">Page Not Found</h2>
+                <p class="text-slate-500 text-sm mb-8 leading-relaxed max-w-sm mx-auto">
+                    The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back on track.
+                </p>
+                
+                <div class="space-y-3">
+                    <!-- Link back to main portal -->
+                    <a href="/" 
+                       class="relative w-full overflow-hidden group flex justify-center items-center py-4 px-6 rounded-xl shadow-lg shadow-brand-500/30 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-glow focus:outline-none focus:ring-4 focus:ring-brand-500/50 transition-all duration-300 transform active:scale-[0.98]">
+                        <!-- Button hover effect background -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
+                        <span class="flex items-center gap-2 relative z-10">
+                            <i class="ph ph-house text-xl"></i> Return to Portal
+                        </span>
+                    </a>
+
+                   
+                </div>
+            </div>
+            
+            <footer class="bg-slate-50/50 px-8 py-5 border-t border-slate-100/50 text-center flex flex-col items-center gap-2">
+                <div class="flex gap-3 text-slate-400 mb-1">
+                    <i class="ph ph-lifebuoy text-lg"></i>
+                </div>
+                <p class="text-xs font-medium text-slate-500">&copy; <span id="year"></span> StaxTech Inc. All rights reserved.</p>
+            </footer>
         </div>
-        <div class="error-code">404</div>
-        <h1 class="error-title">Lost in Cyberspace</h1>
-        <p class="error-message">Looks like you've drifted off course. The page you are looking for might have been moved, deleted, or is temporarily unavailable.</p>
-        <a href="index.html" class="home-button">Return to Base</a>
-    </div>
+    </main>
 
     <script>
-        // Interactive Parallax Effect
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('error-container');
-            const illustration = document.getElementById('illustration');
+        // Custom Tailwind config for the shimmer animation
+        tailwind.config.theme.extend.keyframes.shimmer = {
+            '100%': { transform: 'translateX(100%)' }
+        };
 
-            // Maximum movement range
-            const maxMoveX = 20; // in pixels
-            const maxMoveY = 10; // in pixels
-
-            container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                
-                // Calculate mouse position relative to the container's center
-                const mouseX = e.clientX - rect.left - rect.width / 2;
-                const mouseY = e.clientY - rect.top - rect.height / 2;
-                
-                // Calculate the movement based on mouse position
-                // The further from the center, the more it moves
-                const moveX = (mouseX / (rect.width / 2)) * -maxMoveX;
-                const moveY = (mouseY / (rect.height / 2)) * -maxMoveY;
-
-                // Apply the transform to the illustration
-                illustration.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-
-            // Reset position when mouse leaves the container
-            container.addEventListener('mouseleave', () => {
-                illustration.style.transform = 'translate(0, 0)';
-            });
-        });
+        // Set current year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
