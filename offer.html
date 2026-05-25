@@ -1,405 +1,299 @@
+# Full Updated StaxTech Portal HTML
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StaxTech Offer Letter Finder & Portal</title>
-    <!-- Using Tailwind CSS for styling -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Phosphor Icons for modern scalable icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- Google Fonts: Plus Jakarta Sans for a modern, tech-focused look -->
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f4ff',
-                            100: '#e1e9ff',
-                            500: '#3b62ff',
-                            600: '#264bf2',
-                            900: '#14257a',
-                        },
-                        accent: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
-                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: 0, transform: 'translateY(20px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
+
     <style>
-        /* Modern Glassmorphism Background */
         body {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg,#f0f4ff,#dbeafe);
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        /* Abstract Background Shapes */
-        .bg-shape {
-            position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.6;
-            animation: float 10s ease-in-out infinite alternate;
-        }
-        
-        .shape-1 {
-            top: -10%;
-            left: -10%;
-            width: 40vw;
-            height: 40vw;
-            background: rgba(59, 98, 255, 0.3); /* Brand color */
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        .action-card {
+            transition: all 0.3s ease;
         }
 
-        .shape-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 35vw;
-            height: 35vw;
-            background: rgba(56, 189, 248, 0.3); /* Accent color */
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -5s;
+        .action-card:hover {
+            transform: translateY(-3px);
         }
 
-        /* Custom Spinner */
-        .modern-loader {
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(255,255,255,0.3);
+        .loader {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255,255,255,.4);
+            border-top-color: white;
             border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Input focus effects */
-        .input-wrapper:focus-within .input-icon {
-            color: #3b62ff;
-            transform: scale(1.1);
-        }
-
-        /* Card Hover Effects */
-        .action-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .action-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(59, 98, 255, 0.1), 0 8px 10px -6px rgba(59, 98, 255, 0.1);
-            border-color: #e1e9ff;
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
-<body class="flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="flex items-center justify-center p-5">
 
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
+    <div class="w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
 
-    <main class="w-full max-w-lg relative z-10 animate-slide-up">
-        
-        <!-- Glassmorphism Container -->
-        <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
-            
-            <header class="relative pt-12 pb-8 px-8 text-center overflow-hidden bg-gradient-to-br from-brand-600 to-brand-900 text-white">
-                <!-- Abstract header decor -->
-                <div class="absolute inset-0 opacity-10">
-                    <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path d="M0,0 C30,40 70,10 100,50 L100,0 Z" fill="currentColor" opacity="0.3"></path>
-                        <path d="M0,0 C40,20 60,80 100,30 L100,0 Z" fill="currentColor" opacity="0.2"></path>
-                    </svg>
+        <div class="bg-gradient-to-r from-blue-700 to-indigo-700 text-white p-10 text-center">
+            <div class="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5">
+                <i class="ph ph-files text-4xl"></i>
+            </div>
+
+            <h1 class="text-4xl font-extrabold">StaxTech Portal</h1>
+            <p class="mt-2 text-blue-100">Offer Letter & Internship Dashboard</p>
+        </div>
+
+        <div class="p-8">
+
+            <form onsubmit="event.preventDefault(); findOfferLetter();">
+
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                    Registered Email or Phone Number
+                </label>
+
+                <div class="relative">
+                    <input
+                        type="text"
+                        id="query"
+                        placeholder="Enter Email or Phone"
+                        class="w-full border-2 border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-600"
+                    />
                 </div>
 
-                <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 shadow-inner-light border border-white/20 animate-float">
-                        <i class="ph ph-files text-4xl text-white"></i>
-                    </div>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">StaxTech Portal</h1>
-                    <p class="text-brand-100 font-medium text-sm sm:text-base opacity-90">Access your documents & submissions</p>
-                </div>
-                
-                <!-- Curved bottom edge -->
-                <div class="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 120" class="w-full h-[30px] fill-white/80" preserveAspectRatio="none">
-                        <path d="M0,120 C320,120 420,0 720,0 C1020,0 1120,120 1440,120 L1440,120 L0,120 Z"></path>
-                    </svg>
-                </div>
-            </header>
+                <button
+                    id="searchBtn"
+                    class="w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex justify-center items-center gap-2"
+                >
+                    <span id="btnText">Search Records</span>
+                    <div id="btnLoader" class="loader hidden"></div>
+                </button>
+            </form>
 
-            <div class="p-8 sm:p-10 pt-4">
-                <form id="searchForm" class="space-y-6" onsubmit="event.preventDefault(); findOfferLetter();">
-                    
-                    <div class="space-y-2">
-                        <label for="query" class="block text-sm font-semibold text-slate-700 ml-1">Identity Verification</label>
-                        <div class="relative input-wrapper group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i class="ph ph-fingerprint text-slate-400 text-xl input-icon transition-all duration-300"></i>
-                            </div>
-                            <input
-                                type="text"
-                                id="query"
-                                required
-                                class="block w-full pl-12 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/20 transition-all duration-300 outline-none shadow-sm font-medium"
-                                placeholder="Registered Email or Phone No."
-                                autocomplete="off"
-                            >
-                            <!-- Search Icon Button inside input -->
-                            <div class="absolute inset-y-0 right-2 flex items-center">
-                                <button type="button" class="p-2 text-slate-400 hover:text-brand-500 transition-colors" onclick="document.getElementById('query').focus()">
-                                     <i class="ph ph-keyboard text-lg"></i>
-                                </button>
-                            </div>
+            <!-- Quick Links -->
+            <div class="mt-8">
+
+                <h3 class="text-sm font-bold text-slate-500 uppercase mb-4">
+                    Quick Links
+                </h3>
+
+                <div class="space-y-3">
+
+                    <a href="https://staxtech.in/project-submission"
+                       target="_blank"
+                       class="action-card flex justify-between items-center bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-xl p-4 font-semibold">
+                        <div class="flex items-center gap-3">
+                            <i class="ph ph-rocket-launch text-blue-600 text-xl"></i>
+                            <span>Project Submission</span>
                         </div>
-                        <p class="text-[13px] text-slate-500 ml-1 flex items-center gap-1 mt-2">
-                            <i class="ph ph-info text-brand-500"></i> Search to access your Offer Letter & Files.
-                        </p>
-                    </div>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
 
-                    <button
-                        type="submit"
-                        id="searchBtn"
-                        class="relative w-full overflow-hidden group flex justify-center items-center py-4 px-6 rounded-xl shadow-lg shadow-brand-500/30 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-glow focus:outline-none focus:ring-4 focus:ring-brand-500/50 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98]"
-                    >
-                        <!-- Button hover effect background -->
-                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
-                        
-                        <span id="btnText" class="flex items-center gap-2 relative z-10">
-                            Search Records <i class="ph ph-magnifying-glass font-bold text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                        </span>
-                        <div id="btnLoader" class="modern-loader hidden relative z-10"></div>
-                    </button>
-                </form>
+                    <a href="https://staxtech.in/instructions"
+                       target="_blank"
+                       class="action-card flex justify-between items-center bg-slate-50 hover:bg-amber-50 border border-slate-200 rounded-xl p-4 font-semibold">
+                        <div class="flex items-center gap-3">
+                            <i class="ph ph-book-open text-amber-500 text-xl"></i>
+                            <span>Submission Instructions</span>
+                        </div>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
 
-                <div class="mt-8">
-                    <div class="relative flex py-2 items-center">
-                        <div class="flex-grow border-t border-slate-100"></div>
-                        <span class="flex-shrink-0 mx-4 text-slate-400 text-xs font-semibold uppercase tracking-wider">Quick Links</span>
-                        <div class="flex-grow border-t border-slate-100"></div>
-                    </div>
-                    
-                    <div class="mt-4 space-y-3">
-                        <a href="https://staxtech.in/project-submission" target="_blank" rel="noopener noreferrer" 
-                           class="flex items-center justify-between w-full px-5 py-3.5 bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-200 rounded-xl text-slate-700 hover:text-brand-700 font-semibold transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 text-brand-500 group-hover:scale-110 transition-transform">
-                                    <i class="ph ph-rocket-launch text-lg"></i>
-                                </div>
-                                <span>Project Submission Portal</span>
-                            </div>
-                            <i class="ph ph-caret-right text-slate-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all"></i>
-                        </a>
+                    <a href="https://www.linkedin.com/company/stax-tech/"
+                       target="_blank"
+                       class="action-card flex justify-between items-center bg-slate-50 hover:bg-sky-50 border border-slate-200 rounded-xl p-4 font-semibold">
+                        <div class="flex items-center gap-3">
+                            <i class="ph ph-linkedin-logo text-sky-600 text-xl"></i>
+                            <span>Follow StaxTech LinkedIn</span>
+                        </div>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
 
-                        <a href="https://staxtech.in/instructions" target="_blank" rel="noopener noreferrer" 
-                           class="flex items-center justify-between w-full px-5 py-3.5 bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-200 rounded-xl text-slate-700 hover:text-amber-700 font-semibold transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 text-amber-500 group-hover:scale-110 transition-transform">
-                                    <i class="ph ph-book-open text-lg"></i>
-                                </div>
-                                <span>Submission Instructions</span>
-                            </div>
-                            <i class="ph ph-caret-right text-slate-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div id="resultContainer" class="mt-10 hidden">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Search Results</span>
-                        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-                    </div>
-
-                    <div id="resultContent" class="animate-slide-up">
-                        <!-- Dynamic content injected here -->
-                    </div>
                 </div>
             </div>
-            
-            <footer class="bg-slate-50/50 px-8 py-5 border-t border-slate-100/50 text-center flex flex-col items-center gap-2">
-                <div class="flex gap-3 text-slate-400 mb-1">
-                    <i class="ph ph-lock-key text-lg"></i>
-                    <i class="ph ph-shield-check text-lg"></i>
-                </div>
-                <p class="text-xs font-medium text-slate-500">&copy; <span id="year"></span> StaxTech Inc. All rights reserved.</p>
-            </footer>
+
+            <!-- Results -->
+            <div id="resultContainer" class="hidden mt-8">
+                <div id="resultContent"></div>
+            </div>
+
         </div>
-    </main>
+    </div>
 
-    <script>
-        // Custom Tailwind config for the shimmer animation needed in JS block context
-        tailwind.config.theme.extend.keyframes.shimmer = {
-            '100%': { transform: 'translateX(100%)' }
-        };
+<script>
 
-        document.getElementById('year').textContent = new Date().getFullYear();
+const API_URL = "https://script.google.com/macros/s/AKfycbxKZLnhIYwEIouuTfxlyEehTyVMz14pcStu-3OPSEzprbH7HfD_N4_BOMX5ZwAhlRueFQ/exec";
 
-        const queryInput = document.getElementById("query");
-        const searchBtn = document.getElementById("searchBtn");
-        const btnText = document.getElementById("btnText");
-        const btnLoader = document.getElementById("btnLoader");
-        const resultContainer = document.getElementById("resultContainer");
-        const resultContent = document.getElementById("resultContent");
+const PROJECTS_URL = "https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8";
 
-        const API_URL = "https://script.google.com/macros/s/AKfycbxxgPuh9En6T-Yawa5xgNUQYq1zb9XU9nc6pMUDqP3BPcDkVfALgAzovOIb5htXhG5aZA/exec";
-        const PROJECTS_URL = "https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8";
-        const SUBMISSION_URL = "https://staxtech.in/project-submission";
+const SUBMISSION_URL = "https://staxtech.in/project-submission";
 
-        function setLoadingState(isLoading) {
-            queryInput.disabled = isLoading;
-            searchBtn.disabled = isLoading;
-            
-            if (isLoading) {
-                btnText.classList.add('hidden');
-                btnLoader.classList.remove('hidden');
-                resultContainer.classList.add('hidden');
-                
-                // Add an active pulse effect to the input wrapper
-                queryInput.parentElement.classList.add('animate-pulse');
-            } else {
-                btnText.classList.remove('hidden');
-                btnLoader.classList.add('hidden');
-                queryInput.parentElement.classList.remove('animate-pulse');
-            }
-        }
+const queryInput = document.getElementById("query");
+const resultContainer = document.getElementById("resultContainer");
+const resultContent = document.getElementById("resultContent");
+const btnText = document.getElementById("btnText");
+const btnLoader = document.getElementById("btnLoader");
+const searchBtn = document.getElementById("searchBtn");
 
-        function showError(message) {
+function setLoading(loading) {
+
+    if (loading) {
+        btnText.classList.add("hidden");
+        btnLoader.classList.remove("hidden");
+        searchBtn.disabled = true;
+    } else {
+        btnText.classList.remove("hidden");
+        btnLoader.classList.add("hidden");
+        searchBtn.disabled = false;
+    }
+}
+
+async function findOfferLetter() {
+
+    const query = queryInput.value.trim();
+
+    if (!query) {
+        alert("Please enter email or phone number");
+        return;
+    }
+
+    setLoading(true);
+
+    try {
+
+        const response = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`);
+
+        const data = await response.json();
+
+        if (data.status === "success") {
+
             resultContent.innerHTML = `
-                <div class="bg-red-50/80 backdrop-blur-sm border border-red-100 rounded-2xl p-6 text-center transform transition-all">
-                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100/50 mb-4 shadow-sm">
-                        <i class="ph ph-warning-octagon text-3xl text-red-500"></i>
+
+                <div class="bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-center gap-4">
+                        <div class="bg-blue-100 p-4 rounded-2xl text-blue-700">
+                            <i class="ph ph-user-circle-check text-4xl"></i>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900">
+                                ${data.name}
+                            </h2>
+
+                            <p class="text-blue-700 font-semibold mt-1">
+                                ${data.domain}
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-base font-bold text-red-900 mb-2">Connection Error</h3>
-                    <p class="text-sm text-red-600 font-medium">${message}</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-4">
+                            <div class="text-sm text-slate-500 font-medium mb-1">
+                                Deadline
+                            </div>
+
+                            <div class="font-bold text-slate-900 text-lg">
+                                ${data.deadline || 'Not Available'}
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-4">
+                            <div class="text-sm text-slate-500 font-medium mb-1">
+                                Internship Status
+                            </div>
+
+                            <div class="font-bold text-slate-900 text-lg">
+                                ${data.current_status || 'Pending'}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="space-y-4 mt-8">
+
+                        <a href="${data.offerLetter}"
+                           target="_blank"
+                           class="action-card flex justify-between items-center bg-white border border-slate-200 rounded-xl p-4 font-semibold hover:text-blue-700">
+                            <div class="flex items-center gap-3">
+                                <i class="ph ph-file-pdf text-red-500 text-2xl"></i>
+                                <span>View Offer Letter</span>
+                            </div>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                        <a href="${PROJECTS_URL}"
+                           target="_blank"
+                           class="action-card flex justify-between items-center bg-white border border-slate-200 rounded-xl p-4 font-semibold hover:text-blue-700">
+                            <div class="flex items-center gap-3">
+                                <i class="ph ph-folder-open text-blue-500 text-2xl"></i>
+                                <span>Access Project Files</span>
+                            </div>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                        <a href="${SUBMISSION_URL}"
+                           target="_blank"
+                           class="action-card flex justify-between items-center bg-white border border-slate-200 rounded-xl p-4 font-semibold hover:text-blue-700">
+                            <div class="flex items-center gap-3">
+                                <i class="ph ph-rocket-launch text-purple-500 text-2xl"></i>
+                                <span>Submit Internship Project</span>
+                            </div>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                    </div>
                 </div>
             `;
-            resultContainer.classList.remove('hidden');
+
+        } else {
+
+            resultContent.innerHTML = `
+                <div class="bg-red-50 border border-red-100 rounded-2xl p-6 text-center">
+                    <i class="ph ph-warning-circle text-5xl text-red-500"></i>
+                    <h3 class="text-xl font-bold text-red-700 mt-3">No Record Found</h3>
+                    <p class="text-red-500 mt-2">Please check your email or phone number.</p>
+                </div>
+            `;
         }
 
-        async function findOfferLetter() {
-            const query = queryInput.value.trim();
-            if (!query) return queryInput.focus();
+        resultContainer.classList.remove("hidden");
 
-            setLoadingState(true);
+    } catch (error) {
 
-            // Add a slight artificial delay for smoother UI transition (optional, makes it feel more "process-y")
-            await new Promise(resolve => setTimeout(resolve, 600));
+        resultContent.innerHTML = `
+            <div class="bg-red-50 border border-red-100 rounded-2xl p-6 text-center">
+                <h3 class="text-xl font-bold text-red-700">Server Error</h3>
+                <p class="text-red-500 mt-2">Unable to connect API.</p>
+            </div>
+        `;
 
-            try {
-                const response = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                
-                const data = await response.json();
-                
-                if (data.status === "success") {
-                    // Success UI with modern cards
-                    resultContent.innerHTML = `
-                        <div class="bg-gradient-to-b from-brand-50 to-white border border-brand-100 rounded-2xl p-6 shadow-sm relative overflow-hidden">
-                            <!-- Success Confetti/Glow hint -->
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-green-400/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
-                            
-                            <div class="flex items-start gap-5 relative z-10">
-                                <div class="bg-white p-3 rounded-2xl text-brand-600 shadow-md border border-slate-100 flex-shrink-0 animate-[slideUp_0.3s_ease-out]">
-                                    <i class="ph ph-user-circle-check text-3xl"></i>
-                                </div>
-                                <div class="flex-1 min-w-0 pt-1">
-                                    <h3 class="text-xl font-bold text-slate-900 truncate tracking-tight">${data.name || 'Candidate Name'}</h3>
-                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-100 text-brand-700 text-xs font-semibold mt-2">
-                                        <i class="ph ph-briefcase"></i> ${data.domain || 'Domain Details'}
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-8 space-y-4 relative z-10">
-                                <a href="${data.offerLetter}" target="_blank" rel="noopener noreferrer" 
-                                   class="action-card flex items-center justify-between w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold hover:text-brand-600 group">
-                                    <div class="flex items-center gap-3">
-                                        <div class="bg-red-50 p-2 rounded-lg text-red-500 group-hover:bg-red-100 transition-colors">
-                                            <i class="ph ph-file-pdf text-xl"></i>
-                                        </div>
-                                        <span>View Offer Letter</span>
-                                    </div>
-                                    <i class="ph ph-arrow-up-right text-slate-400 group-hover:text-brand-500 transition-colors"></i>
-                                </a>
-                                
-                                <a href="${PROJECTS_URL}" target="_blank" rel="noopener noreferrer" 
-                                   class="action-card flex items-center justify-between w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold hover:text-brand-600 group">
-                                    <div class="flex items-center gap-3">
-                                        <div class="bg-blue-50 p-2 rounded-lg text-blue-500 group-hover:bg-blue-100 transition-colors">
-                                            <i class="ph ph-folder-open text-xl"></i>
-                                        </div>
-                                        <span>Access Project Files</span>
-                                    </div>
-                                    <i class="ph ph-arrow-up-right text-slate-400 group-hover:text-brand-500 transition-colors"></i>
-                                </a>
+        resultContainer.classList.remove("hidden");
 
-                                <a href="${SUBMISSION_URL}" target="_blank" rel="noopener noreferrer" 
-                                   class="action-card flex items-center justify-between w-full px-5 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold hover:text-brand-600 group">
-                                    <div class="flex items-center gap-3">
-                                        <div class="bg-purple-50 p-2 rounded-lg text-purple-500 group-hover:bg-purple-100 transition-colors">
-                                            <i class="ph ph-rocket-launch text-xl"></i>
-                                        </div>
-                                        <span>Submit Project</span>
-                                    </div>
-                                    <i class="ph ph-arrow-up-right text-slate-400 group-hover:text-brand-500 transition-colors"></i>
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    // Not Found UI
-                    resultContent.innerHTML = `
-                        <div class="bg-slate-50/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-8 text-center border-dashed">
-                            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-slate-200/50 mb-4 text-slate-500 shadow-inner">
-                                <i class="ph ph-magnifying-glass-minus text-3xl"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">No Records Found</h3>
-                            <p class="text-sm text-slate-500 font-medium leading-relaxed max-w-xs mx-auto">We couldn't locate an offer letter matching <br/><span class="text-slate-800 font-semibold bg-slate-200 px-1 py-0.5 rounded">"${query}"</span>.</p>
-                            <button onclick="document.getElementById('query').focus(); document.getElementById('query').select();" class="mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700 underline underline-offset-2">Try another search</button>
-                        </div>
-                    `;
-                }
-                
-                resultContainer.classList.remove('hidden');
+    } finally {
 
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                showError("Unable to connect to the secure server. Please check your network and try again.");
-            } finally {
-                setLoadingState(false);
-            }
-        }
-    </script>
+        setLoading(false);
+    }
+}
+
+</script>
+
 </body>
 </html>
+```
+
+Based on uploaded HTML structure and updated API fields. fileciteturn0file0
