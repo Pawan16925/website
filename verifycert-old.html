@@ -1,421 +1,572 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StaxTech Cert Verification</title>
     <!-- Using Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor Icons for modern scalable icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Google Fonts: Plus Jakarta Sans for a modern, tech-focused look -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f4ff',
-                            100: '#e1e9ff',
-                            500: '#3b62ff',
-                            600: '#264bf2',
-                            900: '#14257a',
-                        },
-                        accent: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
-                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: 0, transform: 'translateY(20px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              mono: [
+                "ui-monospace",
+                "SFMono-Regular",
+                "Menlo",
+                "Monaco",
+                "Consolas",
+                "monospace",
+              ],
+            },
+            colors: {
+              brand: {
+                50: "#f0f4ff",
+                100: "#e1e9ff",
+                500: "#3b62ff",
+                600: "#264bf2",
+                900: "#14257a",
+              },
+              accent: {
+                400: "#38bdf8",
+                500: "#0ea5e9",
+              },
+            },
+            boxShadow: {
+              glow: "0 0 20px rgba(59, 98, 255, 0.3)",
+              "inner-light": "inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "slide-up": "slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              slideUp: {
+                "0%": { opacity: 0, transform: "translateY(20px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-    
+
     <style>
-        /* Modern Glassmorphism Background */
-        body {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+      /* Modern Glassmorphism Background */
+      body {
+        background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-        /* Abstract Background Shapes */
-        .bg-shape {
-            position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.6;
-            animation: float 10s ease-in-out infinite alternate;
-        }
-        
-        .shape-1 {
-            top: -10%;
-            left: -10%;
-            width: 40vw;
-            height: 40vw;
-            background: rgba(59, 98, 255, 0.3); /* Brand color */
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-        }
+      /* Abstract Background Shapes */
+      .bg-shape {
+        position: absolute;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.6;
+        animation: float 10s ease-in-out infinite alternate;
+      }
 
-        .shape-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 35vw;
-            height: 35vw;
-            background: rgba(56, 189, 248, 0.3); /* Accent color */
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -5s;
-        }
+      .shape-1 {
+        top: -10%;
+        left: -10%;
+        width: 40vw;
+        height: 40vw;
+        background: rgba(59, 98, 255, 0.3); /* Brand color */
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
 
-        /* Custom Spinner */
-        .modern-loader {
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            display: none; /* Controlled by JS */
-        }
+      .shape-2 {
+        bottom: -10%;
+        right: -10%;
+        width: 35vw;
+        height: 35vw;
+        background: rgba(56, 189, 248, 0.3); /* Accent color */
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: -5s;
+      }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Input focus effects */
-        .input-wrapper:focus-within .input-icon {
-            color: #3b62ff;
-            transform: scale(1.1);
-        }
+      /* Custom Spinner */
+      .modern-loader {
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+        display: none; /* Controlled by JS */
+      }
 
-        /* Card Hover Effects */
-        .action-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
-        .action-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(59, 98, 255, 0.1), 0 8px 10px -6px rgba(59, 98, 255, 0.1);
-            border-color: #e1e9ff;
-        }
+      }
+
+      /* Input focus effects */
+      .input-wrapper:focus-within .input-icon {
+        color: #3b62ff;
+        transform: scale(1.1);
+      }
+
+      /* Card Hover Effects */
+      .action-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .action-card:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 10px 25px -5px rgba(59, 98, 255, 0.1),
+          0 8px 10px -6px rgba(59, 98, 255, 0.1);
+        border-color: #e1e9ff;
+      }
     </style>
-</head>
-<body class="flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
-
+  </head>
+  <body
+    class="flex items-center justify-center p-4 sm:p-6 lg:p-8 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white"
+  >
     <!-- Ambient Background Elements -->
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
     <main class="w-full max-w-lg relative z-10 animate-slide-up">
-        
-        <!-- Notification Toast (Hidden by default) -->
-        <div id="notification" class="absolute -top-16 left-0 right-0 hidden transform transition-all duration-300 ease-out z-50">
-            <div class="bg-red-50/90 backdrop-blur-md border border-red-200 text-red-800 p-3 rounded-xl flex items-center shadow-lg mx-4">
-                <i class="ph ph-warning-circle text-red-500 text-xl mr-2 flex-shrink-0"></i>
-                <span id="notificationMsg" class="text-sm font-semibold">Please enter an ID first.</span>
-            </div>
+      <!-- Notification Toast (Hidden by default) -->
+      <div
+        id="notification"
+        class="absolute -top-16 left-0 right-0 hidden transform transition-all duration-300 ease-out z-50"
+      >
+        <div
+          class="bg-red-50/90 backdrop-blur-md border border-red-200 text-red-800 p-3 rounded-xl flex items-center shadow-lg mx-4"
+        >
+          <i
+            class="ph ph-warning-circle text-red-500 text-xl mr-2 flex-shrink-0"
+          ></i>
+          <span id="notificationMsg" class="text-sm font-semibold"
+            >Please enter an ID first.</span
+          >
         </div>
+      </div>
 
-        <!-- Glassmorphism Container -->
-        <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
-            
-            <header class="relative pt-12 pb-8 px-8 text-center overflow-hidden bg-gradient-to-br from-brand-600 to-brand-900 text-white">
-                <!-- Abstract header decor -->
-                <div class="absolute inset-0 opacity-10">
-                    <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path d="M0,0 C30,40 70,10 100,50 L100,0 Z" fill="currentColor" opacity="0.3"></path>
-                        <path d="M0,0 C40,20 60,80 100,30 L100,0 Z" fill="currentColor" opacity="0.2"></path>
-                    </svg>
+      <!-- Glassmorphism Container -->
+      <div
+        class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden"
+      >
+        <header
+          class="relative pt-12 pb-8 px-8 text-center overflow-hidden bg-gradient-to-br from-brand-600 to-brand-900 text-white"
+        >
+          <!-- Abstract header decor -->
+          <div class="absolute inset-0 opacity-10">
+            <svg
+              class="absolute w-full h-full"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,0 C30,40 70,10 100,50 L100,0 Z"
+                fill="currentColor"
+                opacity="0.3"
+              ></path>
+              <path
+                d="M0,0 C40,20 60,80 100,30 L100,0 Z"
+                fill="currentColor"
+                opacity="0.2"
+              ></path>
+            </svg>
+          </div>
+
+          <div class="relative z-10 flex flex-col items-center">
+            <div
+              class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 shadow-inner-light border border-white/20 animate-float"
+            >
+              <i class="ph ph-seal-check text-4xl text-white"></i>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+              Verify Certificate
+            </h1>
+            <p
+              class="text-brand-100 font-medium text-sm sm:text-base opacity-90"
+            >
+              Validate authenticity of StaxTech credentials
+            </p>
+          </div>
+
+          <!-- Curved bottom edge -->
+          <div class="absolute bottom-0 left-0 right-0">
+            <svg
+              viewBox="0 0 1440 120"
+              class="w-full h-[30px] fill-white/80"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,120 C320,120 420,0 720,0 C1020,0 1120,120 1440,120 L1440,120 L0,120 Z"
+              ></path>
+            </svg>
+          </div>
+        </header>
+
+        <div class="p-8 sm:p-10 pt-6">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <label
+                for="certInput"
+                class="block text-sm font-semibold text-slate-700 ml-1"
+                >Certificate ID</label
+              >
+              <div class="relative input-wrapper group">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i
+                    class="ph ph-hash text-slate-400 text-xl input-icon transition-all duration-300"
+                  ></i>
+                </div>
+                <input
+                  type="text"
+                  id="certInput"
+                  class="block w-full pl-12 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl text-slate-900 font-mono text-sm uppercase placeholder:text-slate-400 placeholder:normal-case placeholder:font-sans focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/20 transition-all duration-300 outline-none shadow-sm font-medium tracking-wide"
+                  placeholder="e.g. STX-2023-1234"
+                  onkeypress="handleKeyPress(event)"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <!-- Enter Icon Button inside input -->
+                <div class="absolute inset-y-0 right-2 flex items-center">
+                  <button
+                    type="button"
+                    class="p-2 text-slate-400 hover:text-brand-500 transition-colors"
+                    onclick="document.getElementById('certInput').focus()"
+                  >
+                    <i class="ph ph-keyboard text-lg"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="verifyBtn"
+              onclick="lookup()"
+              class="relative w-full overflow-hidden group flex justify-center items-center py-4 px-6 rounded-xl shadow-lg shadow-brand-500/30 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-glow focus:outline-none focus:ring-4 focus:ring-brand-500/50 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98]"
+            >
+              <!-- Button hover effect background -->
+              <div
+                class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"
+              ></div>
+
+              <span
+                id="loadingSpinner"
+                class="modern-loader relative z-10 mr-2"
+              ></span>
+              <span id="btnText" class="flex items-center gap-2 relative z-10">
+                Verify Credential
+                <i
+                  class="ph ph-magnifying-glass font-bold text-lg group-hover:rotate-12 transition-transform duration-300"
+                ></i>
+              </span>
+            </button>
+          </div>
+
+          <div id="resultContainer" class="mt-8 hidden">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"
+              ></div>
+              <span
+                class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+                >Result</span
+              >
+              <div
+                class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"
+              ></div>
+            </div>
+
+            <!-- Success View -->
+            <div id="result" class="hidden animate-slide-up">
+              <div
+                class="bg-gradient-to-b from-brand-50 to-white border border-brand-100 rounded-2xl p-6 shadow-sm relative overflow-hidden"
+              >
+                <!-- Success Confetti/Glow hint -->
+                <div
+                  class="absolute top-0 right-0 w-32 h-32 bg-green-400/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"
+                ></div>
+
+                <div class="flex items-start gap-4 relative z-10 mb-6">
+                  <div
+                    class="bg-white p-2.5 rounded-xl text-green-500 shadow-md border border-slate-100 flex-shrink-0 animate-[slideUp_0.3s_ease-out]"
+                  >
+                    <i class="ph ph-check-circle text-3xl"></i>
+                  </div>
+                  <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-slate-900 tracking-tight">
+                      Valid Certificate
+                    </h3>
+                    <p class="text-xs font-medium text-slate-500">
+                      Record found in database
+                    </p>
+                  </div>
                 </div>
 
-                <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 shadow-inner-light border border-white/20 animate-float">
-                        <i class="ph ph-seal-check text-4xl text-white"></i>
-                    </div>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">Verify Certificate</h1>
-                    <p class="text-brand-100 font-medium text-sm sm:text-base opacity-90">Validate authenticity of StaxTech credentials</p>
-                </div>
-                
-                <!-- Curved bottom edge -->
-                <div class="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 120" class="w-full h-[30px] fill-white/80" preserveAspectRatio="none">
-                        <path d="M0,120 C320,120 420,0 720,0 C1020,0 1120,120 1440,120 L1440,120 L0,120 Z"></path>
-                    </svg>
-                </div>
-            </header>
-
-            <div class="p-8 sm:p-10 pt-6">
-                <div class="space-y-6">
-                    <div class="space-y-2">
-                        <label for="certInput" class="block text-sm font-semibold text-slate-700 ml-1">Certificate ID</label>
-                        <div class="relative input-wrapper group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i class="ph ph-hash text-slate-400 text-xl input-icon transition-all duration-300"></i>
-                            </div>
-                            <input 
-                                type="text" 
-                                id="certInput" 
-                                class="block w-full pl-12 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl text-slate-900 font-mono text-sm uppercase placeholder:text-slate-400 placeholder:normal-case placeholder:font-sans focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/20 transition-all duration-300 outline-none shadow-sm font-medium tracking-wide" 
-                                placeholder="e.g. STX-2023-1234"
-                                onkeypress="handleKeyPress(event)"
-                                autocomplete="off"
-                                spellcheck="false"
-                            >
-                            <!-- Enter Icon Button inside input -->
-                            <div class="absolute inset-y-0 right-2 flex items-center">
-                                <button type="button" class="p-2 text-slate-400 hover:text-brand-500 transition-colors" onclick="document.getElementById('certInput').focus()">
-                                     <i class="ph ph-keyboard text-lg"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button 
-                        id="verifyBtn"
-                        onclick="lookup()" 
-                        class="relative w-full overflow-hidden group flex justify-center items-center py-4 px-6 rounded-xl shadow-lg shadow-brand-500/30 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-glow focus:outline-none focus:ring-4 focus:ring-brand-500/50 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98]"
+                <div class="space-y-3 relative z-10">
+                  <div
+                    class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                  >
+                    <span
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0"
+                      >Holder Name</span
                     >
-                        <!-- Button hover effect background -->
-                        <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
-                        
-                        <span id="loadingSpinner" class="modern-loader relative z-10 mr-2"></span>
-                        <span id="btnText" class="flex items-center gap-2 relative z-10">
-                            Verify Credential <i class="ph ph-magnifying-glass font-bold text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                        </span>
-                    </button>
+                    <span
+                      id="name"
+                      class="font-semibold text-slate-900 text-sm"
+                    ></span>
+                  </div>
+
+                  <div
+                    class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                  >
+                    <span
+                      class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0"
+                      >Domain/Track</span
+                    >
+                    <span
+                      id="domain"
+                      class="font-semibold text-brand-600 text-sm"
+                    ></span>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    <div
+                      class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col"
+                    >
+                      <span
+                        class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1"
+                        >Credential ID</span
+                      >
+                      <span
+                        id="certId"
+                        class="font-mono text-xs font-bold text-slate-700 break-all"
+                      ></span>
+                    </div>
+                    <div
+                      class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col"
+                    >
+                      <span
+                        class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1"
+                        >Issue Date</span
+                      >
+                      <span
+                        id="issue"
+                        class="font-semibold text-slate-900 text-sm"
+                      ></span>
+                    </div>
+                  </div>
                 </div>
 
-                <div id="resultContainer" class="mt-8 hidden">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Result</span>
-                        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-                    </div>
-
-                    <!-- Success View -->
-                    <div id="result" class="hidden animate-slide-up">
-                        <div class="bg-gradient-to-b from-brand-50 to-white border border-brand-100 rounded-2xl p-6 shadow-sm relative overflow-hidden">
-                            <!-- Success Confetti/Glow hint -->
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-green-400/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
-                            
-                            <div class="flex items-start gap-4 relative z-10 mb-6">
-                                <div class="bg-white p-2.5 rounded-xl text-green-500 shadow-md border border-slate-100 flex-shrink-0 animate-[slideUp_0.3s_ease-out]">
-                                    <i class="ph ph-check-circle text-3xl"></i>
-                                </div>
-                                <div class="flex-1 pt-1">
-                                    <h3 class="text-lg font-bold text-slate-900 tracking-tight">Valid Certificate</h3>
-                                    <p class="text-xs font-medium text-slate-500">Record found in database</p>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 relative z-10">
-                                <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                                    <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0">Holder Name</span>
-                                    <span id="name" class="font-semibold text-slate-900 text-sm"></span>
-                                </div>
-                                
-                                <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                                    <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-0">Domain/Track</span>
-                                    <span id="domain" class="font-semibold text-brand-600 text-sm"></span>
-                                </div>
-
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col">
-                                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Credential ID</span>
-                                        <span id="certId" class="font-mono text-xs font-bold text-slate-700 break-all"></span>
-                                    </div>
-                                    <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 flex flex-col">
-                                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Issue Date</span>
-                                        <span id="issue" class="font-semibold text-slate-900 text-sm"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a id="certLink" href="#" target="_blank" class="mt-5 relative w-full overflow-hidden group flex justify-center items-center py-3.5 px-4 rounded-xl border border-slate-200 bg-white shadow-sm text-sm font-bold text-slate-700 hover:text-brand-600 hover:border-brand-200 transition-all duration-300">
-                                <span class="flex items-center gap-2">
-                                    <i class="ph ph-download-simple text-lg"></i> Download Certificate
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Not Found View -->
-                    <div id="notFound" class="hidden animate-slide-up">
-                        <div class="bg-slate-50/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-8 text-center border-dashed">
-                            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-slate-200/50 mb-4 text-slate-500 shadow-inner">
-                                <i class="ph ph-magnifying-glass-minus text-3xl"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2">Record Not Found</h3>
-                            <p class="text-sm text-slate-500 font-medium leading-relaxed max-w-xs mx-auto" id="notFoundMsg">We couldn't locate a certificate matching that ID. Please check for typos.</p>
-                            <button onclick="document.getElementById('certInput').focus(); document.getElementById('certInput').select();" class="mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700 underline underline-offset-2 transition-colors">Try again</button>
-                        </div>
-                    </div>
-
-                </div>
+                <a
+                  id="certLink"
+                  href="#"
+                  target="_blank"
+                  class="mt-5 relative w-full overflow-hidden group flex justify-center items-center py-3.5 px-4 rounded-xl border border-slate-200 bg-white shadow-sm text-sm font-bold text-slate-700 hover:text-brand-600 hover:border-brand-200 transition-all duration-300"
+                >
+                  <span class="flex items-center gap-2">
+                    <i class="ph ph-download-simple text-lg"></i> Download
+                    Certificate
+                  </span>
+                </a>
+              </div>
             </div>
-            
-            <footer class="bg-slate-50/50 px-8 py-5 border-t border-slate-100/50 text-center flex flex-col items-center gap-2">
-                <div class="flex gap-3 text-slate-400 mb-1">
-                    <i class="ph ph-shield-check text-lg"></i>
+
+            <!-- Not Found View -->
+            <div id="notFound" class="hidden animate-slide-up">
+              <div
+                class="bg-slate-50/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-8 text-center border-dashed"
+              >
+                <div
+                  class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-slate-200/50 mb-4 text-slate-500 shadow-inner"
+                >
+                  <i class="ph ph-magnifying-glass-minus text-3xl"></i>
                 </div>
-                <p class="text-xs font-medium text-slate-500">&copy; <span id="year"></span> StaxTech Inc. All rights reserved.</p>
-            </footer>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">
+                  Record Not Found
+                </h3>
+                <p
+                  class="text-sm text-slate-500 font-medium leading-relaxed max-w-xs mx-auto"
+                  id="notFoundMsg"
+                >
+                  We couldn't locate a certificate matching that ID. Please
+                  check for typos.
+                </p>
+                <button
+                  onclick="
+                    document.getElementById('certInput').focus();
+                    document.getElementById('certInput').select();
+                  "
+                  class="mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700 underline underline-offset-2 transition-colors"
+                >
+                  Try again
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <footer
+          class="bg-slate-50/50 px-8 py-5 border-t border-slate-100/50 text-center flex flex-col items-center gap-2"
+        >
+          <div class="flex gap-3 text-slate-400 mb-1">
+            <i class="ph ph-shield-check text-lg"></i>
+          </div>
+          <p class="text-xs font-medium text-slate-500">
+            &copy; <span id="year"></span> StaxTech Inc. All rights reserved.
+          </p>
+        </footer>
+      </div>
     </main>
 
     <script>
-        // Custom Tailwind config for the shimmer animation needed in JS block context
-        tailwind.config.theme.extend.keyframes.shimmer = {
-            '100%': { transform: 'translateX(100%)' }
-        };
+      // Custom Tailwind config for the shimmer animation needed in JS block context
+      tailwind.config.theme.extend.keyframes.shimmer = {
+        "100%": { transform: "translateX(100%)" },
+      };
 
-        // Set dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
+      // Set dynamic year
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Allow Enter key to trigger search
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                lookup();
-            }
+      // Allow Enter key to trigger search
+      function handleKeyPress(e) {
+        if (e.key === "Enter") {
+          lookup();
+        }
+      }
+
+      // Custom notification logic
+      function showNotification(message) {
+        const notif = document.getElementById("notification");
+        const msg = document.getElementById("notificationMsg");
+        msg.innerText = message;
+
+        notif.classList.remove("hidden");
+        // Slight delay for entrance animation to catch if changing display
+        setTimeout(() => {
+          notif.classList.add("opacity-100", "translate-y-4");
+          notif.classList.remove("opacity-0", "-translate-y-2");
+        }, 10);
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+          notif.classList.add("opacity-0", "-translate-y-2");
+          notif.classList.remove("opacity-100", "translate-y-4");
+          setTimeout(() => notif.classList.add("hidden"), 300); // wait for transition
+        }, 3000);
+      }
+
+      async function lookup() {
+        const inputEl = document.getElementById("certInput");
+        const id = inputEl.value.trim().toUpperCase();
+
+        // Elements
+        const resultContainer = document.getElementById("resultContainer");
+        const resultBox = document.getElementById("result");
+        const notFound = document.getElementById("notFound");
+        const notFoundMsg = document.getElementById("notFoundMsg");
+        const btn = document.getElementById("verifyBtn");
+        const btnText = document.getElementById("btnText");
+        const spinner = document.getElementById("loadingSpinner");
+
+        // Reset UI states
+        document.getElementById("notification").classList.add("hidden");
+        resultContainer.classList.add("hidden");
+        resultBox.classList.add("hidden");
+        notFound.classList.add("hidden");
+
+        if (!id) {
+          showNotification("Please enter a Certificate ID first.");
+          inputEl.focus();
+          return;
         }
 
-        // Custom notification logic
-        function showNotification(message) {
-            const notif = document.getElementById('notification');
-            const msg = document.getElementById('notificationMsg');
-            msg.innerText = message;
-            
-            notif.classList.remove('hidden');
-            // Slight delay for entrance animation to catch if changing display
-            setTimeout(() => {
-                notif.classList.add('opacity-100', 'translate-y-4');
-                notif.classList.remove('opacity-0', '-translate-y-2');
-            }, 10);
-            
-            // Hide after 3 seconds
-            setTimeout(() => {
-                notif.classList.add('opacity-0', '-translate-y-2');
-                notif.classList.remove('opacity-100', 'translate-y-4');
-                setTimeout(() => notif.classList.add('hidden'), 300); // wait for transition
-            }, 3000);
-        }
+        // Set Loading State
+        btn.disabled = true;
+        btnText.style.display = "none";
+        spinner.style.display = "inline-block";
+        inputEl.parentElement.classList.add("animate-pulse");
 
-        async function lookup() {
-            const inputEl = document.getElementById("certInput");
-            const id = inputEl.value.trim().toUpperCase();
+        const url = `https://script.google.com/macros/s/AKfycby5u2ltv_0ETx_fBGhM9SQOtskVSIV7Y5H4CrSYDDsSSi1TX94PNrT3971jCHwVimYZhw/exec?cert_id=${id}`;
 
-            // Elements
-            const resultContainer = document.getElementById("resultContainer");
-            const resultBox = document.getElementById("result");
-            const notFound = document.getElementById("notFound");
-            const notFoundMsg = document.getElementById("notFoundMsg");
-            const btn = document.getElementById("verifyBtn");
-            const btnText = document.getElementById("btnText");
-            const spinner = document.getElementById("loadingSpinner");
+        try {
+          // Artificial delay for smoother UI transition feel
+          await new Promise((resolve) => setTimeout(resolve, 600));
 
-            // Reset UI states
-            document.getElementById('notification').classList.add('hidden');
-            resultContainer.classList.add('hidden');
-            resultBox.classList.add('hidden');
-            notFound.classList.add('hidden');
+          const response = await fetch(url);
+          const data = await response.json();
 
-            if (!id) {
-                showNotification("Please enter a Certificate ID first.");
-                inputEl.focus();
-                return;
+          resultContainer.classList.remove("hidden");
+
+          if (data.status === "success") {
+            // Populate data
+            document.getElementById("name").innerText = data.name || "N/A";
+            document.getElementById("domain").innerText = data.domain || "N/A";
+            document.getElementById("certId").innerText = data.id || "N/A";
+
+            // Format date nicely
+            if (data.issue_date) {
+              const dateObj = new Date(data.issue_date);
+              document.getElementById("issue").innerText =
+                dateObj.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                });
+            } else {
+              document.getElementById("issue").innerText = "N/A";
             }
 
-            // Set Loading State
-            btn.disabled = true;
-            btnText.style.display = 'none';
-            spinner.style.display = 'inline-block';
-            inputEl.parentElement.classList.add('animate-pulse');
-            
-            const url = `https://script.google.com/macros/s/AKfycby5u2ltv_0ETx_fBGhM9SQOtskVSIV7Y5H4CrSYDDsSSi1TX94PNrT3971jCHwVimYZhw/exec?cert_id=${id}`;
-
-            try {
-                // Artificial delay for smoother UI transition feel
-                await new Promise(resolve => setTimeout(resolve, 600));
-
-                const response = await fetch(url);
-                const data = await response.json();
-
-                resultContainer.classList.remove('hidden');
-
-                if (data.status === "success") {
-                    // Populate data
-                    document.getElementById("name").innerText = data.name || 'N/A';
-                    document.getElementById("domain").innerText = data.domain || 'N/A';
-                    document.getElementById("certId").innerText = data.id || 'N/A';
-                    
-                    // Format date nicely
-                    if(data.issue_date) {
-                        const dateObj = new Date(data.issue_date);
-                        document.getElementById("issue").innerText = dateObj.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                        });
-                    } else {
-                        document.getElementById("issue").innerText = 'N/A';
-                    }
-
-                    // Handle link
-                    const linkEl = document.getElementById("certLink");
-                    if(data.certificate_url) {
-                        linkEl.href = data.certificate_url;
-                        linkEl.style.display = 'flex';
-                    } else {
-                        linkEl.style.display = 'none';
-                    }
-
-                    resultBox.classList.remove('hidden');
-
-                } else {
-                    notFound.classList.remove('hidden');
-                    notFoundMsg.innerHTML = `We couldn't locate a certificate matching <br/><span class="text-slate-800 font-mono bg-slate-200 px-1 py-0.5 rounded mt-1 inline-block">"${id}"</span>.`;
-                }
-
-            } catch (error) {
-                console.error("Verification Error:", error);
-                resultContainer.classList.remove('hidden');
-                notFound.classList.remove('hidden');
-                
-                document.querySelector('#notFound h3').innerText = "Connection Error";
-                notFoundMsg.innerText = "Network is currently unstable. Please check your connection and try again.";
-            } finally {
-                // Reset Loading State
-                btn.disabled = false;
-                btnText.style.display = 'flex';
-                spinner.style.display = 'none';
-                inputEl.parentElement.classList.remove('animate-pulse');
+            // Handle link
+            const linkEl = document.getElementById("certLink");
+            if (data.certificate_url) {
+              linkEl.href = `https://drive.google.com/file/d/${data.certificate_url}/view`;
+              linkEl.target = "_blank";
+              linkEl.style.display = "flex";
+            } else {
+              linkEl.style.display = "none";
             }
+
+            resultBox.classList.remove("hidden");
+          } else {
+            notFound.classList.remove("hidden");
+            notFoundMsg.innerHTML = `We couldn't locate a certificate matching <br/><span class="text-slate-800 font-mono bg-slate-200 px-1 py-0.5 rounded mt-1 inline-block">"${id}"</span>.`;
+          }
+        } catch (error) {
+          console.error("Verification Error:", error);
+          resultContainer.classList.remove("hidden");
+          notFound.classList.remove("hidden");
+
+          document.querySelector("#notFound h3").innerText = "Connection Error";
+          notFoundMsg.innerText =
+            "Network is currently unstable. Please check your connection and try again.";
+        } finally {
+          // Reset Loading State
+          btn.disabled = false;
+          btnText.style.display = "flex";
+          spinner.style.display = "none";
+          inputEl.parentElement.classList.remove("animate-pulse");
         }
+      }
     </script>
-</body>
+  </body>
 </html>
