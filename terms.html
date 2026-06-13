@@ -1,13 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms & Conditions - StaxTech</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Read the official Terms & Conditions for StaxTech internship programs and platform usage." />
-    <meta name="keywords" content="StaxTech terms, conditions, internship policy, refund policy, code of conduct" />
+    <meta
+      name="description"
+      content="Read the official Terms & Conditions for StaxTech internship programs and platform usage."
+    />
+    <meta
+      name="keywords"
+      content="StaxTech terms, conditions, internship policy, refund policy, code of conduct"
+    />
     <meta name="author" content="StaxTech" />
 
     <!-- Favicon -->
@@ -15,691 +21,1175 @@
     <meta name="theme-color" content="#f0f4ff" />
 
     <!-- Google Fonts: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f4ff',
-                            100: '#e1e9ff',
-                            500: '#3b62ff',
-                            600: '#264bf2',
-                            900: '#14257a',
-                        },
-                        accent: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
-                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
-                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'shimmer': 'shimmer 2s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: 0, transform: 'translateY(30px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        },
-                        shimmer: {
-                            'from': { backgroundPosition: '200% 0' },
-                            'to': { backgroundPosition: '-200% 0' }
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f0f4ff",
+                100: "#e1e9ff",
+                500: "#3b62ff",
+                600: "#264bf2",
+                900: "#14257a",
+              },
+              accent: {
+                400: "#38bdf8",
+                500: "#0ea5e9",
+              },
+            },
+            boxShadow: {
+              glow: "0 0 20px rgba(59, 98, 255, 0.3)",
+              "inner-light": "inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)",
+              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "slide-up": "slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              shimmer: "shimmer 2s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              slideUp: {
+                "0%": { opacity: 0, transform: "translateY(30px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+              shimmer: {
+                from: { backgroundPosition: "200% 0" },
+                to: { backgroundPosition: "-200% 0" },
+              },
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        /* Modern Glassmorphism Background */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+      /* Modern Glassmorphism Background */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-        /* Abstract Background Shapes */
-        .bg-shape {
-            position: fixed;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.5;
-            animation: float 10s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-        
-        .shape-1 {
-            top: -10%;
-            left: -10%;
-            width: 40vw;
-            height: 40vw;
-            background: rgba(59, 98, 255, 0.3);
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-        }
+      /* Abstract Background Shapes */
+      .bg-shape {
+        position: fixed;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.5;
+        animation: float 10s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
 
-        .shape-2 {
-            bottom: 10%;
-            right: -10%;
-            width: 35vw;
-            height: 35vw;
-            background: rgba(56, 189, 248, 0.3);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -5s;
-        }
+      .shape-1 {
+        top: -10%;
+        left: -10%;
+        width: 40vw;
+        height: 40vw;
+        background: rgba(59, 98, 255, 0.3);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
 
-        /* Preloader */
-        #preloader {
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
+      .shape-2 {
+        bottom: 10%;
+        right: -10%;
+        width: 35vw;
+        height: 35vw;
+        background: rgba(56, 189, 248, 0.3);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: -5s;
+      }
 
-        /* Glass Text Effect */
-        .text-gradient {
-            background: linear-gradient(to right, #14257a, #3b62ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      /* Preloader */
+      #preloader {
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
 
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      /* Glass Text Effect */
+      .text-gradient {
+        background: linear-gradient(to right, #14257a, #3b62ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        /* Custom scrollbar for webkit */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f0f4ff; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      /* Scroll Reveal Utility */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f0f4ff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
     </style>
-</head>
-<body class="font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white relative">
-
+  </head>
+  <body
+    class="font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white relative"
+  >
     <!-- Ambient Background Elements -->
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-md flex items-center justify-center">
-        <div class="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"></div>
+    <div
+      id="preloader"
+      class="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-md flex items-center justify-center"
+    >
+      <div
+        class="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"
+      ></div>
     </div>
 
     <!-- Glassmorphism Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/40 backdrop-blur-lg border-b border-white/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="home.html" class="flex items-center gap-2 group">
-                    <img src="assets/logo2.png" alt="StaxTech Logo" class="h-10 w-auto group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/40x40/3b62ff/ffffff?text=ST';">
-                    <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">StaxTech</span>
-                </a>
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/40 backdrop-blur-lg border-b border-white/40"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="home.html" class="flex items-center gap-2 group">
+            <img
+              src="assets/logo2.png"
+              alt="StaxTech Logo"
+              class="h-10 w-auto group-hover:scale-105 transition-transform"
+              onerror="
+                this.src = 'https://placehold.co/40x40/3b62ff/ffffff?text=ST'
+              "
+            />
+            <span
+              class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors"
+              >StaxTech</span
+            >
+          </a>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="home.html#home" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Home</a>
-                    <a href="home.html#about" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">About</a>
-                    <a href="home.html#services" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Services</a>
-                    <a href="verify.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Verify</a>
-                    <a href="terms.html" class="text-sm font-bold text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:rounded-full">Terms</a>
-                    <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg hover:bg-brand-600 hover:shadow-glow transition-all transform hover:-translate-y-0.5">
-                        Apply Now
-                    </a>
-                </nav>
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="home.html#home"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="home.html#about"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="home.html#services"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Services</a
+            >
+            <a
+              href="verify.html"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Verify</a
+            >
+            <a
+              href="terms.html"
+              class="text-sm font-bold text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:rounded-full"
+              >Terms</a
+            >
+            <a
+              href="https://staxtech.in/apply?ref=STAXTECH"
+              target="_blank"
+              class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg hover:bg-brand-600 hover:shadow-glow transition-all transform hover:-translate-y-0.5"
+            >
+              Apply Now
+            </a>
+          </nav>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors">
-                    <i class="ph ph-list text-2xl"></i>
-                </button>
-            </div>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors"
+          >
+            <i class="ph ph-list text-2xl"></i>
+          </button>
         </div>
+      </div>
 
-        <!-- Mobile Nav Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden">
-            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
-                <a href="home.html#home" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Home</a>
-                <a href="home.html#about" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">About</a>
-                <a href="home.html#services" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Services</a>
-                <a href="verify.html" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Verify</a>
-                <a href="terms.html" class="block px-3 py-3 text-base font-bold text-brand-600">Terms</a>
-                <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="mt-4 w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold shadow-md">Apply Now</a>
-            </div>
+      <!-- Mobile Nav Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden"
+      >
+        <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
+          <a
+            href="home.html#home"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Home</a
+          >
+          <a
+            href="home.html#about"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >About</a
+          >
+          <a
+            href="home.html#services"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Services</a
+          >
+          <a
+            href="verify.html"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Verify</a
+          >
+          <a
+            href="terms.html"
+            class="block px-3 py-3 text-base font-bold text-brand-600"
+            >Terms</a
+          >
+          <a
+            href="https://staxtech.in/apply?ref=STAXTECH"
+            target="_blank"
+            class="mt-4 w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold shadow-md"
+            >Apply Now</a
+          >
         </div>
+      </div>
     </header>
 
     <main class="pt-32 pb-24 relative z-10">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 animate-slide-up">
-            
-            <div class="text-center mb-12">
-                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block">Legal & Policies</span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    Terms & <span class="text-gradient">Conditions</span>
-                </h1>
-                <p class="text-slate-600 text-lg max-w-2xl mx-auto font-medium">
-                    These terms govern your access to and use of StaxTech's internship platform and services. Please read them carefully.
-                </p>
-            </div>
-
-            <!-- Glassmorphism Card Container -->
-            <div class="bg-white/70 backdrop-blur-xl border border-white rounded-[2.5rem] shadow-glass overflow-hidden">
-                
-                <!-- Table of Contents Section -->
-                <div class="p-8 md:p-10 border-b border-slate-200/60 bg-white/40">
-                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                        <i class="ph-duotone ph-list-dashes text-brand-500 text-2xl"></i> Quick Navigation
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <a href="#about" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> About StaxTech
-                        </a>
-                        <a href="#eligibility" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Eligibility
-                        </a>
-                        <a href="#process" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Internship Process
-                        </a>
-                        <a href="#payments" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Payments
-                        </a>
-                        <a href="#certification" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Certification
-                        </a>
-                        <a href="#refund" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Refund Policy
-                        </a>
-                        <a href="#conduct" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Code of Conduct
-                        </a>
-                        <a href="#ip" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Intellectual Property
-                        </a>
-                        <a href="#usage" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Platform Usage
-                        </a>
-                        <a href="#legal" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Legal Information
-                        </a>
-                        <a href="#contact" class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group">
-                            <i class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"></i> Contact Info
-                        </a>
-                    </div>
-                </div>
-
-                <div class="p-8 md:p-10 space-y-12">
-                    
-                    <!-- About Section -->
-                    <div id="about" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-brand-100 text-brand-600 p-2.5 rounded-xl"><i class="ph-duotone ph-buildings"></i></div>
-                            About StaxTech
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg">
-                            StaxTech is an online internship platform that offers project-based learning opportunities for students and professionals in various domains like Web Development, Python Programming, Data Science, Digital Marketing, and more. Our model is simple: you enroll, receive a project, complete it independently, and receive a certificate on successful submission and verification.
-                        </p>
-                    </div>
-
-                    <!-- Eligibility Section -->
-                    <div id="eligibility" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-accent-100 text-accent-500 p-2.5 rounded-xl"><i class="ph-duotone ph-users"></i></div>
-                            Eligibility Requirements
-                        </h2>
-                        <ul class="space-y-4 mt-4 text-slate-600 text-lg">
-                            <li class="flex items-start gap-3">
-                                <i class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"></i>
-                                <span>Anyone above the age of 14 is eligible to apply.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"></i>
-                                <span>No prior experience or academic qualification is necessary.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"></i>
-                                <span>Must have basic internet access, a device (computer or smartphone), and an active email ID.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Process Section -->
-                    <div id="process" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-indigo-100 text-indigo-500 p-2.5 rounded-xl"><i class="ph-duotone ph-list-numbers"></i></div>
-                            Internship Process
-                        </h2>
-                        <ul class="space-y-4 mt-4 text-slate-600 text-lg">
-                            <li class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100">
-                                <span class="font-extrabold text-brand-600 min-w-[60px]">Step 1</span>
-                                <span>Select your preferred domain from the available options.</span>
-                            </li>
-                            <li class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100">
-                                <span class="font-extrabold text-brand-600 min-w-[60px]">Step 2</span>
-                                <span>Pay a one-time non-refundable enrollment fee of ₹19.</span>
-                            </li>
-                            <li class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100">
-                                <span class="font-extrabold text-brand-600 min-w-[60px]">Step 3</span>
-                                <span>Receive your internship project link and instructions via email or WhatsApp.</span>
-                            </li>
-                            <li class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100">
-                                <span class="font-extrabold text-brand-600 min-w-[60px]">Step 4</span>
-                                <span>Complete the project independently within the deadline (usually 5–15 days).</span>
-                            </li>
-                            <li class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100">
-                                <span class="font-extrabold text-brand-600 min-w-[60px]">Step 5</span>
-                                <span>Pay ₹69 to receive your certificate after project review.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Payments Section -->
-                    <div id="payments" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-emerald-100 text-emerald-500 p-2.5 rounded-xl"><i class="ph-duotone ph-credit-card"></i></div>
-                            Payment Terms
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                            All payments made to StaxTech are final and non-refundable. We use secure payment gateways. Once a payment is confirmed, no cancellation or reversal is permitted.
-                        </p>
-                        <ul class="space-y-3 text-slate-600 text-lg ml-2">
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
-                                <span>Registration fee of ₹19 covers internship material access.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
-                                <span>Certificate fee of ₹69 is due after project verification.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
-                                <span>We are not liable for transaction issues due to technical problems.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Certification Section -->
-                    <div id="certification" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-amber-100 text-amber-500 p-2.5 rounded-xl"><i class="ph-duotone ph-certificate"></i></div>
-                            Certification Process
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                            Certificates are awarded only to those who complete the assigned project and pay the final fee of ₹69. Each certificate includes:
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                            <div class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm">
-                                <i class="ph-duotone ph-identification-card text-brand-500 text-2xl"></i>
-                                <span class="font-semibold text-slate-700">Full name & domain</span>
-                            </div>
-                            <div class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm">
-                                <i class="ph-duotone ph-calendar-check text-brand-500 text-2xl"></i>
-                                <span class="font-semibold text-slate-700">Duration & completion date</span>
-                            </div>
-                            <div class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm">
-                                <i class="ph-duotone ph-qr-code text-brand-500 text-2xl"></i>
-                                <span class="font-semibold text-slate-700">Unique verify ID</span>
-                            </div>
-                            <div class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm">
-                                <i class="ph-duotone ph-envelope-simple text-brand-500 text-2xl"></i>
-                                <span class="font-semibold text-slate-700">Digital delivery</span>
-                            </div>
-                        </div>
-                        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl">
-                            <p class="text-amber-800 text-sm font-semibold">
-                                <i class="ph-fill ph-info mr-1"></i> Note: Physical certificates are not provided. Projects with plagiarism or poor quality will be rejected.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Refund Section -->
-                    <div id="refund" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-red-100 text-red-500 p-2.5 rounded-xl"><i class="ph-duotone ph-money"></i></div>
-                            Refund Policy
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg mb-4 font-semibold">
-                            StaxTech maintains a strict no-refund policy for our digital services.
-                        </p>
-                        <ul class="space-y-3 text-slate-600 text-lg ml-2 mb-6">
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-x text-red-500 mt-1"></i>
-                                <span>No refunds for registration or certificate fees.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-x text-red-500 mt-1"></i>
-                                <span>Accidental payments are non-refundable.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-info text-slate-400 mt-1"></i>
-                                <span>Technical failures require proof for review.</span>
-                            </li>
-                        </ul>
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2"><i class="ph-fill ph-warning-circle text-brand-500"></i> Payment Issues?</h4>
-                                <p class="text-slate-600 text-sm mt-1">Valid cases will be reviewed within 7 business days.</p>
-                            </div>
-                            <a href="mailto:info@staxtech.in" class="px-5 py-2.5 bg-white border-2 border-slate-200 rounded-xl font-bold text-slate-700 hover:border-brand-500 hover:text-brand-600 transition-colors whitespace-nowrap">
-                                Email info@staxtech.in
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Conduct Section -->
-                    <div id="conduct" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-purple-100 text-purple-500 p-2.5 rounded-xl"><i class="ph-duotone ph-shield-check"></i></div>
-                            Code of Conduct
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                            We expect all interns to maintain professional conduct and ethics while using our platform.
-                        </p>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-600 text-base font-medium">
-                            <li class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
-                                <i class="ph-fill ph-file-dashed text-brand-500 text-xl"></i> Original work only (No AI/Plagiarism)
-                            </li>
-                            <li class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
-                                <i class="ph-fill ph-chats text-brand-500 text-xl"></i> Professional communications
-                            </li>
-                            <li class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
-                                <i class="ph-fill ph-mask-sad text-brand-500 text-xl"></i> No misrepresentation
-                            </li>
-                            <li class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
-                                <i class="ph-fill ph-prohibit text-brand-500 text-xl"></i> No fraudulent activities
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- IP Section -->
-                    <div id="ip" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-slate-100 text-slate-600 p-2.5 rounded-xl"><i class="ph-duotone ph-copyright"></i></div>
-                            Intellectual Property
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                            All StaxTech content and materials are protected by copyright laws.
-                        </p>
-                        <ul class="space-y-3 text-slate-600 text-lg ml-2">
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
-                                <span>Materials cannot be redistributed without permission.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
-                                <span>Intern projects may be used in our portfolio (anonymously).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
-                                <span>Commercial use of our materials is prohibited.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Usage Section -->
-                    <div id="usage" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <div class="bg-cyan-100 text-cyan-500 p-2.5 rounded-xl"><i class="ph-duotone ph-desktop"></i></div>
-                            Platform Usage
-                        </h2>
-                        <ul class="space-y-3 text-slate-600 text-lg ml-2">
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
-                                <span>No unauthorized system access attempts.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
-                                <span>Identity impersonation is strictly prohibited.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
-                                <span>Platform misuse may result in immediate termination and legal action.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Legal Section -->
-                    <div id="legal" class="scroll-mt-28 reveal">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <div class="bg-rose-100 text-rose-500 p-2.5 rounded-xl"><i class="ph-duotone ph-scales"></i></div>
-                            Legal Information
-                        </h2>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2">
-                                    <i class="ph-fill ph-briefcase text-slate-400"></i> No Job Guarantee
-                                </h3>
-                                <p class="text-slate-600 text-lg leading-relaxed">
-                                    Our internships are educational and do not guarantee employment or placement. They are designed for skill development and learning purposes only.
-                                </p>
-                            </div>
-                            
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2">
-                                    <i class="ph-fill ph-shield-warning text-slate-400"></i> Liability Limitations
-                                </h3>
-                                <p class="text-slate-600 text-lg leading-relaxed">
-                                    StaxTech is not liable for any damages related to platform use, data loss, or third-party issues.
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2">
-                                    <i class="ph-fill ph-file-text text-slate-400"></i> Terms Updates
-                                </h3>
-                                <p class="text-slate-600 text-lg leading-relaxed">
-                                    We may update these terms without notice. Changes will be posted here, and continued use implies acceptance.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact Section -->
-                    <div id="contact" class="scroll-mt-28 reveal bg-brand-50 p-8 rounded-3xl border border-brand-100 mt-8">
-                        <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <div class="bg-white text-brand-600 p-2.5 rounded-xl shadow-sm"><i class="ph-duotone ph-headset"></i></div>
-                            Need Clarification?
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center">
-                                <i class="ph-fill ph-envelope-simple text-3xl text-brand-500 mb-3"></i>
-                                <span class="font-bold text-slate-800 mb-1">Email Us</span>
-                                <a href="mailto:info@staxtech.in" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">info@staxtech.in</a>
-                            </div>
-                            <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center">
-                                <i class="ph-fill ph-whatsapp-logo text-3xl text-[#25D366] mb-3"></i>
-                                <span class="font-bold text-slate-800 mb-1">WhatsApp</span>
-                                <a href="tel:+918816925088" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">+91-8816925088</a>
-                            </div>
-                            <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center">
-                                <i class="ph-fill ph-globe text-3xl text-brand-500 mb-3"></i>
-                                <span class="font-bold text-slate-800 mb-1">Website</span>
-                                <a href="https://staxtech.in" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">staxtech.in</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-8 border-t border-slate-200/60 text-center">
-                        <p class="text-sm font-semibold text-slate-400 italic">
-                            These Terms & Conditions were last updated on October 26, 2023.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 animate-slide-up">
+        <div class="text-center mb-12">
+          <span
+            class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block"
+            >Legal & Policies</span
+          >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
+          >
+            Terms & <span class="text-gradient">Conditions</span>
+          </h1>
+          <p class="text-slate-600 text-lg max-w-2xl mx-auto font-medium">
+            These terms govern your access to and use of StaxTech's internship
+            platform and services. Please read them carefully.
+          </p>
         </div>
+
+        <!-- Glassmorphism Card Container -->
+        <div
+          class="bg-white/70 backdrop-blur-xl border border-white rounded-[2.5rem] shadow-glass overflow-hidden"
+        >
+          <!-- Table of Contents Section -->
+          <div class="p-8 md:p-10 border-b border-slate-200/60 bg-white/40">
+            <h3
+              class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2"
+            >
+              <i class="ph-duotone ph-list-dashes text-brand-500 text-2xl"></i>
+              Quick Navigation
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a
+                href="#about"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                About StaxTech
+              </a>
+              <a
+                href="#eligibility"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Eligibility
+              </a>
+              <a
+                href="#process"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Internship Process
+              </a>
+              <a
+                href="#payments"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Payments
+              </a>
+              <a
+                href="#certification"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Certification
+              </a>
+              <a
+                href="#refund"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Refund Policy
+              </a>
+              <a
+                href="#conduct"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Code of Conduct
+              </a>
+              <a
+                href="#ip"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Intellectual Property
+              </a>
+              <a
+                href="#usage"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Platform Usage
+              </a>
+              <a
+                href="#legal"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Legal Information
+              </a>
+              <a
+                href="#contact"
+                class="flex items-center gap-3 text-slate-600 hover:text-brand-600 font-medium transition-colors group"
+              >
+                <i
+                  class="ph-bold ph-arrow-right text-brand-400 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Contact Info
+              </a>
+            </div>
+          </div>
+
+          <div class="p-8 md:p-10 space-y-12">
+            <!-- About Section -->
+            <div id="about" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-brand-100 text-brand-600 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-buildings"></i>
+                </div>
+                About StaxTech
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-lg">
+                StaxTech is an online internship platform that offers
+                project-based learning opportunities for students and
+                professionals in various domains like Web Development, Python
+                Programming, Data Science, Digital Marketing, and more. Our
+                model is simple: you enroll, receive a project, complete it
+                independently, and receive a certificate on successful
+                submission and verification.
+              </p>
+            </div>
+
+            <!-- Eligibility Section -->
+            <div id="eligibility" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-accent-100 text-accent-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-users"></i>
+                </div>
+                Eligibility Requirements
+              </h2>
+              <ul class="space-y-4 mt-4 text-slate-600 text-lg">
+                <li class="flex items-start gap-3">
+                  <i
+                    class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"
+                  ></i>
+                  <span>Anyone above the age of 14 is eligible to apply.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"
+                  ></i>
+                  <span
+                    >No prior experience or academic qualification is
+                    necessary.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    class="ph-fill ph-check-circle text-brand-500 mt-1 text-xl flex-shrink-0"
+                  ></i>
+                  <span
+                    >Must have basic internet access, a device (computer or
+                    smartphone), and an active email ID.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Process Section -->
+            <div id="process" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-indigo-100 text-indigo-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-list-numbers"></i>
+                </div>
+                Internship Process
+              </h2>
+              <ul class="space-y-4 mt-4 text-slate-600 text-lg">
+                <li
+                  class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100"
+                >
+                  <span class="font-extrabold text-brand-600 min-w-[60px]"
+                    >Step 1</span
+                  >
+                  <span
+                    >Select your preferred domain from the available
+                    options.</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100"
+                >
+                  <span class="font-extrabold text-brand-600 min-w-[60px]"
+                    >Step 2</span
+                  >
+                  <span
+                    >Pay a one-time non-refundable enrollment fee of ₹19.</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100"
+                >
+                  <span class="font-extrabold text-brand-600 min-w-[60px]"
+                    >Step 3</span
+                  >
+                  <span
+                    >Receive your internship project link and instructions via
+                    email or WhatsApp.</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100"
+                >
+                  <span class="font-extrabold text-brand-600 min-w-[60px]"
+                    >Step 4</span
+                  >
+                  <span
+                    >Complete the project independently within the deadline
+                    (usually 5–15 days).</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3 bg-white/50 p-4 rounded-xl border border-slate-100"
+                >
+                  <span class="font-extrabold text-brand-600 min-w-[60px]"
+                    >Step 5</span
+                  >
+                  <span
+                    >Pay ₹69 to receive your certificate after project
+                    review.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Payments Section -->
+            <div id="payments" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-emerald-100 text-emerald-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-credit-card"></i>
+                </div>
+                Payment Terms
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                All payments made to StaxTech are final and non-refundable. We
+                use secure payment gateways. Once a payment is confirmed, no
+                cancellation or reversal is permitted.
+              </p>
+              <ul class="space-y-3 text-slate-600 text-lg ml-2">
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
+                  <span
+                    >Registration fee of ₹19 covers internship material
+                    access.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
+                  <span
+                    >Certificate fee of ₹69 is due after project
+                    verification.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-emerald-500 mt-1"></i>
+                  <span
+                    >We are not liable for transaction issues due to technical
+                    problems.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Certification Section -->
+            <div id="certification" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-amber-100 text-amber-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-certificate"></i>
+                </div>
+                Certification Process
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                Certificates are awarded only to those who complete the assigned
+                project and pay the final fee of ₹69. Each certificate includes:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div
+                  class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm"
+                >
+                  <i
+                    class="ph-duotone ph-identification-card text-brand-500 text-2xl"
+                  ></i>
+                  <span class="font-semibold text-slate-700"
+                    >Full name & domain</span
+                  >
+                </div>
+                <div
+                  class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm"
+                >
+                  <i
+                    class="ph-duotone ph-calendar-check text-brand-500 text-2xl"
+                  ></i>
+                  <span class="font-semibold text-slate-700"
+                    >Duration & completion date</span
+                  >
+                </div>
+                <div
+                  class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm"
+                >
+                  <i class="ph-duotone ph-qr-code text-brand-500 text-2xl"></i>
+                  <span class="font-semibold text-slate-700"
+                    >Unique verify ID</span
+                  >
+                </div>
+                <div
+                  class="bg-white/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3 shadow-sm"
+                >
+                  <i
+                    class="ph-duotone ph-envelope-simple text-brand-500 text-2xl"
+                  ></i>
+                  <span class="font-semibold text-slate-700"
+                    >Digital delivery</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl"
+              >
+                <p class="text-amber-800 text-sm font-semibold">
+                  <i class="ph-fill ph-info mr-1"></i> Note: Physical
+                  certificates are not provided. Projects with plagiarism or
+                  poor quality will be rejected.
+                </p>
+              </div>
+            </div>
+
+            <!-- Refund Section -->
+            <div id="refund" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-red-100 text-red-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-money"></i>
+                </div>
+                Refund Policy
+              </h2>
+              <p
+                class="text-slate-600 leading-relaxed text-lg mb-4 font-semibold"
+              >
+                StaxTech maintains a strict no-refund policy for our digital
+                services.
+              </p>
+              <ul class="space-y-3 text-slate-600 text-lg ml-2 mb-6">
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-x text-red-500 mt-1"></i>
+                  <span>No refunds for registration or certificate fees.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-x text-red-500 mt-1"></i>
+                  <span>Accidental payments are non-refundable.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-info text-slate-400 mt-1"></i>
+                  <span>Technical failures require proof for review.</span>
+                </li>
+              </ul>
+              <div
+                class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4"
+              >
+                <div>
+                  <h4
+                    class="font-bold text-slate-900 text-lg flex items-center gap-2"
+                  >
+                    <i class="ph-fill ph-warning-circle text-brand-500"></i>
+                    Payment Issues?
+                  </h4>
+                  <p class="text-slate-600 text-sm mt-1">
+                    Valid cases will be reviewed within 7 business days.
+                  </p>
+                </div>
+                <a
+                  href="mailto:info@staxtech.in"
+                  class="px-5 py-2.5 bg-white border-2 border-slate-200 rounded-xl font-bold text-slate-700 hover:border-brand-500 hover:text-brand-600 transition-colors whitespace-nowrap"
+                >
+                  Email info@staxtech.in
+                </a>
+              </div>
+            </div>
+
+            <!-- Conduct Section -->
+            <div id="conduct" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-purple-100 text-purple-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-shield-check"></i>
+                </div>
+                Code of Conduct
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                We expect all interns to maintain professional conduct and
+                ethics while using our platform.
+              </p>
+              <ul
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-600 text-base font-medium"
+              >
+                <li
+                  class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3"
+                >
+                  <i class="ph-fill ph-file-dashed text-brand-500 text-xl"></i>
+                  Original work only (No AI/Plagiarism)
+                </li>
+                <li
+                  class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3"
+                >
+                  <i class="ph-fill ph-chats text-brand-500 text-xl"></i>
+                  Professional communications
+                </li>
+                <li
+                  class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3"
+                >
+                  <i class="ph-fill ph-mask-sad text-brand-500 text-xl"></i> No
+                  misrepresentation
+                </li>
+                <li
+                  class="bg-white/50 p-4 rounded-xl border border-slate-100 flex items-center gap-3"
+                >
+                  <i class="ph-fill ph-prohibit text-brand-500 text-xl"></i> No
+                  fraudulent activities
+                </li>
+              </ul>
+            </div>
+
+            <!-- IP Section -->
+            <div id="ip" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-slate-100 text-slate-600 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-copyright"></i>
+                </div>
+                Intellectual Property
+              </h2>
+              <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                All StaxTech content and materials are protected by copyright
+                laws.
+              </p>
+              <ul class="space-y-3 text-slate-600 text-lg ml-2">
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
+                  <span
+                    >Materials cannot be redistributed without permission.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
+                  <span
+                    >Intern projects may be used in our portfolio
+                    (anonymously).</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-caret-right text-slate-400 mt-1"></i>
+                  <span>Commercial use of our materials is prohibited.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Usage Section -->
+            <div id="usage" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+              >
+                <div class="bg-cyan-100 text-cyan-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-desktop"></i>
+                </div>
+                Platform Usage
+              </h2>
+              <ul class="space-y-3 text-slate-600 text-lg ml-2">
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
+                  <span>No unauthorized system access attempts.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
+                  <span>Identity impersonation is strictly prohibited.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ph-bold ph-warning text-amber-500 mt-1"></i>
+                  <span
+                    >Platform misuse may result in immediate termination and
+                    legal action.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div id="legal" class="scroll-mt-28 reveal">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3"
+              >
+                <div class="bg-rose-100 text-rose-500 p-2.5 rounded-xl">
+                  <i class="ph-duotone ph-scales"></i>
+                </div>
+                Legal Information
+              </h2>
+
+              <div class="space-y-6">
+                <div>
+                  <h3
+                    class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2"
+                  >
+                    <i class="ph-fill ph-briefcase text-slate-400"></i> No Job
+                    Guarantee
+                  </h3>
+                  <p class="text-slate-600 text-lg leading-relaxed">
+                    Our internships are educational and do not guarantee
+                    employment or placement. They are designed for skill
+                    development and learning purposes only.
+                  </p>
+                </div>
+
+                <div>
+                  <h3
+                    class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2"
+                  >
+                    <i class="ph-fill ph-shield-warning text-slate-400"></i>
+                    Liability Limitations
+                  </h3>
+                  <p class="text-slate-600 text-lg leading-relaxed">
+                    StaxTech is not liable for any damages related to platform
+                    use, data loss, or third-party issues.
+                  </p>
+                </div>
+
+                <div>
+                  <h3
+                    class="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2"
+                  >
+                    <i class="ph-fill ph-file-text text-slate-400"></i> Terms
+                    Updates
+                  </h3>
+                  <p class="text-slate-600 text-lg leading-relaxed">
+                    We may update these terms without notice. Changes will be
+                    posted here, and continued use implies acceptance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div
+              id="contact"
+              class="scroll-mt-28 reveal bg-brand-50 p-8 rounded-3xl border border-brand-100 mt-8"
+            >
+              <h2
+                class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3"
+              >
+                <div class="bg-white text-brand-600 p-2.5 rounded-xl shadow-sm">
+                  <i class="ph-duotone ph-headset"></i>
+                </div>
+                Need Clarification?
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div
+                  class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center"
+                >
+                  <i
+                    class="ph-fill ph-envelope-simple text-3xl text-brand-500 mb-3"
+                  ></i>
+                  <span class="font-bold text-slate-800 mb-1">Email Us</span>
+                  <a
+                    href="mailto:info@staxtech.in"
+                    class="text-sm text-slate-500 hover:text-brand-600 transition-colors"
+                    >info@staxtech.in</a
+                  >
+                </div>
+                <div
+                  class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center"
+                >
+                  <i
+                    class="ph-fill ph-whatsapp-logo text-3xl text-[#25D366] mb-3"
+                  ></i>
+                  <span class="font-bold text-slate-800 mb-1">WhatsApp</span>
+                  <a
+                    href="tel:+918816925088"
+                    class="text-sm text-slate-500 hover:text-brand-600 transition-colors"
+                    >+91-8816925088</a
+                  >
+                </div>
+                <div
+                  class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col items-center text-center"
+                >
+                  <i class="ph-fill ph-globe text-3xl text-brand-500 mb-3"></i>
+                  <span class="font-bold text-slate-800 mb-1">Website</span>
+                  <a
+                    href="https://staxtech.in"
+                    class="text-sm text-slate-500 hover:text-brand-600 transition-colors"
+                    >staxtech.in</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200/60 text-center">
+              <p class="text-sm font-semibold text-slate-400 italic">
+                These Terms & Conditions were last updated on October 26, 2023.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white/60 backdrop-blur-md border-t border-white relative z-10 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                
-                <!-- Brand Col -->
-                <div class="space-y-4">
-                    <a href="home.html#home" class="flex items-center gap-2 mb-4">
-                        <img src="assets/logo2.png" alt="StaxTech Logo" class="h-8 w-auto" onerror="this.src='https://placehold.co/32x32/3b62ff/ffffff?text=ST';">
-                        <span class="text-lg font-extrabold tracking-tight text-slate-900">StaxTech</span>
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium leading-relaxed">
-                        Innovative technology solutions and hands-on internship programs empowering businesses and students.
-                    </p>
-                    <div class="flex gap-3 pt-2">
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-accent-50 hover:text-accent-500 hover:border-accent-200 transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
-                    </div>
-                </div>
-
-                <!-- Links Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="home.html#home" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Home</a></li>
-                        <li><a href="home.html#about" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">About</a></li>
-                        <li><a href="home.html#services" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Services</a></li>
-                        <li><a href="home.html#testimonials" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Testimonials</a></li>
-                        <li><a href="terms.html" class="text-sm font-semibold text-brand-600 transition-colors">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-
-                <!-- Internship Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Internships</h4>
-                    <ul class="space-y-3">
-                        <li><a href="https://staxtech.in/apply" target="_blank" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Apply Now</a></li>
-                        <li><a href="verify.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Verify Certificate</a></li>
-                        <li><a href="index.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Offer Letter Portal</a></li>
-                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Refer & Earn</a></li>
-                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">FAQs</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Contact Us</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-envelope-simple text-brand-500 mt-1"></i>
-                            <a href="mailto:info@staxtech.in" class="hover:text-brand-600 transition-colors">info@staxtech.in</a>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-phone-call text-brand-500 mt-1"></i>
-                            <a href="tel:+918816925088" class="hover:text-brand-600 transition-colors">+91 8816925088</a>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-map-pin text-brand-500 mt-1"></i>
-                            <span>Haryana, India</span>
-                        </li>
-                    </ul>
-                </div>
+    <footer
+      class="bg-white/60 backdrop-blur-md border-t border-white relative z-10 pt-16 pb-8"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          <!-- Brand Col -->
+          <div class="space-y-4">
+            <a href="home.html#home" class="flex items-center gap-2 mb-4">
+              <img
+                src="assets/logo2.png"
+                alt="StaxTech Logo"
+                class="h-8 w-auto"
+                onerror="
+                  this.src = 'https://placehold.co/32x32/3b62ff/ffffff?text=ST'
+                "
+              />
+              <span class="text-lg font-extrabold tracking-tight text-slate-900"
+                >StaxTech</span
+              >
+            </a>
+            <p class="text-sm text-slate-500 font-medium leading-relaxed">
+              Innovative technology solutions and hands-on internship programs
+              empowering businesses and students.
+            </p>
+            <div class="flex gap-3 pt-2">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"
+                ><i class="ph-fill ph-facebook-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-accent-50 hover:text-accent-500 hover:border-accent-200 transition-colors"
+                ><i class="ph-fill ph-twitter-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors"
+                ><i class="ph-fill ph-linkedin-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors"
+                ><i class="ph-fill ph-instagram-logo text-xl"></i
+              ></a>
             </div>
+          </div>
 
-            <div class="pt-8 border-t border-slate-200 text-center">
-                <p class="text-xs font-semibold text-slate-400">&copy; <span id="currentYear"></span> StaxTech Inc. All Rights Reserved.</p>
-            </div>
+          <!-- Links Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="home.html#home"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="home.html#about"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="home.html#services"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="home.html#testimonials"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="terms.html"
+                  class="text-sm font-semibold text-brand-600 transition-colors"
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Internship Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Internships</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://staxtech.in/apply"
+                  target="_blank"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Apply Now</a
+                >
+              </li>
+              <li>
+                <a
+                  href="verify.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Verify Certificate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Offer Letter Portal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Refer & Earn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Contact Us</h4>
+            <ul class="space-y-4">
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-envelope-simple text-brand-500 mt-1"></i>
+                <a
+                  href="mailto:info@staxtech.in"
+                  class="hover:text-brand-600 transition-colors"
+                  >info@staxtech.in</a
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-phone-call text-brand-500 mt-1"></i>
+                <a
+                  href="tel:+918816925088"
+                  class="hover:text-brand-600 transition-colors"
+                  >+91 8816925088</a
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-map-pin text-brand-500 mt-1"></i>
+                <span>Haryana, India</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="pt-8 border-t border-slate-200 text-center">
+          <p class="text-xs font-semibold text-slate-400">
+            &copy; <span id="currentYear"></span> StaxTech Inc. All Rights
+            Reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Set dynamic year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+      // Set dynamic year
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Preloader ---
-            const preloader = document.getElementById('preloader');
-            window.addEventListener('load', () => {
-                preloader.style.opacity = '0';
-                setTimeout(() => { preloader.style.visibility = 'hidden'; }, 500);
-            });
-
-            // --- Header Scroll Effect ---
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('shadow-md', 'bg-white/80');
-                    header.classList.remove('bg-white/40');
-                } else {
-                    header.classList.remove('shadow-md', 'bg-white/80');
-                    header.classList.add('bg-white/40');
-                }
-            });
-
-            // --- Mobile Menu Toggle ---
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                // Change icon
-                const icon = menuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('ph-x');
-                    icon.classList.add('ph-list');
-                } else {
-                    icon.classList.remove('ph-list');
-                    icon.classList.add('ph-x');
-                }
-            });
-
-            // Close mobile menu on link click
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.querySelector('i').classList.remove('ph-x');
-                    menuBtn.querySelector('i').classList.add('ph-list');
-                });
-            });
-
-            // --- Scroll Reveal Animation ---
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            };
-            
-            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                });
-            }, revealOptions);
-
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Preloader ---
+        const preloader = document.getElementById("preloader");
+        window.addEventListener("load", () => {
+          preloader.style.opacity = "0";
+          setTimeout(() => {
+            preloader.style.visibility = "hidden";
+          }, 500);
         });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 20) {
+            header.classList.add("shadow-md", "bg-white/80");
+            header.classList.remove("bg-white/40");
+          } else {
+            header.classList.remove("shadow-md", "bg-white/80");
+            header.classList.add("bg-white/40");
+          }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          // Change icon
+          const icon = menuBtn.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.classList.remove("ph-x");
+            icon.classList.add("ph-list");
+          } else {
+            icon.classList.remove("ph-list");
+            icon.classList.add("ph-x");
+          }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuBtn.querySelector("i").classList.remove("ph-x");
+            menuBtn.querySelector("i").classList.add("ph-list");
+          });
+        });
+
+        // --- Scroll Reveal Animation ---
+        const reveals = document.querySelectorAll(".reveal");
+        const revealOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const revealOnScroll = new IntersectionObserver(function (
+          entries,
+          observer,
+        ) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          });
+        }, revealOptions);
+
+        reveals.forEach((reveal) => {
+          revealOnScroll.observe(reveal);
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

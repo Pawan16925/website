@@ -1,579 +1,959 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Services - StaxTech | Digital & Learning Solutions</title>
 
-    <meta name="description" content="Explore StaxTech's services: custom software, web & mobile app development, cloud solutions, and hands-on internship programs for students." />
-    <meta name="keywords" content="StaxTech services, software development, web applications, mobile apps, cloud solutions, IT support, internships" />
+    <meta
+      name="description"
+      content="Explore StaxTech's services: custom software, web & mobile app development, cloud solutions, and hands-on internship programs for students."
+    />
+    <meta
+      name="keywords"
+      content="StaxTech services, software development, web applications, mobile apps, cloud solutions, IT support, internships"
+    />
     <meta name="author" content="StaxTech" />
-    
+
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <meta name="theme-color" content="#f0f4ff" />
 
     <!-- Google Fonts: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f4ff',
-                            100: '#e1e9ff',
-                            500: '#3b62ff',
-                            600: '#264bf2',
-                            900: '#14257a',
-                        },
-                        accent: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(59, 98, 255, 0.3)',
-                        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
-                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'shimmer': 'shimmer 2s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: 0, transform: 'translateY(30px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        },
-                        shimmer: {
-                            'from': { backgroundPosition: '200% 0' },
-                            'to': { backgroundPosition: '-200% 0' }
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f0f4ff",
+                100: "#e1e9ff",
+                500: "#3b62ff",
+                600: "#264bf2",
+                900: "#14257a",
+              },
+              accent: {
+                400: "#38bdf8",
+                500: "#0ea5e9",
+              },
+            },
+            boxShadow: {
+              glow: "0 0 20px rgba(59, 98, 255, 0.3)",
+              "inner-light": "inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)",
+              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "slide-up": "slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              shimmer: "shimmer 2s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              slideUp: {
+                "0%": { opacity: 0, transform: "translateY(30px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+              shimmer: {
+                from: { backgroundPosition: "200% 0" },
+                to: { backgroundPosition: "-200% 0" },
+              },
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        /* Modern Glassmorphism Background */
-        html { scroll-behavior: smooth; }
-        body {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+      /* Modern Glassmorphism Background */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: linear-gradient(135deg, #f0f4ff 0%, #e1e9ff 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-        /* Abstract Background Shapes */
-        .bg-shape {
-            position: fixed;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.5;
-            animation: float 10s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-        
-        .shape-1 {
-            top: -10%; left: -10%; width: 40vw; height: 40vw;
-            background: rgba(59, 98, 255, 0.3);
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-        }
+      /* Abstract Background Shapes */
+      .bg-shape {
+        position: fixed;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.5;
+        animation: float 10s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
 
-        .shape-2 {
-            bottom: 10%; right: -10%; width: 35vw; height: 35vw;
-            background: rgba(56, 189, 248, 0.3);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation-delay: -5s;
-        }
+      .shape-1 {
+        top: -10%;
+        left: -10%;
+        width: 40vw;
+        height: 40vw;
+        background: rgba(59, 98, 255, 0.3);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
 
-        /* Particle Canvas */
-        #particle-canvas {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.7; pointer-events: none;
-        }
+      .shape-2 {
+        bottom: 10%;
+        right: -10%;
+        width: 35vw;
+        height: 35vw;
+        background: rgba(56, 189, 248, 0.3);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: -5s;
+      }
 
-        /* Preloader */
-        #preloader { transition: opacity 0.5s ease, visibility 0.5s ease; }
+      /* Particle Canvas */
+      #particle-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.7;
+        pointer-events: none;
+      }
 
-        /* Glass Text Effect */
-        .text-gradient {
-            background: linear-gradient(to right, #14257a, #3b62ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      /* Preloader */
+      #preloader {
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
 
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0; transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+      /* Glass Text Effect */
+      .text-gradient {
+        background: linear-gradient(to right, #14257a, #3b62ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f0f4ff; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      /* Scroll Reveal Utility */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f0f4ff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
     </style>
-</head>
-<body class="font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white relative">
-
+  </head>
+  <body
+    class="font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white relative"
+  >
     <!-- Ambient Background Elements -->
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-md flex items-center justify-center">
-        <div class="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"></div>
+    <div
+      id="preloader"
+      class="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-md flex items-center justify-center"
+    >
+      <div
+        class="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"
+      ></div>
     </div>
 
     <!-- Glassmorphism Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/40 backdrop-blur-lg border-b border-white/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="home.html" class="flex items-center gap-2 group">
-                    <img src="assets/logo2.png" alt="StaxTech Logo" class="h-10 w-auto group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/40x40/3b62ff/ffffff?text=ST';">
-                    <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">StaxTech</span>
-                </a>
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/40 backdrop-blur-lg border-b border-white/40"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="home.html" class="flex items-center gap-2 group">
+            <img
+              src="assets/logo2.png"
+              alt="StaxTech Logo"
+              class="h-10 w-auto group-hover:scale-105 transition-transform"
+              onerror="
+                this.src = 'https://placehold.co/40x40/3b62ff/ffffff?text=ST'
+              "
+            />
+            <span
+              class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors"
+              >StaxTech</span
+            >
+          </a>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="home.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Home</a>
-                    <a href="home.html#about" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">About</a>
-                    <a href="services.html" class="text-sm font-bold text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:rounded-full">Services</a>
-                    <a href="verify.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Verify</a>
-                    <a href="terms.html" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Terms</a>
-                    <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg hover:bg-brand-600 hover:shadow-glow transition-all transform hover:-translate-y-0.5">
-                        Apply Now
-                    </a>
-                </nav>
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="home.html"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="home.html#about"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="services.html"
+              class="text-sm font-bold text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:rounded-full"
+              >Services</a
+            >
+            <a
+              href="verify.html"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Verify</a
+            >
+            <a
+              href="terms.html"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+              >Terms</a
+            >
+            <a
+              href="https://staxtech.in/apply?ref=STAXTECH"
+              target="_blank"
+              class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg hover:bg-brand-600 hover:shadow-glow transition-all transform hover:-translate-y-0.5"
+            >
+              Apply Now
+            </a>
+          </nav>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors">
-                    <i class="ph ph-list text-2xl"></i>
-                </button>
-            </div>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors"
+          >
+            <i class="ph ph-list text-2xl"></i>
+          </button>
         </div>
+      </div>
 
-        <!-- Mobile Nav Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden">
-            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
-                <a href="home.html" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Home</a>
-                <a href="home.html#about" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">About</a>
-                <a href="services.html" class="block px-3 py-3 text-base font-bold text-brand-600">Services</a>
-                <a href="verify.html" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Verify</a>
-                <a href="terms.html" class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600">Terms</a>
-                <a href="https://staxtech.in/apply?ref=STAXTECH" target="_blank" class="mt-4 w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold shadow-md">Apply Now</a>
-            </div>
+      <!-- Mobile Nav Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden"
+      >
+        <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
+          <a
+            href="home.html"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Home</a
+          >
+          <a
+            href="home.html#about"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="block px-3 py-3 text-base font-bold text-brand-600"
+            >Services</a
+          >
+          <a
+            href="verify.html"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Verify</a
+          >
+          <a
+            href="terms.html"
+            class="block px-3 py-3 text-base font-semibold text-slate-600 hover:text-brand-600"
+            >Terms</a
+          >
+          <a
+            href="https://staxtech.in/apply?ref=STAXTECH"
+            target="_blank"
+            class="mt-4 w-full text-center px-5 py-3 rounded-xl bg-brand-600 text-white font-bold shadow-md"
+            >Apply Now</a
+          >
         </div>
+      </div>
     </header>
 
     <main class="relative z-10">
-        
-        <!-- Hero Section -->
-        <section class="relative pt-40 pb-24 overflow-hidden flex items-center justify-center min-h-[50vh]">
-            <!-- 2D Particle Background -->
-            <canvas id="particle-canvas"></canvas>
-            
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up">
-                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block">What We Do</span>
-                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 text-slate-900 leading-[1.1]">
-                    Our <span class="text-gradient">Services</span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
-                    At StaxTech, we combine innovation and expertise to deliver top-notch digital solutions. Whether you’re a business looking to scale or an individual seeking tech support, we have the right services for you.
-                </p>
+      <!-- Hero Section -->
+      <section
+        class="relative pt-40 pb-24 overflow-hidden flex items-center justify-center min-h-[50vh]"
+      >
+        <!-- 2D Particle Background -->
+        <canvas id="particle-canvas"></canvas>
+
+        <div
+          class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up"
+        >
+          <span
+            class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block"
+            >What We Do</span
+          >
+          <h1
+            class="text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 text-slate-900 leading-[1.1]"
+          >
+            Our <span class="text-gradient">Services</span>
+          </h1>
+          <p
+            class="text-lg md:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed"
+          >
+            At StaxTech, we combine innovation and expertise to deliver
+            top-notch digital solutions. Whether you’re a business looking to
+            scale or an individual seeking tech support, we have the right
+            services for you.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Grid Section -->
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Service 1 -->
+            <div
+              class="reveal bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-brand-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 text-3xl mb-6 shadow-sm border border-brand-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-code"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                Software Development
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                We design and develop custom software solutions tailored to your
+                needs. From small tools to complex enterprise applications, our
+                team ensures robust, scalable, and user-friendly software.
+              </p>
             </div>
-        </section>
 
-        <!-- Services Grid Section -->
-        <section class="py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    
-                    <!-- Service 1 -->
-                    <div class="reveal bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 text-3xl mb-6 shadow-sm border border-brand-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Software Development</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">We design and develop custom software solutions tailored to your needs. From small tools to complex enterprise applications, our team ensures robust, scalable, and user-friendly software.</p>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="reveal delay-100 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-accent-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center text-accent-500 text-3xl mb-6 shadow-sm border border-accent-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-browser"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Web App Development</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Our experts build responsive and high-performance web applications that engage users and deliver results. We focus on modern technologies and smooth user experiences.</p>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="reveal delay-200 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 text-3xl mb-6 shadow-sm border border-indigo-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-device-mobile"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Mobile App Development</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Reach your audience on the go! We create Android and iOS apps with seamless functionality, intuitive design, and top-quality performance built natively or cross-platform.</p>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="reveal bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm border border-purple-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-cloud-arrow-up"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Cloud Solutions</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">Optimize your business operations with our cloud integration and management services. We help you store, access, and secure your data efficiently on AWS, GCP, or Azure.</p>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div class="reveal delay-100 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500 text-3xl mb-6 shadow-sm border border-emerald-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-headset"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">IT Solutions & Support</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">From troubleshooting to complete IT system management, we provide reliable IT services that keep your business running smoothly without technical interruptions.</p>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="reveal delay-200 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
-                        <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 text-3xl mb-6 shadow-sm border border-amber-100 group-hover:scale-110 transition-transform">
-                            <i class="ph-duotone ph-student"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Internship & Training</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed font-medium">We’re proud to offer hands-on internship programs. Gain real-world experience, work on live projects, and learn industry-ready skills under expert mentorship.</p>
-                    </div>
-
-                </div>
+            <!-- Service 2 -->
+            <div
+              class="reveal delay-100 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-accent-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center text-accent-500 text-3xl mb-6 shadow-sm border border-accent-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-browser"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                Web App Development
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                Our experts build responsive and high-performance web
+                applications that engage users and deliver results. We focus on
+                modern technologies and smooth user experiences.
+              </p>
             </div>
-        </section>
 
-        <!-- Why Choose Us Section -->
-        <section class="py-20 relative z-10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-                <div class="bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 md:p-12 lg:p-16 shadow-glass overflow-hidden relative">
-                    
-                    <!-- Abstract Decor inside card -->
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent-100 rounded-tr-full blur-3xl opacity-50 -ml-20 -mb-20 pointer-events-none"></div>
-
-                    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-                        <div>
-                            <span class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block">Our Advantage</span>
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 tracking-tight">Why Choose StaxTech?</h2>
-                            
-                            <ul class="space-y-5">
-                                <li class="flex items-start gap-4">
-                                    <div class="bg-white p-2 rounded-xl text-brand-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0">
-                                        <i class="ph-fill ph-check-circle text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-lg">Experienced Team</h4>
-                                        <p class="text-slate-600 font-medium text-sm mt-1">Skilled professionals with deep expertise across various technological domains.</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <div class="bg-white p-2 rounded-xl text-accent-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0">
-                                        <i class="ph-fill ph-check-circle text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-lg">Customized Solutions</h4>
-                                        <p class="text-slate-600 font-medium text-sm mt-1">Strategies and software specifically tailored to meet your unique goals and needs.</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <div class="bg-white p-2 rounded-xl text-indigo-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0">
-                                        <i class="ph-fill ph-check-circle text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-lg">Innovation Focused</h4>
-                                        <p class="text-slate-600 font-medium text-sm mt-1">We are always exploring new ideas, frameworks, and modern technologies.</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <div class="bg-white p-2 rounded-xl text-emerald-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0">
-                                        <i class="ph-fill ph-check-circle text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-lg">Learning & Growth</h4>
-                                        <p class="text-slate-600 font-medium text-sm mt-1">Empowering the next generation of students through practical, real-world exposure.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="relative group">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-400 to-accent-400 rounded-3xl transform -rotate-3 scale-105 opacity-20 group-hover:-rotate-6 transition-transform duration-500"></div>
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Team working together" 
-                                 class="relative rounded-3xl shadow-xl w-full object-cover aspect-[4/3] border border-white/50"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/800x600/f0f4ff/3b62ff?text=Our+Advantage';">
-                        </div>
-                    </div>
-                </div>
+            <!-- Service 3 -->
+            <div
+              class="reveal delay-200 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 text-3xl mb-6 shadow-sm border border-indigo-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-device-mobile"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                Mobile App Development
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                Reach your audience on the go! We create Android and iOS apps
+                with seamless functionality, intuitive design, and top-quality
+                performance built natively or cross-platform.
+              </p>
             </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="py-16 mb-12">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-                <div class="bg-gradient-to-br from-brand-600 to-brand-900 rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden shadow-xl shadow-brand-500/20">
-                    <!-- Abstract Decor -->
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent-400 opacity-20 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-                    
-                    <div class="relative z-10">
-                        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">Ready to grow with us?</h2>
-                        <p class="text-brand-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">Contact us today and discover how StaxTech can turn your digital ideas into reality.</p>
-                        
-                        <a href="mailto:info@staxtech.in" class="inline-flex items-center gap-2 py-4 px-8 rounded-2xl bg-white text-brand-600 font-bold text-lg hover:bg-brand-50 hover:shadow-glow hover:scale-105 transition-all duration-300">
-                            Get In Touch <i class="ph-bold ph-paper-plane-right"></i>
-                        </a>
-                    </div>
-                </div>
+            <!-- Service 4 -->
+            <div
+              class="reveal bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-purple-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 text-3xl mb-6 shadow-sm border border-purple-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-cloud-arrow-up"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                Cloud Solutions
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                Optimize your business operations with our cloud integration and
+                management services. We help you store, access, and secure your
+                data efficiently on AWS, GCP, or Azure.
+              </p>
             </div>
-        </section>
+
+            <!-- Service 5 -->
+            <div
+              class="reveal delay-100 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500 text-3xl mb-6 shadow-sm border border-emerald-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-headset"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                IT Solutions & Support
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                From troubleshooting to complete IT system management, we
+                provide reliable IT services that keep your business running
+                smoothly without technical interruptions.
+              </p>
+            </div>
+
+            <!-- Service 6 -->
+            <div
+              class="reveal delay-200 bg-white/70 backdrop-blur-xl border border-white rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-300 shadow-glass hover:shadow-xl group relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"
+              ></div>
+              <div
+                class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 text-3xl mb-6 shadow-sm border border-amber-100 group-hover:scale-110 transition-transform"
+              >
+                <i class="ph-duotone ph-student"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                Internship & Training
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                We’re proud to offer hands-on internship programs. Gain
+                real-world experience, work on live projects, and learn
+                industry-ready skills under expert mentorship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Section -->
+      <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+          <div
+            class="bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 md:p-12 lg:p-16 shadow-glass overflow-hidden relative"
+          >
+            <!-- Abstract Decor inside card -->
+            <div
+              class="absolute bottom-0 left-0 w-64 h-64 bg-accent-100 rounded-tr-full blur-3xl opacity-50 -ml-20 -mb-20 pointer-events-none"
+            ></div>
+
+            <div
+              class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10"
+            >
+              <div>
+                <span
+                  class="text-brand-600 font-bold tracking-wider uppercase text-sm mb-3 block"
+                  >Our Advantage</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 tracking-tight"
+                >
+                  Why Choose StaxTech?
+                </h2>
+
+                <ul class="space-y-5">
+                  <li class="flex items-start gap-4">
+                    <div
+                      class="bg-white p-2 rounded-xl text-brand-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0"
+                    >
+                      <i class="ph-fill ph-check-circle text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-lg">
+                        Experienced Team
+                      </h4>
+                      <p class="text-slate-600 font-medium text-sm mt-1">
+                        Skilled professionals with deep expertise across various
+                        technological domains.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <div
+                      class="bg-white p-2 rounded-xl text-accent-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0"
+                    >
+                      <i class="ph-fill ph-check-circle text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-lg">
+                        Customized Solutions
+                      </h4>
+                      <p class="text-slate-600 font-medium text-sm mt-1">
+                        Strategies and software specifically tailored to meet
+                        your unique goals and needs.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <div
+                      class="bg-white p-2 rounded-xl text-indigo-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0"
+                    >
+                      <i class="ph-fill ph-check-circle text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-lg">
+                        Innovation Focused
+                      </h4>
+                      <p class="text-slate-600 font-medium text-sm mt-1">
+                        We are always exploring new ideas, frameworks, and
+                        modern technologies.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <div
+                      class="bg-white p-2 rounded-xl text-emerald-500 shadow-sm border border-slate-100 mt-1 flex-shrink-0"
+                    >
+                      <i class="ph-fill ph-check-circle text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-800 text-lg">
+                        Learning & Growth
+                      </h4>
+                      <p class="text-slate-600 font-medium text-sm mt-1">
+                        Empowering the next generation of students through
+                        practical, real-world exposure.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute inset-0 bg-gradient-to-tr from-brand-400 to-accent-400 rounded-3xl transform -rotate-3 scale-105 opacity-20 group-hover:-rotate-6 transition-transform duration-500"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Team working together"
+                  class="relative rounded-3xl shadow-xl w-full object-cover aspect-[4/3] border border-white/50"
+                  onerror="
+                    this.onerror = null;
+                    this.src =
+                      'https://placehold.co/800x600/f0f4ff/3b62ff?text=Our+Advantage';
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-16 mb-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+          <div
+            class="bg-gradient-to-br from-brand-600 to-brand-900 rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden shadow-xl shadow-brand-500/20"
+          >
+            <!-- Abstract Decor -->
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-64 h-64 bg-accent-400 opacity-20 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"
+            ></div>
+
+            <div class="relative z-10">
+              <h2
+                class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
+              >
+                Ready to grow with us?
+              </h2>
+              <p
+                class="text-brand-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium"
+              >
+                Contact us today and discover how StaxTech can turn your digital
+                ideas into reality.
+              </p>
+
+              <a
+                href="mailto:info@staxtech.in"
+                class="inline-flex items-center gap-2 py-4 px-8 rounded-2xl bg-white text-brand-600 font-bold text-lg hover:bg-brand-50 hover:shadow-glow hover:scale-105 transition-all duration-300"
+              >
+                Get In Touch <i class="ph-bold ph-paper-plane-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white/60 backdrop-blur-md border-t border-white relative z-10 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                
-                <!-- Brand Col -->
-                <div class="space-y-4">
-                    <a href="home.html" class="flex items-center gap-2 mb-4">
-                        <img src="assets/logo2.png" alt="StaxTech Logo" class="h-8 w-auto" onerror="this.src='https://placehold.co/32x32/3b62ff/ffffff?text=ST';">
-                        <span class="text-lg font-extrabold tracking-tight text-slate-900">StaxTech</span>
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium leading-relaxed">
-                        Innovative technology solutions and hands-on internship programs empowering businesses and students.
-                    </p>
-                    <div class="flex gap-3 pt-2">
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-accent-50 hover:text-accent-500 hover:border-accent-200 transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
-                    </div>
-                </div>
-
-                <!-- Links Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="home.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Home</a></li>
-                        <li><a href="home.html#about" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">About</a></li>
-                        <li><a href="services.html" class="text-sm font-semibold text-brand-600 transition-colors">Services</a></li>
-                        <li><a href="home.html#testimonials" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Testimonials</a></li>
-                        <li><a href="terms.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-
-                <!-- Internship Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Internships</h4>
-                    <ul class="space-y-3">
-                        <li><a href="https://staxtech.in/apply" target="_blank" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Apply Now</a></li>
-                        <li><a href="verify.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Verify Certificate</a></li>
-                        <li><a href="index.html" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Offer Letter Portal</a></li>
-                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">Refer & Earn</a></li>
-                        <li><a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">FAQs</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6">Contact Us</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-envelope-simple text-brand-500 mt-1"></i>
-                            <a href="mailto:info@staxtech.in" class="hover:text-brand-600 transition-colors">info@staxtech.in</a>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-phone-call text-brand-500 mt-1"></i>
-                            <a href="tel:+918816925088" class="hover:text-brand-600 transition-colors">+91 8816925088</a>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-500">
-                            <i class="ph-fill ph-map-pin text-brand-500 mt-1"></i>
-                            <span>Haryana, India</span>
-                        </li>
-                    </ul>
-                </div>
+    <footer
+      class="bg-white/60 backdrop-blur-md border-t border-white relative z-10 pt-16 pb-8"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          <!-- Brand Col -->
+          <div class="space-y-4">
+            <a href="home.html" class="flex items-center gap-2 mb-4">
+              <img
+                src="assets/logo2.png"
+                alt="StaxTech Logo"
+                class="h-8 w-auto"
+                onerror="
+                  this.src = 'https://placehold.co/32x32/3b62ff/ffffff?text=ST'
+                "
+              />
+              <span class="text-lg font-extrabold tracking-tight text-slate-900"
+                >StaxTech</span
+              >
+            </a>
+            <p class="text-sm text-slate-500 font-medium leading-relaxed">
+              Innovative technology solutions and hands-on internship programs
+              empowering businesses and students.
+            </p>
+            <div class="flex gap-3 pt-2">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"
+                ><i class="ph-fill ph-facebook-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-accent-50 hover:text-accent-500 hover:border-accent-200 transition-colors"
+                ><i class="ph-fill ph-twitter-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors"
+                ><i class="ph-fill ph-linkedin-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-colors"
+                ><i class="ph-fill ph-instagram-logo text-xl"></i
+              ></a>
             </div>
+          </div>
 
-            <div class="pt-8 border-t border-slate-200 text-center">
-                <p class="text-xs font-semibold text-slate-400">&copy; <span id="currentYear"></span> StaxTech Inc. All Rights Reserved.</p>
-            </div>
+          <!-- Links Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="home.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="home.html#about"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-sm font-semibold text-brand-600 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="home.html#testimonials"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="terms.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Internship Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Internships</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://staxtech.in/apply"
+                  target="_blank"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Apply Now</a
+                >
+              </li>
+              <li>
+                <a
+                  href="verify.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Verify Certificate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Offer Letter Portal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >Refer & Earn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Col -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-6">Contact Us</h4>
+            <ul class="space-y-4">
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-envelope-simple text-brand-500 mt-1"></i>
+                <a
+                  href="mailto:info@staxtech.in"
+                  class="hover:text-brand-600 transition-colors"
+                  >info@staxtech.in</a
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-phone-call text-brand-500 mt-1"></i>
+                <a
+                  href="tel:+918816925088"
+                  class="hover:text-brand-600 transition-colors"
+                  >+91 8816925088</a
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 text-sm font-semibold text-slate-500"
+              >
+                <i class="ph-fill ph-map-pin text-brand-500 mt-1"></i>
+                <span>Haryana, India</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="pt-8 border-t border-slate-200 text-center">
+          <p class="text-xs font-semibold text-slate-400">
+            &copy; <span id="currentYear"></span> StaxTech Inc. All Rights
+            Reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Set dynamic year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+      // Set dynamic year
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Preloader ---
-            const preloader = document.getElementById('preloader');
-            window.addEventListener('load', () => {
-                preloader.style.opacity = '0';
-                setTimeout(() => { preloader.style.visibility = 'hidden'; }, 500);
-            });
-
-            // --- Header Scroll Effect ---
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('shadow-md', 'bg-white/80');
-                    header.classList.remove('bg-white/40');
-                } else {
-                    header.classList.remove('shadow-md', 'bg-white/80');
-                    header.classList.add('bg-white/40');
-                }
-            });
-
-            // --- Mobile Menu Toggle ---
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                // Change icon
-                const icon = menuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('ph-x');
-                    icon.classList.add('ph-list');
-                } else {
-                    icon.classList.remove('ph-list');
-                    icon.classList.add('ph-x');
-                }
-            });
-
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.querySelector('i').classList.remove('ph-x');
-                    menuBtn.querySelector('i').classList.add('ph-list');
-                });
-            });
-
-            // --- Scroll Reveal Animation ---
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
-            
-            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                });
-            }, revealOptions);
-
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
-
-            // --- Interactive 2D Particle Nebula adapted for Light Theme ---
-            const canvas = document.getElementById('particle-canvas');
-            if(canvas) {
-                const ctx = canvas.getContext('2d');
-                
-                // Adjust size handling
-                const resizeCanvas = () => {
-                    canvas.width = window.innerWidth;
-                    canvas.height = canvas.parentElement.offsetHeight;
-                };
-                resizeCanvas();
-                
-                let particles = [];
-                
-                class Particle {
-                    constructor(x, y, dirX, dirY, size) {
-                        this.x = x; this.y = y; this.dirX = dirX; this.dirY = dirY; this.size = size;
-                    }
-                    draw() {
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                        // Using the brand blue color with low opacity for light theme
-                        ctx.fillStyle = 'rgba(59, 98, 255, 0.4)';
-                        ctx.fill();
-                    }
-                    update() {
-                        if (this.x > canvas.width || this.x < 0) this.dirX = -this.dirX;
-                        if (this.y > canvas.height || this.y < 0) this.dirY = -this.dirY;
-                        this.x += this.dirX;
-                        this.y += this.dirY;
-                        this.draw();
-                    }
-                }
-
-                function initParticles() {
-                    particles = [];
-                    let numParticles = (canvas.height * canvas.width) / 10000;
-                    for (let i = 0; i < numParticles; i++) {
-                        let size = (Math.random() * 2) + 1;
-                        let x = Math.random() * (canvas.width - size * 2);
-                        let y = Math.random() * (canvas.height - size * 2);
-                        let dirX = (Math.random() * 0.4) - 0.2;
-                        let dirY = (Math.random() * 0.4) - 0.2;
-                        particles.push(new Particle(x, y, dirX, dirY, size));
-                    }
-                }
-
-                let animationId;
-                function animateParticles() {
-                    animationId = requestAnimationFrame(animateParticles);
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    for (let particle of particles) {
-                        particle.update();
-                    }
-                }
-                
-                initParticles();
-                animateParticles();
-
-                window.addEventListener('resize', () => {
-                    resizeCanvas();
-                    initParticles();
-                });
-
-                // Pause when out of view
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        cancelAnimationFrame(animationId);
-                    } else {
-                        animateParticles();
-                    }
-                });
-            }
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Preloader ---
+        const preloader = document.getElementById("preloader");
+        window.addEventListener("load", () => {
+          preloader.style.opacity = "0";
+          setTimeout(() => {
+            preloader.style.visibility = "hidden";
+          }, 500);
         });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 20) {
+            header.classList.add("shadow-md", "bg-white/80");
+            header.classList.remove("bg-white/40");
+          } else {
+            header.classList.remove("shadow-md", "bg-white/80");
+            header.classList.add("bg-white/40");
+          }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          // Change icon
+          const icon = menuBtn.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.classList.remove("ph-x");
+            icon.classList.add("ph-list");
+          } else {
+            icon.classList.remove("ph-list");
+            icon.classList.add("ph-x");
+          }
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuBtn.querySelector("i").classList.remove("ph-x");
+            menuBtn.querySelector("i").classList.add("ph-list");
+          });
+        });
+
+        // --- Scroll Reveal Animation ---
+        const reveals = document.querySelectorAll(".reveal");
+        const revealOptions = {
+          threshold: 0.15,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const revealOnScroll = new IntersectionObserver(function (
+          entries,
+          observer,
+        ) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          });
+        }, revealOptions);
+
+        reveals.forEach((reveal) => {
+          revealOnScroll.observe(reveal);
+        });
+
+        // --- Interactive 2D Particle Nebula adapted for Light Theme ---
+        const canvas = document.getElementById("particle-canvas");
+        if (canvas) {
+          const ctx = canvas.getContext("2d");
+
+          // Adjust size handling
+          const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+          };
+          resizeCanvas();
+
+          let particles = [];
+
+          class Particle {
+            constructor(x, y, dirX, dirY, size) {
+              this.x = x;
+              this.y = y;
+              this.dirX = dirX;
+              this.dirY = dirY;
+              this.size = size;
+            }
+            draw() {
+              ctx.beginPath();
+              ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+              // Using the brand blue color with low opacity for light theme
+              ctx.fillStyle = "rgba(59, 98, 255, 0.4)";
+              ctx.fill();
+            }
+            update() {
+              if (this.x > canvas.width || this.x < 0) this.dirX = -this.dirX;
+              if (this.y > canvas.height || this.y < 0) this.dirY = -this.dirY;
+              this.x += this.dirX;
+              this.y += this.dirY;
+              this.draw();
+            }
+          }
+
+          function initParticles() {
+            particles = [];
+            let numParticles = (canvas.height * canvas.width) / 10000;
+            for (let i = 0; i < numParticles; i++) {
+              let size = Math.random() * 2 + 1;
+              let x = Math.random() * (canvas.width - size * 2);
+              let y = Math.random() * (canvas.height - size * 2);
+              let dirX = Math.random() * 0.4 - 0.2;
+              let dirY = Math.random() * 0.4 - 0.2;
+              particles.push(new Particle(x, y, dirX, dirY, size));
+            }
+          }
+
+          let animationId;
+          function animateParticles() {
+            animationId = requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let particle of particles) {
+              particle.update();
+            }
+          }
+
+          initParticles();
+          animateParticles();
+
+          window.addEventListener("resize", () => {
+            resizeCanvas();
+            initParticles();
+          });
+
+          // Pause when out of view
+          document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+              cancelAnimationFrame(animationId);
+            } else {
+              animateParticles();
+            }
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
