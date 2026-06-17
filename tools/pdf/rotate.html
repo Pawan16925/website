@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotate PDF - Spin and Align PDF Pages Online for Free | StaxTech Tools</title>
+    
+    <!-- ==========================================
+         STREAMING_CHUNK: Configuring SEO Metadata Headers
+         ========================================== -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Rotate individual PDF pages or spin the entire document instantly. 100% private, free, and secure client-side editor with zero server uploads.">
+    <meta name="keywords" content="rotate pdf, spin pdf pages, rotate pdf online free, turn pdf portrait to landscape, fix upside down pdf, offline pdf editor">
+    <meta name="author" content="StaxTech Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://staxtech.in/tools/pdf/rotate.html">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staxtech.in/tools/pdf/rotate.html">
+    <meta property="og:title" content="Rotate PDF - Spin & Realign PDF Pages Online | StaxTech Tools">
+    <meta property="og:description" content="Realign misaligned, landscape, or upside-down PDF pages completely in your browser. Complete confidentiality with offline processing.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://staxtech.in/tools/pdf/rotate.html">
+    <meta property="twitter:title" content="Rotate PDF - Private Browser-Based PDF Page Rotator">
+    <meta property="twitter:description" content="Easily fix wrong orientations in your PDF layouts instantly. Your content never leaves your system.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema Markup for Search Engine Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rotate PDF - StaxTech Tools",
+      "url": "https://staxtech.in/tools/pdf/rotate.html",
+      "description": "High-fidelity, browser-based web application to adjust, spin, and align orientation values of single or multi-page PDFs.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+
+    <!-- External Client-Side Extraction & Compilation Engines (pdf-lib & pdf.js) -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+    <style>
+        /* Premium Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- ==========================================
+         STREAMING_CHUNK: Designing the Nav Header with Global Interconnected Search
+         ========================================== -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Left Branding & Suite Indicator -->
+            <div class="flex items-center space-x-4">
+                <a href="../index.html" class="flex items-center space-x-2 group">
+                    <svg class="w-5 h-5 text-slate-500 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="text-lg font-bold group-hover:text-primary-500 transition-colors hidden sm:inline-block">Dashboard</span>
+                </a>
+                <span class="text-slate-300 dark:text-slate-700">/</span>
+                <span class="bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400 text-xs px-2.5 py-1 rounded-full font-bold">PDF SUITE</span>
+            </div>
+
+            <!-- Integrated Quick Search Input inside Navigation Bar -->
+            <div class="relative max-w-xs w-full hidden md:block">
+                <input type="text" id="nav-search" placeholder="Jump to other tool..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:border-primary-500 text-xs transition-all text-slate-900 dark:text-white">
+                <div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+                    <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <!-- Dropdown panel showing real-time filter lists -->
+                <div id="nav-search-dropdown" class="hidden absolute top-12 left-0 right-0 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl max-h-60 overflow-y-auto z-50 p-2 text-xs"></div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-1">
+                    <span class="text-xl font-black bg-gradient-to-r from-primary-500 to-indigo-600 bg-clip-text text-transparent">StaxTech</span>
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-primary-500 transition-all" aria-label="Toggle theme mode">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464a1 1 0 10-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         STREAMING_CHUNK: Constructing Workspace and Sidebar Layout
+         ========================================== -->
+    <!-- Content Workspace -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Left 3 Columns: Active Conversion Desk -->
+        <div class="lg:col-span-3 space-y-6">
+            
+            <div class="mb-4">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                    Rotate PDF <span class="bg-gradient-to-r from-primary-500 to-indigo-500 bg-clip-text text-transparent">Pages Online</span>
+                </h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
+                    Quickly spin misaligned, landscape, or upside-down PDF pages. Work natively with direct offline execution for absolute security.
+                </p>
+            </div>
+
+            <!-- Toast Notification System -->
+            <div id="toast-notification" class="hidden fixed bottom-5 right-5 z-50 p-4 rounded-xl shadow-2xl bg-slate-950 text-white dark:bg-slate-800 border border-slate-700 flex items-center space-x-3 transition-all transform translate-y-10 opacity-0 duration-300">
+                <span id="toast-icon" class="text-xl">⚠️</span>
+                <span id="toast-message" class="text-sm font-semibold">Alert feedback</span>
+            </div>
+
+            <!-- Active Conversion Hub Box -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8">
+                
+                <!-- Upload Drop Zone -->
+                <div id="upload-zone" class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 rounded-2xl p-8 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/30">
+                    <input type="file" id="pdf-file-input" accept="application/pdf" class="hidden">
+                    <div class="flex flex-col items-center justify-center space-y-4">
+                        <div class="p-4 bg-primary-100 dark:bg-primary-950/50 text-primary-600 dark:text-primary-400 rounded-full text-4xl">
+                            🔄
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold">Drag & drop your PDF file here</p>
+                            <p class="text-sm text-slate-400 mt-1">or click to browse local storage</p>
+                        </div>
+                        <span class="text-xs text-primary-500 font-semibold bg-primary-50 dark:bg-primary-950/80 px-3 py-1 rounded-full font-bold">Secure local editor</span>
+                    </div>
+                </div>
+
+                <!-- Setup and Execution Panel (Initially hidden) -->
+                <div id="conversion-config" class="mt-6 hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4 gap-4">
+                        <div>
+                            <h3 class="text-md font-bold dark:text-white" id="loaded-file-name">document.pdf</h3>
+                            <p class="text-xs text-slate-400 mt-0.5" id="loaded-file-info">0 KB &bull; 0 Page(s)</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button id="rotate-all-cw" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-900 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 rounded-xl text-xs font-bold transition-all flex items-center space-x-1">
+                                <span>🔄 Rotate All CW</span>
+                            </button>
+                            <button id="rotate-all-ccw" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-900 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 rounded-xl text-xs font-bold transition-all flex items-center space-x-1">
+                                <span>🔄 Rotate All CCW</span>
+                            </button>
+                            <button id="reset-file-btn" class="px-3 py-1.5 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-500 hover:text-white text-rose-500 rounded-xl text-xs font-bold transition-all">
+                                <span>Change File</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive PDF Visual Grid -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Adjust Individual Pages</label>
+                        <div id="pdf-pages-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                            <!-- Dynamically populated page cards -->
+                        </div>
+                    </div>
+
+                    <!-- Form Trigger Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-5 gap-4">
+                        <div class="w-full sm:w-auto">
+                            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Output PDF Filename</label>
+                            <input type="text" id="target-filename" value="StaxTech_Rotated_Document" placeholder="Enter output name" class="w-full px-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:border-primary-500 text-sm dark:text-white">
+                        </div>
+
+                        <button id="convert-trigger-btn" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary-500 to-indigo-600 hover:from-primary-600 hover:to-indigo-700 text-white rounded-2xl font-bold shadow-lg shadow-primary-500/25 dark:shadow-none transition-all flex items-center justify-center space-x-2">
+                            <span>Save and Download PDF</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Processing Active Loader -->
+                <div id="processing-loader" class="hidden py-8 text-center">
+                    <div class="flex flex-col items-center justify-center space-y-4">
+                        <svg class="animate-spin h-10 w-10 text-primary-500" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <div>
+                            <p class="font-bold text-lg" id="loader-progress-text">Updating page rotation parameters...</p>
+                            <p class="text-xs text-slate-400 mt-1">Executing mathematical adjustments inside local memory. Please keep this browser window active.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversion Output Success Panel -->
+                <div id="success-results-card" class="hidden mt-8 space-y-6">
+                    <div class="p-6 rounded-2xl bg-green-500/5 dark:bg-green-500/10 border border-green-500/20 text-center">
+                        <div class="flex flex-col items-center justify-center space-y-3">
+                            <span class="text-4xl">🎉</span>
+                            <h3 class="text-lg font-bold text-green-600 dark:text-green-400">PDF Orientations Saved Successfully!</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 max-w-md">Your modified PDF has been saved with new alignment coordinates.</p>
+                            
+                            <a id="download-pdf-link" class="mt-2 inline-flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition-all cursor-pointer">
+                                <span>Download Aligned PDF File</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SEO Informational Block -->
+            <section class="mt-12 space-y-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">How to Spin & Rotate PDF Pages Natively</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Many scans or mobile photo uploads end up with wrong orientation defaults inside portable document structures. When you drop your PDF file in the area above, StaxTech's local engine uses standard HTML5 canvases to generate visual previews of every page in the document. You can easily click rotate triggers underneath specific pages or adjust all pages globally in one step. The final file compiler updates the core document vector dictionary without ever altering your file's text layers, layouts, or quality.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ==========================================
+             STREAMING_CHUNK: Setting up Related Tools Recommendations (Sidebar)
+             ========================================== -->
+        <!-- Right Sidebar panel (1 Column): Suggested tools for SEO link building and UX retention -->
+        <aside class="space-y-6">
+            
+            <!-- Contextual Sibling Recommendations -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-400">Related PDF Utilities</h4>
+                <div class="space-y-3">
+                    <a href="merge.html" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-primary-50 dark:bg-slate-900/50 dark:hover:bg-primary-950/25 rounded-xl border border-slate-200/50 dark:border-slate-800 transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">📄</span>
+                            <div>
+                                <p class="text-xs font-bold dark:text-white">Merge PDF</p>
+                                <p class="text-[10px] text-slate-400">Combine layout streams</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">➡️</span>
+                    </a>
+
+                    <a href="split.html" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-primary-50 dark:bg-slate-900/50 dark:hover:bg-primary-950/25 rounded-xl border border-slate-200/50 dark:border-slate-800 transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">✂️</span>
+                            <div>
+                                <p class="text-xs font-bold dark:text-white">Split PDF</p>
+                                <p class="text-[10px] text-slate-400">Extract target pages</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">➡️</span>
+                    </a>
+
+                    <a href="compress.html" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-primary-50 dark:bg-slate-900/50 dark:hover:bg-primary-950/25 rounded-xl border border-slate-200/50 dark:border-slate-800 transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">🗜️</span>
+                            <div>
+                                <p class="text-xs font-bold dark:text-white">Compress PDF</p>
+                                <p class="text-[10px] text-slate-400">Shrink files natively</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">➡️</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interconnected Developer utilities -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-400">Popular Web Tools</h4>
+                <div class="space-y-3">
+                    <a href="../developer/json-formatter.html" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-primary-50 dark:bg-slate-900/50 dark:hover:bg-primary-950/25 rounded-xl border border-slate-200/50 dark:border-slate-800 transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">⚙️</span>
+                            <div>
+                                <p class="text-xs font-bold dark:text-white">JSON Formatter</p>
+                                <p class="text-[10px] text-slate-400">Format and inspect structures</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">➡️</span>
+                    </a>
+
+                    <a href="../image/compress.html" class="flex items-center justify-between p-3 bg-slate-50 hover:bg-primary-50 dark:bg-slate-900/50 dark:hover:bg-primary-950/25 rounded-xl border border-slate-200/50 dark:border-slate-800 transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">🖼️</span>
+                            <div>
+                                <p class="text-xs font-bold dark:text-white">Image Compressor</p>
+                                <p class="text-[10px] text-slate-400">Reduce photobook footprints</p>
+                            </div>
+                        </div>
+                        <span class="text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">➡️</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Privacy sandbox badge -->
+            <div class="p-5 bg-gradient-to-br from-primary-50 to-indigo-50 dark:from-slate-950 dark:to-slate-900 border border-primary-500/10 rounded-3xl space-y-2">
+                <span class="text-xl">🛡️</span>
+                <p class="text-xs font-bold">Absolute Sandbox Security</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    StaxTech utility engines operate exclusively in local browser RAM. No document contents are sent to external databases or servers.
+                </p>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span>&copy; 2026 StaxTech Suite. Completely private offline utilities.</span>
+            <div class="flex space-x-4">
+                <a href="../index.html" class="hover:text-primary-500 transition-colors">All Tools</a>
+                <span class="text-slate-300 dark:text-slate-800">|</span>
+                <span class="text-slate-400">Secure Browser Sandbox Mode</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         STREAMING_CHUNK: Initializing JS Engine & Setup Core Compilation Logic
+         ========================================== -->
+    <script>
+        // Micro-Database for Interconnected Nav Search Component
+        const sidebarToolsDb = [
+            { title: "Merge PDF", url: "merge.html" },
+            { title: "Split PDF", url: "split.html" },
+            { title: "Compress PDF", url: "compress.html" },
+            { title: "PDF to Word", url: "pdf-to-word.html" },
+            { title: "Word to PDF", url: "word-to-pdf.html" },
+            { title: "PDF to JPG", url: "pdf-to-jpg.html" },
+            { title: "JPG to PDF", url: "jpg-to-pdf.html" },
+            { title: "Rotate PDF", url: "rotate.html" },
+            { title: "JSON Formatter", url: "../developer/json-formatter.html" },
+            { title: "Image Compressor", url: "../image/compress.html" },
+            { title: "Age Calculator", url: "../calculator/age.html" }
+        ];
+
+        // Specify URL worker path for PDF.js processing engine safely
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        // State Holders
+        let loadedFile = null;
+        let originalPageRotations = []; // Array of base degrees: [0, 90, 180, 270...]
+        let addedRotations = [];        // User's interactive additions relative to base: [0, 0, 0...]
+
+        // Dom Elements Caching
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        const navSearch = document.getElementById('nav-search');
+        const navSearchDropdown = document.getElementById('nav-search-dropdown');
+
+        const uploadZone = document.getElementById('upload-zone');
+        const pdfFileInput = document.getElementById('pdf-file-input');
+        const conversionConfigPanel = document.getElementById('conversion-config');
+        const loadedFileName = document.getElementById('loaded-file-name');
+        const loadedFileInfo = document.getElementById('loaded-file-info');
+        const resetFileBtn = document.getElementById('reset-file-btn');
+        const convertTriggerBtn = document.getElementById('convert-trigger-btn');
+        const processingLoader = document.getElementById('processing-loader');
+        const loaderProgressText = document.getElementById('loader-progress-text');
+        const successResultsCard = document.getElementById('success-results-card');
+        const pdfPagesGrid = document.getElementById('pdf-pages-grid');
+        const downloadPdfLink = document.getElementById('download-pdf-link');
+        const targetFilenameInput = document.getElementById('target-filename');
+
+        const rotateAllCwBtn = document.getElementById('rotate-all-cw');
+        const rotateAllCcwBtn = document.getElementById('rotate-all-ccw');
+
+        // Nav Search Functionality
+        navSearch.addEventListener('input', function() {
+            const val = this.value.trim().toLowerCase();
+            if(!val) {
+                navSearchDropdown.classList.add('hidden');
+                return;
+            }
+            const hits = sidebarToolsDb.filter(t => t.title.toLowerCase().includes(val));
+            if(hits.length === 0) {
+                navSearchDropdown.classList.remove('hidden');
+                navSearchDropdown.innerHTML = `<div class="p-2 text-slate-400">No tools match</div>`;
+                return;
+            }
+            navSearchDropdown.classList.remove('hidden');
+            navSearchDropdown.innerHTML = hits.map(t => `
+                <a href="${t.url}" class="block p-2 rounded hover:bg-primary-50 dark:hover:bg-primary-950/40 text-slate-700 dark:text-slate-300 font-medium">
+                    ${t.title}
+                </a>
+            `).join('');
+        });
+
+        // Hide search on outside clicks
+        document.addEventListener('click', function(e) {
+            if(!navSearch.contains(e.target) && !navSearchDropdown.contains(e.target)) {
+                navSearchDropdown.classList.add('hidden');
+            }
+        });
+
+        // Toast Trigger Helper
+        function triggerToast(message, icon = "⚠️") {
+            const toast = document.getElementById('toast-notification');
+            const msgEl = document.getElementById('toast-message');
+            const iconEl = document.getElementById('toast-icon');
+
+            msgEl.textContent = message;
+            iconEl.textContent = icon;
+
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 3500);
+        }
+
+        // Theme preference loader
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Upload Mechanics
+        uploadZone.addEventListener('click', () => pdfFileInput.click());
+        pdfFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                loadSelectedPdf(e.target.files[0]);
+            }
+            pdfFileInput.value = '';
+        });
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+        });
+
+        ['dragleave', 'dragend'].forEach(ev => {
+            uploadZone.addEventListener(ev, () => {
+                uploadZone.classList.remove('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+            });
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+            if(e.dataTransfer.files.length > 0) {
+                loadSelectedPdf(e.dataTransfer.files[0]);
+            }
+        });
+
+        // ==========================================
+        // ==========================================
+        async function loadSelectedPdf(file) {
+            if(file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+                triggerToast('Only valid PDF files are supported', '❌');
+                return;
+            }
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                
+                // Initialize clean PDF-Lib model to extract genuine page counts and original rotation variables
+                const pdfLibDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                const pageCount = pdfLibDoc.getPageCount();
+
+                loadedFile = {
+                    name: file.name,
+                    sizeFormatted: formatBytes(file.size),
+                    pages: pageCount,
+                    buffer: arrayBuffer
+                };
+
+                originalPageRotations = [];
+                addedRotations = [];
+
+                for (let i = 0; i < pageCount; i++) {
+                    const pageObj = pdfLibDoc.getPage(i);
+                    // Standard angles are usually 0, 90, 180, 270
+                    const angle = pageObj.getRotation().angle || 0;
+                    originalPageRotations.push(angle);
+                    addedRotations.push(0); // Start with 0 modifications
+                }
+
+                // Populate UI elements
+                loadedFileName.textContent = loadedFile.name;
+                loadedFileInfo.innerHTML = `${loadedFile.sizeFormatted} &bull; ${loadedFile.pages} Page(s)`;
+                targetFilenameInput.value = loadedFile.name.replace('.pdf', '') + '_rotated';
+
+                // Adjust UI panels
+                uploadZone.classList.add('hidden');
+                conversionConfigPanel.classList.remove('hidden');
+                successResultsCard.classList.add('hidden');
+
+                // Render thumbnail layouts
+                renderPagesGrid();
+
+            } catch(e) {
+                console.error("PDF.js local parser engine error:", e);
+                triggerToast('Failed to parse document. Ensure the PDF is uncorrupted.', '❌');
+            }
+        }
+
+        function formatBytes(bytes) {
+            if(bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // ==========================================
+        // ==========================================
+        async function renderPagesGrid() {
+            pdfPagesGrid.innerHTML = "";
+            
+            // Initialize rendering instance for PDF.js thumbnail engine
+            const loadingTask = pdfjsLib.getDocument({data: loadedFile.buffer});
+            const pdf = await loadingTask.promise;
+
+            for (let i = 1; i <= loadedFile.pages; i++) {
+                const pageIndex = i - 1;
+                
+                // Create clean structural elements
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+                
+                const canvasWrapper = document.createElement('div');
+                canvasWrapper.className = "relative w-full aspect-[3/4] bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-850 rounded-xl overflow-hidden flex items-center justify-center p-2";
+
+                const canvas = document.createElement('canvas');
+                canvas.id = `canvas-page-${pageIndex}`;
+                canvas.className = "max-w-full max-h-full object-contain transition-transform duration-300";
+                
+                // Set initial visual rotation degree
+                const startDegrees = (originalPageRotations[pageIndex] + addedRotations[pageIndex]) % 360;
+                canvas.style.transform = `rotate(${startDegrees}deg)`;
+
+                canvasWrapper.appendChild(canvas);
+                card.appendChild(canvasWrapper);
+
+                const controls = document.createElement('div');
+                controls.className = "space-y-2 mt-auto";
+                controls.innerHTML = `
+                    <div class="text-[11px] font-bold dark:text-slate-400">Page ${i}</div>
+                    <div class="flex items-center justify-center space-x-1.5">
+                        <button onclick="rotatePage(${pageIndex}, -90)" class="p-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 transition-all text-xs font-bold" title="Rotate Left">↩️</button>
+                        <button onclick="rotatePage(${pageIndex}, 90)" class="p-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 transition-all text-xs font-bold" title="Rotate Right">↪️</button>
+                    </div>
+                `;
+                card.appendChild(controls);
+                pdfPagesGrid.appendChild(card);
+
+                // Render the page canvas cleanly off-thread
+                renderThumbnailCanvas(pdf, i, canvas);
+            }
+        }
+
+        async function renderThumbnailCanvas(pdf, pageNumber, canvas) {
+            try {
+                const page = await pdf.getPage(pageNumber);
+                const viewport = page.getViewport({ scale: 0.4 }); // Scaled down rendering for lightweight UI
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                await page.render(renderContext).promise;
+            } catch (err) {
+                console.error("Page thumbnail rendering exception: ", err);
+            }
+        }
+
+        // ==========================================
+        // ==========================================
+        window.rotatePage = function(pageIndex, degreesOffset) {
+            // Apply modification
+            addedRotations[pageIndex] = (addedRotations[pageIndex] + degreesOffset) % 360;
+            if (addedRotations[pageIndex] < 0) addedRotations[pageIndex] += 360;
+
+            // Instantly rotate matching canvas element smoothly in CSS coordinates
+            const canvasEl = document.getElementById(`canvas-page-${pageIndex}`);
+            if (canvasEl) {
+                const totalDegree = (originalPageRotations[pageIndex] + addedRotations[pageIndex]) % 360;
+                canvasEl.style.transform = `rotate(${totalDegree}deg)`;
+            }
+        };
+
+        // Rotate All actions
+        rotateAllCwBtn.addEventListener('click', () => {
+            for (let i = 0; i < loadedFile.pages; i++) {
+                rotatePage(i, 90);
+            }
+            triggerToast('Rotated all pages 90° Clockwise!', '↪️');
+        });
+
+        rotateAllCcwBtn.addEventListener('click', () => {
+            for (let i = 0; i < loadedFile.pages; i++) {
+                rotatePage(i, -90);
+            }
+            triggerToast('Rotated all pages 90° Counter-Clockwise!', '↩️');
+        });
+
+        resetFileBtn.addEventListener('click', () => {
+            loadedFile = null;
+            originalPageRotations = [];
+            addedRotations = [];
+            pdfPagesGrid.innerHTML = "";
+            uploadZone.classList.remove('hidden');
+            conversionConfigPanel.classList.add('hidden');
+            successResultsCard.classList.add('hidden');
+        });
+
+        // ==========================================
+        // ==========================================
+        convertTriggerBtn.addEventListener('click', async () => {
+            if(!loadedFile) return;
+
+            convertTriggerBtn.disabled = true;
+            processingLoader.classList.remove('hidden');
+            successResultsCard.classList.add('hidden');
+
+            try {
+                loaderProgressText.textContent = `Loading core document elements...`;
+                
+                // Initialize clean PDF-Lib model
+                const pdfLibDoc = await PDFLib.PDFDocument.load(loadedFile.buffer);
+                const pageCount = pdfLibDoc.getPageCount();
+
+                for (let i = 0; i < pageCount; i++) {
+                    loaderProgressText.textContent = `Applying vector rotation for page ${i + 1} of ${pageCount}...`;
+                    
+                    const page = pdfLibDoc.getPage(i);
+                    
+                    // Math layout setup: original + user modifications
+                    const finalAngle = (originalPageRotations[i] + addedRotations[i]) % 360;
+                    
+                    // Apply exact orientation parameter to document dictionary page
+                    page.setRotation(PDFLib.degrees(finalAngle));
+                }
+
+                loaderProgressText.textContent = `Compiling single PDF package...`;
+                const finalBytes = await pdfLibDoc.save();
+                const finalBlob = new Blob([finalBytes], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(finalBlob);
+
+                // Set download link parameters
+                let outputFilename = targetFilenameInput.value.trim();
+                if (!outputFilename) outputFilename = 'StaxTech_Rotated_Document';
+                if (!outputFilename.endsWith('.pdf')) outputFilename += '.pdf';
+
+                downloadPdfLink.href = blobUrl;
+                downloadPdfLink.download = outputFilename;
+
+                processingLoader.classList.add('hidden');
+                successResultsCard.classList.remove('hidden');
+                triggerToast('Orientations updated successfully!', '🎉');
+
+            } catch (e) {
+                console.error("Local PDF Rotation Exception: ", e);
+                processingLoader.classList.add('hidden');
+                triggerToast('An error occurred during orientation compilation', '❌');
+            } finally {
+                convertTriggerBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

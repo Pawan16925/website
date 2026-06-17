@@ -7,7 +7,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -20,7 +19,6 @@
             justify-content: center;
         }
 
-        /* Smooth interactive transitions */
         .action-card {
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -30,7 +28,6 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
         }
 
-        /* Loading Spinner */
         .loader {
             width: 20px;
             height: 20px;
@@ -44,7 +41,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Smooth Entrance Animation */
         .fade-in-up {
             animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -65,9 +61,7 @@
 
     <div class="w-full max-w-xl bg-white rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100 transition-all duration-300">
         
-        <!-- Header -->
         <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white p-8 sm:p-10 text-center relative overflow-hidden">
-            <!-- Decorative background elements -->
             <div class="absolute top-[-20%] left-[-10%] w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
             <div class="absolute bottom-[-20%] right-[-10%] w-40 h-40 bg-blue-400/20 rounded-full blur-2xl"></div>
 
@@ -80,8 +74,7 @@
         </div>
 
         <div class="p-6 sm:p-8">
-            <!-- Search Form -->
-            <form onsubmit="event.preventDefault(); findOfferLetter();" class="space-y-5">
+            <form id="searchForm" class="space-y-5 transition-all duration-500">
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">
                         Registered Email or Phone Number
@@ -101,6 +94,7 @@
 
                 <button 
                     id="searchBtn" 
+                    type="submit"
                     class="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-bold py-3.5 rounded-xl transition-all duration-200 flex justify-center items-center gap-2 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                     <span id="btnText">Search Records</span>
@@ -108,13 +102,10 @@
                 </button>
             </form>
 
-            <!-- Results & Quick Links Container (Hidden Initially) -->
-            <div id="resultContainer" class="hidden mt-8 space-y-8">
+            <div id="resultContainer" class="hidden mt-2 space-y-8">
                 
-                <!-- Dynamic Search Result Content -->
                 <div id="resultContent" class="fade-in-up"></div>
 
-                <!-- Quick Links (Only shown on success) -->
                 <div id="quickLinksSection" class="hidden fade-in-up" style="animation-delay: 0.1s;">
                     <div class="flex items-center gap-3 mb-4">
                         <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -142,11 +133,17 @@
                             <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
                                 <i class="ph ph-linkedin-logo text-xl"></i>
                             </div>
-                            <span class="text-sm">Follow StaxTech on LinkedIn</span>
+                            <span class="text-sm">Follow StaxTech</span>
                         </a>
                     </div>
+                    
+                    <div class="text-center mt-6">
+                        <button onclick="resetSearch()" class="text-sm font-semibold text-slate-500 hover:text-blue-600 transition-colors flex items-center justify-center gap-2 mx-auto">
+                            <i class="ph ph-arrow-counter-clockwise"></i>
+                            Search Another Record
+                        </button>
+                    </div>
                 </div>
-
             </div>
 
         </div>
@@ -155,7 +152,6 @@
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbxKZLnhIYwEIouuTfxlyEehTyVMz14pcStu-3OPSEzprbH7HfD_N4_BOMX5ZwAhlRueFQ/exec";
 const PROJECTS_URL = "https://drive.google.com/drive/folders/1kvnKaleE7i_2soNfTs99K3ikfcqLlvY8";
-const SUBMISSION_URL = "https://staxtech.in/project-submission";
 
 const queryInput = document.getElementById("query");
 const resultContainer = document.getElementById("resultContainer");
@@ -164,13 +160,27 @@ const quickLinksSection = document.getElementById("quickLinksSection");
 const btnText = document.getElementById("btnText");
 const btnLoader = document.getElementById("btnLoader");
 const searchBtn = document.getElementById("searchBtn");
+const searchForm = document.getElementById("searchForm");
+
+searchForm.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    findOfferLetter();
+});
+
+// Function to reset the view if they want to search again
+function resetSearch() {
+    searchForm.classList.remove("hidden");
+    resultContainer.classList.add("hidden");
+    quickLinksSection.classList.add("hidden");
+    queryInput.value = "";
+    queryInput.focus();
+}
 
 function setLoading(loading) {
     if (loading) {
         btnText.classList.add("hidden");
         btnLoader.classList.remove("hidden");
         searchBtn.disabled = true;
-        // Hide previous results instantly when starting new search
         resultContainer.classList.add("hidden"); 
         quickLinksSection.classList.add("hidden");
     } else {
@@ -184,7 +194,6 @@ async function findOfferLetter() {
     const query = queryInput.value.trim();
 
     if (!query) {
-        // Trigger a simple shake animation on input if empty
         queryInput.classList.add('ring-2', 'ring-red-500');
         setTimeout(() => queryInput.classList.remove('ring-2', 'ring-red-500'), 1500);
         return;
@@ -196,15 +205,17 @@ async function findOfferLetter() {
         const response = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`);
         const data = await response.json();
 
-        // Reset animation states by removing and re-adding the class
         resultContent.classList.remove("fade-in-up");
-        void resultContent.offsetWidth; // Trigger reflow
+        void resultContent.offsetWidth; 
         resultContent.classList.add("fade-in-up");
 
         if (data.status === "success") {
+            
+            // HIDE THE SEARCH FORM UPON SUCCESS
+            searchForm.classList.add("hidden");
+
             resultContent.innerHTML = `
                 <div class="bg-white border-2 border-blue-100 rounded-[1.5rem] p-5 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
-                    <!-- Subtle background glow -->
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
                     
                     <div class="flex items-center gap-4 relative z-10">
@@ -261,10 +272,12 @@ async function findOfferLetter() {
                     </div>
                 </div>
             `;
-            // Unhide Quick Links on success
             quickLinksSection.classList.remove("hidden");
             
         } else {
+            // Keep the form visible if no record is found so they can fix a typo
+            searchForm.classList.remove("hidden");
+
             resultContent.innerHTML = `
                 <div class="bg-red-50 border-2 border-red-100 rounded-[1.5rem] p-6 text-center shadow-sm">
                     <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -274,13 +287,13 @@ async function findOfferLetter() {
                     <p class="text-red-500/80 mt-1 text-sm font-medium">Please verify your email or phone number and try again.</p>
                 </div>
             `;
-            // Keep Quick Links hidden on failure
             quickLinksSection.classList.add("hidden");
         }
 
         resultContainer.classList.remove("hidden");
 
     } catch (error) {
+        searchForm.classList.remove("hidden");
         resultContent.innerHTML = `
             <div class="bg-red-50 border-2 border-red-100 rounded-[1.5rem] p-6 text-center shadow-sm">
                 <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
