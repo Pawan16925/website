@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StaxTech Tools - Free Premium Online Web Tools Hub</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Access over 70+ premium online web tools for free. Edit PDFs, compress images, utilize developer utilities, calculate dynamic financials, optimize SEO, and much more under StaxTech Tools.">
+    <meta name="keywords" content="StaxTech, free online tools, PDF editors, image compressors, developer utilities, financial calculators, student tools, SEO tools, design builders, social media content creators">
+    <meta name="author" content="StaxTech Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://staxtech.in/tools/index.html">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staxtech.in/tools/index.html">
+    <meta property="og:title" content="StaxTech Tools - Free Premium Online Web Tools Hub">
+    <meta property="og:description" content="A comprehensive suite of 70+ powerful utility tools. Fast, secure, completely free, and requiring no sign-ups.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://staxtech.in/tools/index.html">
+    <meta property="twitter:title" content="StaxTech Tools - Dynamic Multi-Utility Portal">
+    <meta property="twitter:description" content="70+ powerful tools in a single modern ecosystem. Completely free, responsive, and secure.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema Markup for Google Search (Structured Data) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "StaxTech Tools",
+      "url": "https://staxtech.in/tools/index.html",
+      "description": "An extensive suite of 70+ free utility tools for developers, designers, students, and digital creators.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://staxtech.in/tools/index.html?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <style>
+        /* Custom scrollbar setup for a premium look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.45);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- ==========================================
+         NAVBAR: Premium responsive navigation bar 
+         ========================================== -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-black bg-gradient-to-r from-primary-500 to-indigo-600 bg-clip-text text-transparent">StaxTech</span>
+                <span class="bg-primary-100 dark:bg-primary-950 text-primary-600 dark:text-primary-400 text-xs px-2 py-0.5 rounded-full font-bold">TOOLS</span>
+            </a>
+
+            <!-- Right Nav Links & Actions -->
+            <div class="flex items-center space-x-4">
+                <a href="#categories-section" class="hidden md:inline-block text-sm font-semibold hover:text-primary-500 transition-colors">Explore Categories</a>
+                
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-primary-500 transition-all" aria-label="Toggle theme mode">
+                    <!-- Sun Icon (visible in dark mode) -->
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464a1 1 0 10-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"></path></svg>
+                    <!-- Moon Icon (visible in light mode) -->
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION: High-impact search and features intro
+         ========================================== -->
+    <main class="flex-grow">
+        <section class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary-50/50 via-transparent to-transparent dark:from-slate-900 dark:to-slate-950">
+            <!-- Decorative Background Blurs -->
+            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary-400/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                    Every Web Utility in <span class="bg-gradient-to-r from-primary-500 to-indigo-500 bg-clip-text text-transparent">One Premium Suite</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+                    Free dynamic PDF modifiers, image editors, developer tools, dynamic math calculators, SEO analyzers, and student helpers. High speed, completely secure, and 100% in-browser!
+                </p>
+
+                <!-- Dynamic Live Search Input -->
+                <div class="relative max-w-2xl mx-auto mb-12 shadow-2xl rounded-2xl">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <!-- Search Icon -->
+                        <svg class="h-6 w-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="text" id="master-search" placeholder="Search 70+ tools (e.g., Compress PDF, Age, JSON Formatter, Base64...)" class="w-full pl-12 pr-4 py-4 sm:py-5 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:border-primary-500 text-lg shadow-sm placeholder-slate-400 dark:placeholder-slate-500 transition-all text-slate-900 dark:text-white">
+                </div>
+
+                <!-- Live Status Badges -->
+                <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                    <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span> <span class="text-slate-800 dark:text-slate-200">70+ Responsive Tools Live</span></span>
+                    <span class="border-l border-slate-300 dark:border-slate-700 pl-4">No Registration Required</span>
+                    <span class="border-l border-slate-300 dark:border-slate-700 pl-4">100% Client-Side Protection</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DYNAMIC SEARCH RESULTS SECTION
+             ========================================== -->
+        <section id="search-results-section" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <h2 class="text-xl font-bold mb-4 flex items-center space-x-2 text-primary-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span>Search Results: <span id="search-count" class="text-slate-500 font-normal text-sm"></span></span>
+            </h2>
+            <div id="search-results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Search matches loaded here dynamically -->
+            </div>
+            <hr class="mt-12 border-slate-200 dark:border-slate-800">
+        </section>
+
+        <!-- ==========================================
+             CATEGORIES SECTION & NAVIGATION
+             ========================================== -->
+        <section id="categories-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-3xl font-extrabold tracking-tight">Explore Tools by Category</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Discover robust developer and designer suites sorted for ease of access</p>
+                </div>
+                <!-- Filtering Control Badges -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="category-filter-pills">
+                    <button class="px-4 py-2 rounded-full text-xs font-bold transition-all bg-primary-500 text-white" onclick="filterCategory('all', this)">All Categories</button>
+                    <!-- Populated programmatically in JS -->
+                </div>
+            </div>
+
+            <!-- Main Categories Container -->
+            <div id="categories-container" class="space-y-12">
+                <!-- Dynamic tools loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         FOOTER: Elegant, structural, and complete
+         ========================================== -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <span class="text-2xl font-black bg-gradient-to-r from-primary-500 to-indigo-600 bg-clip-text text-transparent">StaxTech</span>
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Your versatile multi-utility suite. We construct high-quality, lightweight utility software accessible within any browser. Safe, responsive, and completely open.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">Ecosystem Quick Links</h3>
+                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    <li><a href="#categories-section" class="hover:text-primary-500 transition-colors">All Tool Categories</a></li>
+                    <li><a href="#" class="hover:text-primary-500 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-primary-500 transition-colors">Terms & Agreements</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">Contact Info</h3>
+                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    <li>📧 admin@staxtech.in</li>
+                    <li>📍 Global Developers Space</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">Privacy Standards</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 font-normal">
+                    All operations run locally in your web browser. No source files, inputs, designs, or data parameters are ever sent to our backend servers.
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-400">
+            &copy; 2026 StaxTech Suite. All Rights Reserved. Empowering digital workspaces.
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT ENGINE: Complete Interconnected Database
+         ========================================== -->
+    <script>
+        // ----------------------------------------------------
+        // Pure Interconnected English Database mapped to correct folder structure
+        // ----------------------------------------------------
+        const toolsDatabase = [
+            // PDF Suite
+            { title: "Merge PDF", url: "pdf/merge.html", category: "PDF", desc: "Combine multiple PDF documents into a single customized file seamlessly.", tags: ["join", "combine", "pdf merger", "attach docs"], icon: "📄" },
+            { title: "Split PDF", url: "pdf/split.html", category: "PDF", desc: "Separate pages or extract custom ranges from any PDF file.", tags: ["cut", "pdf separator", "extract pages", "slice"], icon: "✂️" },
+            { title: "Compress PDF", url: "pdf/compress.html", category: "PDF", desc: "Reduce the file size of your PDF documents while preserving crisp quality.", tags: ["resize", "shrink", "optimize", "compressor"], icon: "🗜️" },
+            { title: "PDF to Word", url: "pdf/pdf-to-word.html", category: "PDF", desc: "Convert standard PDF documents into editable Microsoft Word (.docx) formatting.", tags: ["convert", "doc", "docx", "editable"], icon: "🔄" },
+            { title: "Word to PDF", url: "pdf/word-to-pdf.html", category: "PDF", desc: "Instantly compile Word documents (.docx) into secure PDF document structures.", tags: ["convert", "doc", "docx", "generate pdf"], icon: "💾" },
+            { title: "PDF to JPG", url: "pdf/pdf-to-jpg.html", category: "PDF", desc: "Render each page of a PDF document into high-resolution JPG image files.", tags: ["render", "image extraction", "extract image"], icon: "🖼️" },
+            { title: "JPG to PDF", url: "pdf/jpg-to-pdf.html", category: "PDF", desc: "Compile dynamic photos or standard JPG files into a single structured PDF booklet.", tags: ["images to pdf", "photos convert", "album pdf"], icon: "⚡" },
+            { title: "Rotate PDF", url: "pdf/rotate.html", category: "PDF", desc: "Spin pages of your PDF document clockwise or counter-clockwise easily.", tags: ["spin", "turn pdf", "landscape to portrait"], icon: "🔄" },
+            { title: "Unlock PDF", url: "pdf/unlock.html", category: "PDF", desc: "Remove restrictions, password protections, and printing blocks from PDF documents.", tags: ["decrypt", "bypass security", "remove restrict"], icon: "🔓" },
+            { title: "Protect PDF", url: "pdf/protect.html", category: "PDF", desc: "Apply complex password hashes to encrypt and lock your PDF documents.", tags: ["encrypt", "password security", "lock pdf"], icon: "🔒" },
+            { title: "Watermark PDF", url: "pdf/watermark.html", category: "PDF", desc: "Stamp custom text or images over PDF pages to establish copyright protections.", tags: ["stamp", "sign doc", "branding"], icon: "🏷️" },
+            { title: "Remove Pages", url: "pdf/remove-pages.html", category: "PDF", desc: "Discard unnecessary, blank, or unwanted pages from your PDF documents.", tags: ["discard pages", "clean pdf", "crop pdf"], icon: "🗑️" },
+            { title: "Extract Pages", url: "pdf/extract-pages.html", category: "PDF", desc: "Select and download specific single or multiple pages as a new PDF.", tags: ["pull pages", "separate"], icon: "📤" },
+            { title: "OCR PDF", url: "pdf/ocr.html", category: "PDF", desc: "Extract searchable, copyable text layout structures from scanned PDF pages.", tags: ["optical character recognition", "scanned text extractor"], icon: "🔍" },
+            { title: "E-Sign PDF", url: "pdf/esign.html", category: "PDF", desc: "Apply, draw, or upload digital signatures to legal PDF forms and document files.", tags: ["digital signature", "sign doc online", "draw sign"], icon: "✏️" },
+
+            // Image Tools
+            { title: "Compress Image", url: "image/compress.html", category: "Image", desc: "Reduce digital file sizes (KB/MB) of JPG, PNG, or SVG with optimal quality controls.", tags: ["shrink photo", "jpg size reducer", "png zip"], icon: "🖼️" },
+            { title: "Resize Image", url: "image/resize.html", category: "Image", desc: "Configure custom pixel dimensions, scaling ratios, and constraints for image assets.", tags: ["scale photo", "crop template"], icon: "📐" },
+            { title: "Crop Image", url: "image/crop.html", category: "Image", desc: "Trim canvas borders and set precise aspect ratios for images.", tags: ["trim picture", "aspect ratio finder"], icon: "✂️" },
+            { title: "Rotate Image", url: "image/rotate.html", category: "Image", desc: "Rotate images to 90, 180, or 270 degrees instantly.", tags: ["spin image", "vertical adjust"], icon: "🔄" },
+            { title: "Flip Image", url: "image/flip.html", category: "Image", desc: "Mirror image graphics horizontally or vertically in-browser.", tags: ["mirror reflection", "photo invert"], icon: "🪞" },
+            { title: "JPG to PNG", url: "image/jpg-to-png.html", category: "Image", desc: "Convert standard JPEG images to clean, transparency-supporting PNG templates.", tags: ["convert format"], icon: "🔄" },
+            { title: "PNG to JPG", url: "image/png-to-jpg.html", category: "Image", desc: "Transform complex PNG files into standard Web JPG formats.", tags: ["compression formatter"], icon: "🔄" },
+            { title: "WebP Converter", url: "image/webp.html", category: "Image", desc: "Produce cutting-edge, high-efficiency WebP files from static graphic assets.", tags: ["next-gen formats", "webp compression"], icon: "🌐" },
+            { title: "HEIC to JPG", url: "image/heic.html", category: "Image", desc: "Convert iOS high-efficiency camera output (HEIC) to cross-compatible JPG.", tags: ["apple format converter", "iphone photo format"], icon: "🍏" },
+            { title: "AI Image Upscaler", url: "image/upscaler.html", category: "Image", desc: "Enhance graphic asset resolution with advanced structural sharpening.", tags: ["blurry to sharp", "super resolution"], icon: "✨" },
+            { title: "Background Remover", url: "image/bg-remover.html", category: "Image", desc: "Erase backgrounds to produce transparent PNG elements instantly.", tags: ["transparent cutout", "bg eraser"], icon: "🪄" },
+            { title: "Blur Image", url: "image/blur.html", category: "Image", desc: "Apply precise Gaussian, box, or motion blur filters to specific photo segments.", tags: ["gaussian blur", "censor photo details"], icon: "🌫️" },
+            { title: "Watermark Image", url: "image/watermark.html", category: "Image", desc: "Apply brand logos or custom text layers over photos for copy protection.", tags: ["branding photo", "protect design"], icon: "✍️" },
+            { title: "Image to PDF", url: "image/image-to-pdf.html", category: "Image", desc: "Combine multiple photo assets into a clean, formatted PDF document.", tags: ["convert images to pdf document"], icon: "📄" },
+            { title: "Color Picker", url: "image/color-picker.html", category: "Image", desc: "Sample pixel-perfect HEX, RGB, and HSL codes directly from any loaded image.", tags: ["color code finder", "designer pick tool"], icon: "🎨" },
+
+            // Text Tools
+            { title: "Word Counter", url: "text/word-counter.html", category: "Text", desc: "Analyze written content for total words, characters, paragraph breaks, and reading time.", tags: ["count words", "text analytics", "content count"], icon: "📊" },
+            { title: "Character Counter", url: "text/character-counter.html", category: "Text", desc: "Count total characters in a text field, with or without spaces.", tags: ["letter counting tool", "character tracker"], icon: "✍️" },
+            { title: "Case Converter", url: "text/case-converter.html", category: "Text", desc: "Convert strings into sentence case, UPPERCASE, lowercase, or Title Case.", tags: ["uppercase formatter", "toggle case letters"], icon: "🔠" },
+            { title: "Remove Duplicate Lines", url: "text/duplicate-lines.html", category: "Text", desc: "Scan list structures and sanitize repetitive lines instantly.", tags: ["clean checklist", "unique generator"], icon: "🧹" },
+            { title: "Text Sorter", url: "text/text-sorter.html", category: "Text", desc: "Sort strings or paragraphs alphabetically (A-Z, Z-A) or by length.", tags: ["arrange lines", "order bullet points"], icon: "🗂️" },
+            { title: "Find & Replace", url: "text/find-replace.html", category: "Text", desc: "Search through document paragraphs to locate and replace strings.", tags: ["word swap", "correct text typo"], icon: "🔍" },
+            { title: "Slug Generator", url: "text/slug.html", category: "Text", desc: "Convert descriptive titles into SEO-friendly, clean URL slug patterns.", tags: ["web seo path url clean"], icon: "🔗" },
+            { title: "Lorem Ipsum Generator", url: "text/lorem-ipsum.html", category: "Text", desc: "Generate placeholder paragraphs or words for design prototypes.", tags: ["dummy content filler text"], icon: "📝" },
+            { title: "Reverse Text", url: "text/reverse.html", category: "Text", desc: "Reverse strings, characters, or word sequences instantly.", tags: ["string inverter", "backwards letters"], icon: "◀️" },
+            { title: "Spaces Remover", url: "text/spaces.html", category: "Text", desc: "Clean extra double spaces, tabs, and line breaks from your text blocks.", tags: ["whitespaces", "trim code text"], icon: "🚫" },
+
+            // Developer Utilities
+            { title: "JSON Formatter", url: "developer/json-formatter.html", category: "Developer", desc: "Format unreadable, minified JSON payloads into a clean, hierarchical tree view.", tags: ["beautify json", "clean payload structure"], icon: "⚙️" },
+            { title: "JSON Validator", url: "developer/json-validator.html", category: "Developer", desc: "Parse and validate JSON syntax, highlighting formatting errors instantly.", tags: ["lint json syntax checking", "check syntax error"], icon: "✔️" },
+            { title: "XML Formatter", url: "developer/xml-formatter.html", category: "Developer", desc: "Apply standard hierarchical tag indentations to XML document trees.", tags: ["beautify xml files", "indent code view"], icon: "📄" },
+            { title: "HTML Formatter", url: "developer/html-formatter.html", category: "Developer", desc: "Beautify cluttered HTML templates and optimize source code indentation.", tags: ["beautify responsive html mockup code"], icon: "🌐" },
+            { title: "CSS Minifier", url: "developer/css-minifier.html", category: "Developer", desc: "Remove whitespaces, comments, and extra characters to reduce CSS payload sizes.", tags: ["zip CSS bundle size reducing"], icon: "📉" },
+            { title: "JS Minifier", url: "developer/js-minifier.html", category: "Developer", desc: "Compress and minify dynamic client-side JS code files for production.", tags: ["compress single code JS library bundle"], icon: "⚡" },
+            { title: "SQL Formatter", url: "developer/sql-formatter.html", category: "Developer", desc: "Apply professional syntax formatting to complex SQL query statements.", tags: ["beautify queries script layouts"], icon: "🗄️" },
+            { title: "Base64 Encoder/Decoder", url: "developer/base64.html", category: "Developer", desc: "Safely convert standard string formats into Base64 binaries and vice-versa.", tags: ["base64 transform string text binary data"], icon: "🔒" },
+            { title: "URL Encode/Decode", url: "developer/url-encode.html", category: "Developer", desc: "Encode or decode query variables to comply with dynamic web safety specifications.", tags: ["encode safe dynamic URL variables parameters"], icon: "🔗" },
+            { title: "Hash Generator", url: "developer/hash.html", category: "Developer", desc: "Generate MD5, SHA-1, SHA-256, or SHA-512 cryptographic digests.", tags: ["cryptographic check security check", "hasher values"], icon: "🔑" },
+            { title: "UUID/GUID Generator", url: "developer/uuid.html", category: "Developer", desc: "Generate universally unique identifier tokens (UUID v4) for database records.", tags: ["unique random database ID token generator"], icon: "🆔" },
+            { title: "QR Code Generator", url: "developer/qr-generator.html", category: "Developer", desc: "Generate custom QR codes from URLs, plain text, or configuration credentials.", tags: ["create qr scanner codes custom color"], icon: "📱" },
+            { title: "Barcode Generator", url: "developer/barcode.html", category: "Developer", desc: "Generate CODE128, EAN, or UPC barcode graphics for asset tagging.", tags: ["generate code128 barcode image format"], icon: "📊" },
+            { title: "Regex Tester", url: "developer/regex.html", category: "Developer", desc: "Build, test, and debug regular expressions with real-time match indicators.", tags: ["regexp dynamic compiler matching tests"], icon: "🧩" },
+            { title: "JWT Debugger", url: "developer/jwt.html", category: "Developer", desc: "Decode JWT header structures and verify signature algorithms.", tags: ["json web tokens validator credentials"], icon: "🎫" },
+
+            // Calculators
+            { title: "Age Calculator", url: "calculator/age.html", category: "Calculator", desc: "Calculate your exact age in years, months, weeks, and days from date of birth.", tags: ["birth details", "birthday counter tool", "current exact age"], icon: "🎂" },
+            { title: "Percentage Calculator", url: "calculator/percentage.html", category: "Calculator", desc: "Calculate percentage changes, margins, shares, and ratio metrics.", tags: ["math ratio finder marks converter", "percent share"], icon: "📊" },
+            { title: "BMI Calculator", url: "calculator/bmi.html", category: "Calculator", desc: "Calculate your Body Mass Index (BMI) and health category parameters.", tags: ["health status fat ratio calculations scale"], icon: "⚖️" },
+            { title: "GST Calculator", url: "calculator/gst.html", category: "Calculator", desc: "Add or remove GST from product pricing, with clean CGST/SGST tax breakdowns.", tags: ["tax calculations cgst sgst dynamic pricing"], icon: "💰" },
+            { title: "EMI Calculator", url: "calculator/emi.html", category: "Calculator", desc: "Calculate equated monthly loan installments and amortization graphs.", tags: ["home loan vehicle installments amortization chart"], icon: "💵" },
+            { title: "SIP Calculator", url: "calculator/sip.html", category: "Calculator", desc: "Project the compounding returns of your monthly systematic investment plans.", tags: ["mutual funds wealth compound index calculator"], icon: "📈" },
+            { title: "Loan Calculator", url: "calculator/loan.html", category: "Calculator", desc: "Analyze simple or compound interest structures over various loan terms.", tags: ["mortgage principal interest rates calculator"], icon: "🏦" },
+            { title: "Discount Calculator", url: "calculator/discount.html", category: "Calculator", desc: "Determine sales discounts, net prices, and total savings.", tags: ["coupon pricing rates calculations reduction"], icon: "🏷️" },
+            { title: "Currency Converter", url: "calculator/currency.html", category: "Calculator", desc: "Compare currency exchange rates with precise dynamic conversion controls.", tags: ["fx rate builder money conversions global exchange"], icon: "💱" },
+            { title: "Time Calculator", url: "calculator/time.html", category: "Calculator", desc: "Add or subtract temporal offsets, minutes, and time durations.", tags: ["temporal offsets dynamic clock tracking converter"], icon: "🕒" },
+            { title: "Date Difference", url: "calculator/date-diff.html", category: "Calculator", desc: "Determine the exact number of days, weeks, or months between two dates.", tags: ["calendar duration index days check timer"], icon: "📅" },
+            { title: "Scientific Calculator", url: "calculator/scientific.html", category: "Calculator", desc: "Solve advanced trigonometric, logarithmic, and algebraic calculations in-browser.", tags: ["sine cosine tangent functions math suite"], icon: "🧮" },
+
+            // Student Suite
+            { title: "CGPA Calculator", url: "student/cgpa.html", category: "Student", desc: "Calculate cumulative academic GPA scores across multiple college semesters.", tags: ["cgpa to percentage grading matrix system"], icon: "🎓" },
+            { title: "GPA Calculator", url: "student/gpa.html", category: "Student", desc: "Determine single-semester GPA rankings with custom credit hour allocations.", tags: ["semester gpa calculator index tracking college"], icon: "🏫" },
+            { title: "Attendance Tracker", url: "student/attendance.html", category: "Student", desc: "Project the class attendances needed to meet your academic minimums.", tags: ["attendance criteria logs targets simulator"], icon: "📅" },
+            { title: "Marks Percentage", url: "student/marks-percent.html", category: "Student", desc: "Convert exam score ratios into formatted percentages instantly.", tags: ["exam results ratio compiler scale indicators"], icon: "📝" },
+            { title: "Study Timer (Pomodoro)", url: "student/study-timer.html", category: "Student", desc: "Use Pomodoro intervals and customizable session timers to maintain focus.", tags: ["focus interval study alarm productivity boost"], icon: "⏱️" },
+            { title: "Roll Picker", url: "student/roll-picker.html", category: "Student", desc: "Randomly pick numbers or student list IDs for classrooms.", tags: ["random number generator student picker selection"], icon: "🎲" },
+            { title: "Exam Countdown", url: "student/exam-countdown.html", category: "Student", desc: "Create dynamic countdown timers for upcoming tests and submission deadlines.", tags: ["exams test limits schedule watch tracking"], icon: "⏳" },
+            { title: "Grade Calculator", url: "student/grade.html", category: "Student", desc: "Calculate weighted exam averages to find your final course grade class-by-class.", tags: ["grades predictions weighting homework points"], icon: "📊" },
+
+            // Security Suite
+            { title: "Password Generator", url: "security/password-gen.html", category: "Security", desc: "Create high-entropy passwords with custom lowercase, uppercase, symbol, and number constraints.", tags: ["strong dynamic credential key generator system"], icon: "🔐" },
+            { title: "Password Strength Checker", url: "security/password-strength.html", category: "Security", desc: "Evaluate password vulnerability levels, entropy ratings, and leak status locally.", tags: ["entropy analytics password defense validation tools"], icon: "🛡️" },
+            { title: "SHA Generator", url: "security/sha.html", category: "Security", desc: "Generate secure cryptographic hashes using SHA-1, SHA-256, or SHA-512 algorithms.", tags: ["sha hash code security parameters verify"], icon: "🛡️" },
+            { title: "MD5 Generator", url: "security/md5.html", category: "Security", desc: "Generate quick MD5 checksum signatures for files or credentials.", tags: ["checksum verification signature generator md5"], icon: "🔑" },
+            { title: "Token Generator", url: "security/token-gen.html", category: "Security", desc: "Produce randomized, secure hex, API keys, or custom string tokens.", tags: ["secure random keys string tokens authorization"], icon: "🎟️" },
+
+            // SEO Suite
+            { title: "Meta Tag Generator", url: "seo/meta-gen.html", category: "SEO", desc: "Generate dynamic, SEO-friendly HTML metadata structures for web indexes.", tags: ["website rankings header configuration setup builder"], icon: "🏷️" },
+            { title: "Sitemap Generator", url: "seo/sitemap-gen.html", category: "SEO", desc: "Compile structured XML site indexes for search engine crawlers.", tags: ["xml navigation structure site schema listing links"], icon: "🗺️" },
+            { title: "Robots.txt Generator", url: "seo/robots-gen.html", category: "SEO", desc: "Create formatted crawler instruction schemas (robots.txt) for crawl-budget optimization.", tags: ["crawler files user-agent disallow limits builder"], icon: "🤖" },
+            { title: "OpenGraph Generator", url: "seo/og-gen.html", category: "SEO", desc: "Generate structured social media share meta tags for Facebook and LinkedIn.", tags: ["social markup previews rich metadata integration"], icon: "📊" },
+            { title: "Twitter Card Generator", url: "seo/twitter-gen.html", category: "SEO", desc: "Design structured rich cards optimization tags specifically formatted for Twitter.", tags: ["twitter share card rich descriptions images content"], icon: "🐦" },
+            { title: "Keyword Density Analyzer", url: "seo/density.html", category: "SEO", desc: "Analyze content scripts to measure word frequency ratios and avoid keyword stuffing.", tags: ["word repeat measurements ratios crawler checklist"], icon: "📈" },
+            { title: "SERP Simulator", url: "seo/serp.html", category: "SEO", desc: "Preview page title and meta description layouts in Google Search results.", tags: ["google listing layout mockup preview browser listings"], icon: "💻" },
+            { title: "Canonical URL Generator", url: "seo/canonical.html", category: "SEO", desc: "Establish search engine tags to prevent ranking penalties from duplicate content.", tags: ["canon links metadata headers web structure pointers"], icon: "🔗" },
+            { title: "Schema Markup Generator", url: "seo/schema-gen.html", category: "SEO", desc: "Compile JSON-LD structured schema codes to stand out in Google Rich Snippets.", tags: ["ld-json schema code compiler structured web entities"], icon: "🧩" },
+            { title: "Redirect Generator", url: "seo/redirect.html", category: "SEO", desc: "Generate safe redirect configurations for Apache htaccess, Nginx, or HTML headers.", tags: ["301 code htaccess server routes forward instructions"], icon: "🔄" },
+            { title: "URL Analyzer", url: "seo/url-analyzer.html", category: "SEO", desc: "Analyze link attributes, trailing slashes, and characters to optimize your URLs.", tags: ["link structure checker parameters query analyzer"], icon: "🔍" },
+
+            // Design Utilities
+            { title: "Color Palette Builder", url: "design/palette.html", category: "Design", desc: "Generate premium cohesive color palette collections using diverse color harmonies.", tags: ["design schemes color maps layouts aesthetic templates"], icon: "🎨" },
+            { title: "CSS Gradient Maker", url: "design/gradient.html", category: "Design", desc: "Produce linear, radial, or conic gradients and copy clean, cross-compatible CSS rules.", tags: ["background gradient CSS code dynamic color mixes"], icon: "🌈" },
+            { title: "Box Shadow Generator", url: "design/box-shadow.html", category: "Design", desc: "Customize offset values, blur ranges, and spreads to copy clean box-shadow codes.", tags: ["elevation CSS templates shadows depth formatting"], icon: "🔲" },
+            { title: "Border Radius Builder", url: "design/border-radius.html", category: "Design", desc: "Configure custom border-radius mappings and export modern, organic CSS shapes.", tags: ["rounded borders custom corners CSS frame generator"], icon: "🟢" },
+            { title: "Button Generator", url: "design/button.html", category: "Design", desc: "Design custom buttons, set hover states, and instantly copy HTML/Tailwind styling.", tags: ["interactive element CSS code buttons triggers components"], icon: "🔘" },
+            { title: "Glassmorphism UI Maker", url: "design/glassmorphism.html", category: "Design", desc: "Design modern layouts with backdrop-blur, opacity, and borders.", tags: ["blur design card backdrop filters CSS templates"], icon: "🔮" },
+            { title: "Neumorphism Maker", url: "design/neumorphism.html", category: "Design", desc: "Customize soft, extrusion shadows to design futuristic neumorphic web interfaces.", tags: ["extrusion soft shadow 3d designs modern layouts"], icon: "⚪" },
+
+            // Social Utilities
+            { title: "YT Thumbnail Downloader", url: "social/yt-thumbnail.html", category: "Social", desc: "Download high-resolution image thumbnails from any public YouTube video link.", tags: ["youtube image grabber high res content extractors"], icon: "📺" },
+            { title: "Instagram Caption Maker", url: "social/insta-caption.html", category: "Social", desc: "Format social descriptions with clean line breaks, symbols, and margins.", tags: ["ig descriptions texts spacer styling utilities"], icon: "📝" },
+            { title: "Hashtag Generator", url: "social/hashtag.html", category: "Social", desc: "Generate lists of popular hashtags across various dynamic categories.", tags: ["social tags tags checklist optimization reach"], icon: "🏷️" },
+            { title: "Bio Generator", url: "social/bio.html", category: "Social", desc: "Generate creative, structured bios optimized for social profiles.", tags: ["creatives profile description texts about templates"], icon: "👤" },
+            { title: "Emoji Keyboard Picker", url: "social/emoji.html", category: "Social", desc: "Search, copy, and organize emojis for social posts or documents.", tags: ["emojis copy list category dashboard codes symbols"], icon: "😀" }
+        ];
+
+        // ----------------------------------------------------
+        // INITIAL SETUP & CATEGORIES EXTRACTION
+        // ----------------------------------------------------
+        const categoriesList = [...new Set(toolsDatabase.map(t => t.category))];
+
+        // Theme Toggle Elements
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        // Check Local Storage / System Theme preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        // Theme Toggle Click Logic
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // ----------------------------------------------------
+        // GENERATE CATEGORY DYNAMIC CARDS & FILTERING PILLS
+        // ----------------------------------------------------
+        function renderCategories(filter = 'all') {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+
+            const activeCategories = filter === 'all' ? categoriesList : [filter];
+
+            activeCategories.forEach(cat => {
+                const toolsInCat = toolsDatabase.filter(t => t.category === cat);
+                if (toolsInCat.length === 0) return;
+
+                const sectionHTML = `
+                    <div class="category-block" id="category-section-${cat.toLowerCase()}">
+                        <h3 class="text-2xl font-bold border-b border-slate-200 dark:border-slate-800 pb-2 mb-6 flex items-center space-x-2">
+                            <span class="w-2.5 h-6 bg-primary-500 rounded-full"></span>
+                            <span>${cat} Tools</span>
+                            <span class="text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-500 px-2.5 py-1 rounded-full">${toolsInCat.length} Tools</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${toolsInCat.map(tool => `
+                                <a href="${tool.url}" class="group block p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 transition-all hover:-translate-y-1 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-xl relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-500/10 to-indigo-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                                    <div class="flex items-start justify-between">
+                                        <div class="text-3xl">${tool.icon}</div>
+                                        <div class="text-[10px] font-bold uppercase tracking-wider text-primary-500 bg-primary-50 dark:bg-primary-950 px-2 py-0.5 rounded-md">${tool.category}</div>
+                                    </div>
+                                    <h4 class="text-lg font-bold mt-4 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">${tool.title}</h4>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">${tool.desc}</p>
+                                    <div class="mt-4 flex items-center text-xs font-bold text-primary-500 group-hover:underline space-x-1">
+                                        <span>Use Tool</span>
+                                        <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    </div>
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', sectionHTML);
+            });
+        }
+
+        // Build dynamic horizontal filtering buttons (pills)
+        function buildFilters() {
+            const container = document.getElementById('category-filter-pills');
+            // Restoring first 'All' button as static template helper
+            container.innerHTML = `<button class="px-4 py-2 rounded-full text-xs font-bold transition-all bg-primary-500 text-white" onclick="filterCategory('all', this)">All Categories</button>`;
+
+            categoriesList.forEach(cat => {
+                const btn = `
+                    <button class="px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-500 text-slate-600 dark:text-slate-300" onclick="filterCategory('${cat}', this)">
+                        ${cat}
+                    </button>
+                `;
+                container.insertAdjacentHTML('beforeend', btn);
+            });
+        }
+
+        // Apply visual and layout filtering
+        window.filterCategory = function(cat, buttonEl) {
+            // Manage UI states of buttons
+            const buttons = document.querySelectorAll('#category-filter-pills button');
+            buttons.forEach(btn => {
+                btn.className = "px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-500 text-slate-600 dark:text-slate-300";
+            });
+            buttonEl.className = "px-4 py-2 rounded-full text-xs font-bold transition-all bg-primary-500 text-white";
+
+            renderCategories(cat);
+        }
+
+        // ----------------------------------------------------
+        // REAL-TIME SEARCH ALGORITHM WITH DYNAMIC RENDER
+        // ----------------------------------------------------
+        const searchInput = document.getElementById('master-search');
+        const searchResultsSection = document.getElementById('search-results-section');
+        const searchResultsGrid = document.getElementById('search-results-grid');
+        const searchCount = document.getElementById('search-count');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+
+            if (query === '') {
+                searchResultsSection.classList.add('hidden');
+                return;
+            }
+
+            // Search covering Title, Category, Description, and tags/keywords
+            const matchedTools = toolsDatabase.filter(tool => {
+                return tool.title.toLowerCase().includes(query) || 
+                       tool.category.toLowerCase().includes(query) || 
+                       tool.desc.toLowerCase().includes(query) || 
+                       tool.tags.some(t => t.toLowerCase().includes(query));
+            });
+
+            searchResultsGrid.innerHTML = '';
+            searchResultsSection.classList.remove('hidden');
+
+            if (matchedTools.length === 0) {
+                searchCount.textContent = "No tools matched";
+                searchResultsGrid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-500 dark:text-slate-400">
+                        <span class="text-4xl">🔍</span>
+                        <p class="mt-4 font-semibold text-lg font-bold">Sorry, we couldn't find any matching tools.</p>
+                        <p class="text-sm mt-1">Try spelling check or use generalized tags like "PDF" or "JSON".</p>
+                    </div>
+                `;
+                return;
+            }
+
+            searchCount.textContent = `${matchedTools.length} tool(s) found`;
+
+            matchedTools.forEach(tool => {
+                const cardHTML = `
+                    <a href="${tool.url}" class="group block p-5 bg-gradient-to-r from-primary-500/10 to-indigo-500/10 dark:from-slate-800 dark:to-slate-800 rounded-xl border border-primary-500/30 hover:border-primary-500 hover:shadow-lg transition-all">
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl">${tool.icon}</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-primary-600 bg-primary-100 dark:bg-primary-950 dark:text-primary-300 px-2 py-0.5 rounded">${tool.category}</span>
+                        </div>
+                        <h4 class="text-base font-bold mt-3 text-slate-900 dark:text-white group-hover:text-primary-500 transition-colors">${tool.title}</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">${tool.desc}</p>
+                    </a>
+                `;
+                searchResultsGrid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        });
+
+        // ----------------------------------------------------
+        // SYSTEM INITS
+        // ----------------------------------------------------
+        buildFilters();
+        renderCategories('all');
+    </script>
+</body>
+</html>

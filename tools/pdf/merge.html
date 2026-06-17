@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDF - Combine PDF Files Online for Free | StaxTech Tools</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Combine multiple PDF files into a single document in seconds. 100% client-side, secure, private, and free to use with no limits or watermarks under StaxTech.">
+    <meta name="keywords" content="merge pdf, combine pdfs, join pdf, free pdf merger, browser pdf join, client side pdf editor, secure merge">
+    <meta name="author" content="StaxTech Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://staxtech.in/tools/pdf/merge.html">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staxtech.in/tools/pdf/merge.html">
+    <meta property="og:title" content="Merge PDF - Combine PDF Files Online for Free | StaxTech Tools">
+    <meta property="og:description" content="Combine multiple PDF files securely inside your browser. No file uploads, 100% private, extremely fast and free.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://staxtech.in/tools/pdf/merge.html">
+    <meta property="twitter:title" content="Merge PDF - Online PDF Combiner | StaxTech Tools">
+    <meta property="twitter:description" content="Combine multiple PDF files securely inside your browser. No registration, 100% private.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- PDF-Lib library for secure, high-speed, local browser-based PDF processing -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <style>
+        /* Custom scrollbar setup for a premium look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- ==========================================
+         NAVBAR: Premium responsive navigation bar with breadcrumb 
+         ========================================== -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand & Back navigation link -->
+            <div class="flex items-center space-x-4">
+                <a href="../index.html" class="flex items-center space-x-2 group">
+                    <svg class="w-5 h-5 text-slate-500 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="text-lg font-bold group-hover:text-primary-500 transition-colors hidden sm:inline-block">Dashboard</span>
+                </a>
+                <span class="text-slate-300 dark:text-slate-700">/</span>
+                <span class="bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400 text-xs px-2.5 py-1 rounded-full font-bold">PDF SUITE</span>
+            </div>
+
+            <a href="../index.html" class="flex items-center space-x-1.5">
+                <span class="text-xl font-black bg-gradient-to-r from-primary-500 to-indigo-600 bg-clip-text text-transparent">StaxTech</span>
+            </a>
+
+            <!-- Right side controls: Theme changer -->
+            <div class="flex items-center">
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-primary-500 transition-all" aria-label="Toggle theme mode">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464a1 1 0 10-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MAIN LAYOUT: Interactive File Processing Area
+         ========================================== -->
+    <main class="flex-grow py-12 px-4 max-w-4xl mx-auto w-full">
+        <!-- Title Banner -->
+        <div class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+                Merge PDF <span class="bg-gradient-to-r from-primary-500 to-indigo-500 bg-clip-text text-transparent">Documents Locally</span>
+            </h1>
+            <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+                Your files remain completely secure. Processing is done 100% inside your web browser. No data leaves your computer.
+            </p>
+        </div>
+
+        <!-- Custom Notification Alert Box (No alerts used) -->
+        <div id="toast-notification" class="hidden fixed bottom-5 right-5 z-50 p-4 rounded-xl shadow-2xl bg-slate-950 text-white dark:bg-slate-800 border border-slate-700 flex items-center space-x-3 transition-all transform translate-y-10 opacity-0 duration-300">
+            <span id="toast-icon" class="text-xl">⚠️</span>
+            <span id="toast-message" class="text-sm font-semibold">Message Placeholder</span>
+        </div>
+
+        <!-- Input Area / Control Sandbox Container -->
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden p-6 sm:p-8">
+            
+            <!-- Drag and Drop Active Upload Zone -->
+            <div id="upload-zone" class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary-500 dark:hover:border-primary-500 rounded-2xl p-8 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/30">
+                <input type="file" id="pdf-file-input" accept="application/pdf" multiple class="hidden">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <div class="p-4 bg-primary-100 dark:bg-primary-950/50 text-primary-600 dark:text-primary-400 rounded-full text-4xl">
+                        📥
+                    </div>
+                    <div>
+                        <p class="text-lg font-bold">Drag & drop your PDF documents here</p>
+                        <p class="text-sm text-slate-400 mt-1">or click to browse local files (Supports multiple select)</p>
+                    </div>
+                    <span class="text-xs text-primary-500 font-semibold bg-primary-50 dark:bg-primary-950/80 px-3 py-1 rounded-full">Secure Local Processing</span>
+                </div>
+            </div>
+
+            <!-- Active Selected File list / File re-arrangement control -->
+            <div id="file-list-container" class="mt-8 hidden">
+                <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-3 mb-4">
+                    <h3 class="text-md font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Queue Order for Merge</h3>
+                    <button id="clear-all-btn" class="text-xs font-semibold text-rose-500 hover:underline">Clear All</button>
+                </div>
+                
+                <ul id="file-queue-list" class="space-y-3">
+                    <!-- Loaded dynamically in JavaScript -->
+                </ul>
+
+                <!-- Primary Action Merging Controls -->
+                <div class="mt-8 border-t border-slate-100 dark:border-slate-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-center sm:text-left">
+                        <p class="text-sm text-slate-400">Total Files Chosen</p>
+                        <p class="text-xl font-black text-slate-800 dark:text-white" id="total-selected-count">0 Files</p>
+                    </div>
+
+                    <button id="merge-trigger-btn" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary-500 to-indigo-600 hover:from-primary-600 hover:to-indigo-700 text-white rounded-2xl font-bold shadow-lg shadow-primary-500/25 dark:shadow-none hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2">
+                        <span>Merge Files</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Executing loading animation modal -->
+            <div id="processing-loader" class="hidden mt-8 py-8 text-center">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <svg class="animate-spin h-10 w-10 text-primary-500" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <div>
+                        <p class="font-bold text-lg">Merging PDFs in Local Memory...</p>
+                        <p class="text-xs text-slate-400 mt-1">Please keep this tab open. This will take only a few moments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Success Frame -->
+            <div id="success-results-card" class="hidden mt-8 p-6 rounded-2xl bg-green-500/5 dark:bg-green-500/10 border border-green-500/20 text-center">
+                <div class="flex flex-col items-center justify-center space-y-3">
+                    <span class="text-4xl">🎉</span>
+                    <h3 class="text-lg font-bold text-green-600 dark:text-green-400">PDFs Successfully Merged!</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 max-w-md">Your final PDF has been compiled using pure local JavaScript logic. Click below to save your new file.</p>
+                    <a id="download-result-link" class="mt-3 inline-flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-md transition-all cursor-pointer">
+                        <span>Download Merged PDF</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Information / FAQ Section for SEO and trust builder -->
+        <section class="mt-16 space-y-8">
+            <div>
+                <h3 class="text-xl font-bold mb-3">How to Merge Your PDF Files</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Simply drop your PDF documents into the drop zone or click to upload them from your system. Once loaded in the staging area, you can easily change the page sequence using the up/down arrows. When satisfied, click "Merge Files" to compile your output instantly inside your browser memory.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <h4 class="font-bold mb-2 flex items-center space-x-2 text-primary-500">
+                        <span>🔒</span> <span>100% Client-Side Protection</span>
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Unlike traditional file compilers, StaxTech processes your PDF objects directly in-browser. Your raw file parameters never contact our databases or outside clouds.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <h4 class="font-bold mb-2 flex items-center space-x-2 text-primary-500">
+                        <span>⚡</span> <span>Instant Page Rendering</span>
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Integrated with highly optimized multi-core JS libraries, our compilation pipeline runs extremely fast even on older mobile viewports.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         FOOTER: Minimalistic ecosystem footer
+         ========================================== -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-400 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span>&copy; 2026 StaxTech Suite. Completely private offline utilities.</span>
+            <div class="flex space-x-4">
+                <a href="../index.html" class="hover:text-primary-500 transition-colors">All Tools</a>
+                <span class="text-slate-300 dark:text-slate-800">|</span>
+                <span class="text-slate-400">Secure Client Sandbox Mode</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT ENGINE: Complete File State & Local Merging
+         ========================================== -->
+    <script>
+        
+        // State Holder
+        let documentQueue = [];
+
+        // DOM Element Cache
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        const uploadZone = document.getElementById('upload-zone');
+        const pdfFileInput = document.getElementById('pdf-file-input');
+        const fileListContainer = document.getElementById('file-list-container');
+        const fileQueueList = document.getElementById('file-queue-list');
+        const totalSelectedCount = document.getElementById('total-selected-count');
+        const clearAllBtn = document.getElementById('clear-all-btn');
+        const mergeTriggerBtn = document.getElementById('merge-trigger-btn');
+        const processingLoader = document.getElementById('processing-loader');
+        const successResultsCard = document.getElementById('success-results-card');
+        const downloadResultLink = document.getElementById('download-result-link');
+
+        // Notification Engine
+        function triggerToast(message, icon = "⚠️") {
+            const toast = document.getElementById('toast-notification');
+            const msgEl = document.getElementById('toast-message');
+            const iconEl = document.getElementById('toast-icon');
+
+            msgEl.textContent = message;
+            iconEl.textContent = icon;
+
+            toast.classList.remove('hidden');
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 10);
+
+            // Animate Out
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 3500);
+        }
+
+        // Check Local Storage / System Theme preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        // Theme Toggle Click Logic
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+
+        // Upload zone clicks
+        uploadZone.addEventListener('click', () => pdfFileInput.click());
+
+        // File Selection Event
+        pdfFileInput.addEventListener('change', (e) => {
+            handleUploadedFiles(e.target.files);
+            pdfFileInput.value = ''; // Reset file input state
+        });
+
+        // Drag Over highlight
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+        });
+
+        // Drag Leave revert
+        ['dragleave', 'dragend'].forEach(type => {
+            uploadZone.addEventListener(type, () => {
+                uploadZone.classList.remove('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+            });
+        });
+
+        // Drop Files
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('border-primary-500', 'bg-primary-50/10', 'dark:bg-primary-950/20');
+            handleUploadedFiles(e.dataTransfer.files);
+        });
+
+
+        async function handleUploadedFiles(filesList) {
+            const validPdfs = Array.from(filesList).filter(f => f.type === "application/pdf" || f.name.endsWith('.pdf'));
+
+            if (validPdfs.length === 0) {
+                triggerToast("Please select valid PDF documents only.", "❌");
+                return;
+            }
+
+            successResultsCard.classList.add('hidden'); // Clear previous run
+
+            for (const file of validPdfs) {
+                try {
+                    // Load files as ArrayBuffer to verify and load page counts
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                    const pages = pdfDoc.getPageCount();
+
+                    documentQueue.push({
+                        name: file.name,
+                        size: formatBytes(file.size),
+                        pages: pages,
+                        buffer: arrayBuffer
+                    });
+                } catch (error) {
+                    console.error("Error reading file:", error);
+                    triggerToast(`Failed to load "${file.name}". Is it password protected?`, "🔒");
+                }
+            }
+
+            renderQueueList();
+        }
+
+        // Format raw bytes to human readable format
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
+
+        function renderQueueList() {
+            if (documentQueue.length === 0) {
+                fileListContainer.classList.add('hidden');
+                return;
+            }
+
+            fileListContainer.classList.remove('hidden');
+            totalSelectedCount.textContent = `${documentQueue.length} File(s)`;
+            fileQueueList.innerHTML = '';
+
+            documentQueue.forEach((doc, idx) => {
+                const li = document.createElement('li');
+                li.className = "flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl transition-all";
+                li.innerHTML = `
+                    <div class="flex items-center space-x-3 overflow-hidden pr-4">
+                        <span class="text-2xl text-slate-400">📄</span>
+                        <div class="overflow-hidden">
+                            <p class="text-sm font-bold truncate dark:text-slate-100">${doc.name}</p>
+                            <p class="text-xs text-slate-400 mt-0.5">${doc.size} &bull; ${doc.pages} Page(s)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
+                        <!-- Up Button -->
+                        <button onclick="moveItem(${idx}, -1)" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-all ${idx === 0 ? 'opacity-25 pointer-events-none' : ''}" aria-label="Move Up">
+                            ▲
+                        </button>
+                        <!-- Down Button -->
+                        <button onclick="moveItem(${idx}, 1)" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-all ${idx === documentQueue.length - 1 ? 'opacity-25 pointer-events-none' : ''}" aria-label="Move Down">
+                            ▼
+                        </button>
+                        <!-- Remove button -->
+                        <button onclick="removeItem(${idx})" class="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/30 text-rose-500 transition-all" aria-label="Remove item">
+                            ❌
+                        </button>
+                    </div>
+                `;
+                fileQueueList.appendChild(li);
+            });
+        }
+
+        // Queue order manipulation logic
+        window.moveItem = function(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= documentQueue.length) return;
+
+            // Swap element
+            const temp = documentQueue[index];
+            documentQueue[index] = documentQueue[targetIndex];
+            documentQueue[targetIndex] = temp;
+
+            renderQueueList();
+        }
+
+        // Remove single item logic
+        window.removeItem = function(index) {
+            documentQueue.splice(index, 1);
+            renderQueueList();
+        }
+
+        // Clear All Logic
+        clearAllBtn.addEventListener('click', () => {
+            documentQueue = [];
+            renderQueueList();
+            successResultsCard.classList.add('hidden');
+        });
+
+
+        mergeTriggerBtn.addEventListener('click', async () => {
+            if (documentQueue.length < 2) {
+                triggerToast("Please add at least 2 PDF files to perform a merge operation.", "📄");
+                return;
+            }
+
+            // Enter active processing mode
+            mergeTriggerBtn.disabled = true;
+            processingLoader.classList.remove('hidden');
+            successResultsCard.classList.add('hidden');
+
+            try {
+                // Initialize clean target doc
+                const mergedPdf = await PDFLib.PDFDocument.create();
+
+                for (const document of documentQueue) {
+                    // Read stage buffer
+                    const loadedDoc = await PDFLib.PDFDocument.load(document.buffer);
+                    const copiedPages = await mergedPdf.copyPages(loadedDoc, loadedDoc.getPageIndices());
+                    copiedPages.forEach((page) => mergedPdf.addPage(page));
+                }
+
+                // Compress array buffers
+                const mergedPdfBytes = await mergedPdf.save();
+                
+                // Wrap to browser blob link
+                const pdfBlob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(pdfBlob);
+
+                // Configure results card download button
+                downloadResultLink.href = blobUrl;
+                downloadResultLink.download = "StaxTech_Merged_Document.pdf";
+
+                // Complete processing loader
+                processingLoader.classList.add('hidden');
+                successResultsCard.classList.remove('hidden');
+                triggerToast("Merge successfully complete!", "🎉");
+
+            } catch (error) {
+                console.error("PDF Merge Error:", error);
+                processingLoader.classList.add('hidden');
+                triggerToast("An error occurred during local PDF compilation.", "❌");
+            } finally {
+                mergeTriggerBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
