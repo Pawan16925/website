@@ -46,7 +46,7 @@ def infer_intent(title: str) -> str:
 
 def demand_score(item: dict) -> int:
     raw = str(item.get("approx_traffic", "")).replace(",", "").lower()
-    for marker, score in [("500k",35),("200k",32),("100k",30),("50k",27),("20k",24),("10k",21),("5k",18),("2k",14)]:
+    for marker, score in [("500000",35),("500k",35),("200000",32),("200k",32),("100000",30),("100k",30),("50000",27),("50k",27),("20000",24),("20k",24),("10000",21),("10k",21),("5000",18),("5k",18),("2000",14),("2k",14)]:
         if marker in raw:
             return score
     try:
