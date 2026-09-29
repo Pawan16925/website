@@ -58,6 +58,14 @@ def main() -> int:
                     "startDate": start_date.isoformat(),
                     "endDate": end_date.isoformat(),
                     "dimensions": ["query"],
+                    "dimensionFilterGroups": [{
+                        "groupType": "and",
+                        "filters": [{
+                            "dimension": "country",
+                            "operator": "equals",
+                            "expression": "USA"
+                        }]
+                    }],
                     "rowLimit": 250,
                     "dataState": "final",
                 },
@@ -76,6 +84,7 @@ def main() -> int:
                     "title": query,
                     "source": "Google Search Console",
                     "source_url": site_url,
+                    "geo": "US",
                     "clicks": row.get("clicks", 0),
                     "impressions": row.get("impressions", 0),
                     "ctr": row.get("ctr", 0),
