@@ -38,7 +38,7 @@ def main() -> None:
         date = html.escape(item.get("published", ""))
 
         cards.append(
-            f'<article><h2><a href="{url}">{title}</a></h2>'
+            f'<article class="stx-card"><h2><a href="{url}">{title}</a></h2>'
             f'<p>{description}</p><small>{date}</small></article>'
         )
 
@@ -51,7 +51,7 @@ def main() -> None:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StaxTech Technology Guides</title>
 <meta name="description" content="Practical technology, software, AI and web development guides from StaxTech.">
-<link rel="canonical" href="{SITE_URL}/articles/">
+<link rel="canonical" href="{SITE_URL}/articles/">\n<link rel="stylesheet" href="/assets/article.css">\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091" crossorigin="anonymous"></script>
 </head>
 <body>
 <main>
