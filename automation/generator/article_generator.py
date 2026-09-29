@@ -128,11 +128,11 @@ def main() -> None:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
-<link rel="canonical" href="{canonical}">
+<link rel="canonical" href="{canonical}">\n<link rel="stylesheet" href="/assets/article.css">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(description)}">
 <meta property="og:type" content="article">
-<meta property="og:url" content="{canonical}">
+<meta property="og:url" content="{canonical}">\n<!-- Google AdSense -->\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9005733002223091" crossorigin="anonymous"></script>
 <script type="application/ld+json">
 {json.dumps({
     "@context": "https://schema.org",
