@@ -81,6 +81,8 @@ def main() -> None:
     for item in trends:
         title = item.get("title", "")
         geo = str(item.get("geo", "US")).upper()
+        if config.get("rules", {}).get("us_first", False) and geo != "US":
+            continue
         rel, matched = relevance_score(title, config.get("categories", []))
         if rel < 8: continue
         demand = demand_score(item)
@@ -96,6 +98,9 @@ def main() -> None:
         })
 
     for item in gsc:
+        geo = str(item.get("geo", "US")).upper()
+        if config.get("rules", {}).get("us_first", False) and geo != "US":
+            continue
         title = item.get("title", "")
         rel, matched = relevance_score(title, config.get("categories", []))
         if rel < 8: continue
@@ -112,7 +117,8 @@ def main() -> None:
             "intent": intent, "matched_keywords": matched + ["search-console-query"],
             "source": "Google Search Console", "source_url": item.get("source_url",""),
             "clicks": clicks, "impressions": impressions, "ctr": item.get("ctr",0),
-            "position": position
+            "position": position,
+            "geo": geo
         })
 
     unique = {}
