@@ -1,83 +1,83 @@
 {
-  "generated_at": "2026-09-29T09:16:23.263645+00:00",
+  "generated_at": "2026-09-29T14:21:25.700654+00:00",
   "count": 10,
   "topics": [
     {
-      "title": "flood watch",
-      "published": "Tue, 29 Sep 2026 02:00:00 -0700",
+      "title": "huracán polo",
+      "published": "Tue, 29 Sep 2026 06:40:00 -0700",
+      "approx_traffic": "2000+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "royal news",
+      "published": "Tue, 29 Sep 2026 06:30:00 -0700",
+      "approx_traffic": "2000+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "maría del carmen abascal eviction",
+      "published": "Tue, 29 Sep 2026 06:20:00 -0700",
       "approx_traffic": "1000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "muse ai",
-      "published": "Tue, 29 Sep 2026 00:30:00 -0700",
-      "approx_traffic": "5000+",
+      "title": "midterm elections",
+      "published": "Tue, 29 Sep 2026 06:10:00 -0700",
+      "approx_traffic": "1000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "strait of hormuz oil flow",
-      "published": "Tue, 29 Sep 2026 00:20:00 -0700",
-      "approx_traffic": "200+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "jaime faria",
-      "published": "Mon, 28 Sep 2026 23:40:00 -0700",
-      "approx_traffic": "200+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "delta",
-      "published": "Mon, 28 Sep 2026 22:50:00 -0700",
-      "approx_traffic": "5000+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "minecraft dungeons 2",
-      "published": "Mon, 28 Sep 2026 22:50:00 -0700",
+      "title": "jack smith",
+      "published": "Tue, 29 Sep 2026 06:00:00 -0700",
       "approx_traffic": "2000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "rui takahashi",
-      "published": "Mon, 28 Sep 2026 22:40:00 -0700",
-      "approx_traffic": "200+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "arthur fils",
-      "published": "Mon, 28 Sep 2026 21:50:00 -0700",
-      "approx_traffic": "500+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "hurricane nolo",
-      "published": "Mon, 28 Sep 2026 21:30:00 -0700",
+      "title": "burundi vs algeria",
+      "published": "Tue, 29 Sep 2026 05:50:00 -0700",
       "approx_traffic": "2000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "jimmy kimmel",
-      "published": "Mon, 28 Sep 2026 21:30:00 -0700",
+      "title": "hbo harry potter series cast",
+      "published": "Tue, 29 Sep 2026 05:50:00 -0700",
       "approx_traffic": "500+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "lindsay clancy trial",
+      "published": "Tue, 29 Sep 2026 05:40:00 -0700",
+      "approx_traffic": "10000+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "court tv",
+      "published": "Tue, 29 Sep 2026 05:40:00 -0700",
+      "approx_traffic": "2000+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "matt rife",
+      "published": "Tue, 29 Sep 2026 05:40:00 -0700",
+      "approx_traffic": "1000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
