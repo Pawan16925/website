@@ -29,7 +29,7 @@ def main() -> None:
     ld = json.dumps({"@context":"https://schema.org","@type":"CollectionPage","name":"StaxTech Technology Guides","url":f"{SITE_URL}/articles/","mainEntity":{"@type":"ItemList","itemListElement":itemlist}}, ensure_ascii=False)
 
     page = f"""<!doctype html>
-<html lang="en-IN"><head>
+<html lang="en-US"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StaxTech Technology Guides | AI, Software, Web & Student Tech</title>
 <meta name="description" content="Fresh StaxTech guides on AI, software, technology updates, web development and student technology, organized around practical search intent.">
@@ -40,7 +40,7 @@ def main() -> None:
 <script type="application/ld+json">{ld}</script></head>
 <body class="stx-shell"><header class="stx-nav"><div class="stx-nav-inner"><a class="stx-brand" href="/">Stax<span>Tech</span></a><nav><a href="/">Home</a><a href="/articles/">Guides</a></nav></div></header>
 <main class="stx-container"><section class="stx-article">
-<div class="stx-hero"><p class="stx-kicker">Fresh technology intelligence</p><h1>Technology Guides</h1><p class="stx-lede">Practical, readable guides covering high-interest AI, software, web development and student technology topics.</p><div class="stx-meta"><span>{len(items)} guides</span><span>•</span><span>Updated automatically</span></div></div>
+<div class="stx-hero"><p class="stx-kicker">Fresh US technology intelligence</p><h1>Technology Guides</h1><p class="stx-lede">Practical, readable US-focused guides covering high-interest AI, software, web development and student technology topics.</p><div class="stx-meta"><span>{len(items)} guides</span><span>•</span><span>Updated automatically</span></div></div>
 <div class="stx-grid">{cards_html}</div></section></main>
 <footer class="stx-footer">© <span data-stx-year></span> StaxTech · Practical technology guides</footer><script src="/assets/article.js" defer></script></body></html>"""
     ARTICLES.mkdir(parents=True, exist_ok=True)
