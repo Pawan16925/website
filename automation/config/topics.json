@@ -1,0 +1,22 @@
+{
+  "site": {
+    "name": "StaxTech",
+    "url": "https://www.staxtech.in",
+    "language": "en-IN"
+  },
+  "publishing": {
+    "mode": "draft",
+    "max_articles_per_run": 1
+  },
+  "categories": [
+    "AI & Technology",
+    "Software & Tools",
+    "Web Development",
+    "Student Technology"
+  ],
+  "rules": {
+    "require_original_value": true,
+    "avoid_copied_content": true,
+    "require_human_review": true
+  }
+}
