@@ -87,10 +87,10 @@ def render_page(title: str, description: str, category: str, date: str, canonica
         {"@type":"Question","name":f"Is {topic} available for everyone?","acceptedAnswer":{"@type":"Answer","text":"Availability can vary by device, operating system, region, account type and release stage."}},
         {"@type":"Question","name":"Where should I get the latest information?","acceptedAnswer":{"@type":"Answer","text":"Use the official product or project website, documentation, release notes or verified announcement channel."}}
     ]
-    article_ld = json.dumps({"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"datePublished":date,"dateModified":date,"inLanguage":"en-IN","author":{"@type":"Organization","name":"StaxTech"},"publisher":{"@type":"Organization","name":"StaxTech"},"mainEntityOfPage":{"@type":"WebPage","@id":canonical},"keywords":[topic,category,intent,"technology guide","StaxTech"]}, ensure_ascii=False)
+    article_ld = json.dumps({"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"datePublished":date,"dateModified":date,"inLanguage":"en-US","author":{"@type":"Organization","name":"StaxTech"},"publisher":{"@type":"Organization","name":"StaxTech"},"mainEntityOfPage":{"@type":"WebPage","@id":canonical},"keywords":[topic,category,intent,"technology guide","StaxTech"]}, ensure_ascii=False)
     faq_ld = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":faq}, ensure_ascii=False)
     return f"""<!doctype html>
-<html lang="en-IN"><head>
+<html lang="en-US"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -118,7 +118,7 @@ def main() -> int:
         category = classify(topic); intent = candidate.get("intent","informational")
         date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         title = intent_title(topic,intent)
-        description = f"Understand {topic}: current context, key features, compatibility, privacy, security and practical steps in this StaxTech guide."
+        description = f"Understand {topic}: US-focused context, key features, compatibility, privacy, security and practical steps in this StaxTech guide."
         canonical = f"{SITE_URL}/articles/{slug}.html"
         (ARTICLES/f"{slug}.html").write_text(render_page(title,description,category,date,canonical,topic,intent,related_items(slug)),encoding="utf-8")
         (ARTICLES/f"{slug}.json").write_text(json.dumps({"title":title,"slug":slug,"description":description,"category":category,"intent":intent,"url":canonical,"published":date,"source_topic":topic,"source":candidate.get("source","trend"),"source_url":candidate.get("source_url",""),"topic_score":candidate.get("score",0),"demand_score":candidate.get("demand_score",0)},indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
