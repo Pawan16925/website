@@ -114,7 +114,7 @@ def main() -> int:
     for candidate in topics:
         topic = str(candidate.get("title","")).strip()
         slug = slugify(topic)
-        if len(slug) < 4 or slug in existing: continue
+        if len(slug) < 4 or slug in existing or int(candidate.get("score", 0) or 0) < 35: continue
         category = classify(topic); intent = candidate.get("intent","informational")
         date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         title = intent_title(topic,intent)
