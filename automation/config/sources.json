@@ -1,0 +1,10 @@
+{
+  "sources": [
+    {
+      "name": "Google Trends India",
+      "type": "google_trends_rss",
+      "geo": "IN",
+      "enabled": true
+    }
+  ]
+}
