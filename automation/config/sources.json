@@ -5,14 +5,7 @@
       "type": "google_trends_rss",
       "geo": "US",
       "enabled": true,
-      "weight": 70
-    },
-    {
-      "name": "Google Trends India",
-      "type": "google_trends_rss",
-      "geo": "IN",
-      "enabled": true,
-      "weight": 5
+      "weight": 100
     }
   ]
 }
