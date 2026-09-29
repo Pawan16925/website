@@ -15,18 +15,22 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
 
       - name: Fetch current trends
         run: python automation/generator/trend_fetcher.py
@@ -43,10 +47,17 @@ jobs:
       - name: Rebuild sitemap
         run: python automation/generator/build_sitemap.py
 
+      - name: Validate generated site
+        run: python automation/generator/validate_pipeline.py
+
       - name: Commit generated content
         run: |
           git config user.name "staxtech-automation"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add automation/data/ articles/ sitemap.xml robots.txt
-          git diff --cached --quiet || git commit -m "chore: publish daily StaxTech article"
-          git push
+          if git diff --cached --quiet; then
+            echo "No content changes to publish."
+            exit 0
+          fi
+          git commit -m "chore: publish StaxTech technology guide"
+          git push origin HEAD:main
