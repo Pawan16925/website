@@ -2,21 +2,16 @@
   "site": {
     "name": "StaxTech",
     "url": "https://www.staxtech.in",
-    "language": "en-IN"
+    "language": "en-US",
+    "primary_market": "US",
+    "primary_geo": "US"
   },
-  "publishing": {
-    "mode": "auto",
-    "max_articles_per_run": 1
-  },
-  "categories": [
-    "AI & Technology",
-    "Software & Tools",
-    "Web Development",
-    "Student Technology"
-  ],
+  "publishing": {"mode":"auto","max_articles_per_run":1},
+  "categories": ["AI & Technology","Software & Tools","Web Development","Student Technology"],
   "rules": {
     "require_original_value": true,
     "avoid_copied_content": true,
-    "require_human_review": false
+    "require_human_review": false,
+    "us_first": true
   }
 }
