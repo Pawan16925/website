@@ -80,6 +80,7 @@ def main() -> None:
 
     for item in trends:
         title = item.get("title", "")
+        geo = str(item.get("geo", "US")).upper()
         rel, matched = relevance_score(title, config.get("categories", []))
         if rel < 8: continue
         demand = demand_score(item)
