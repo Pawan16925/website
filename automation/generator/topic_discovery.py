@@ -80,7 +80,7 @@ def main() -> None:
 
     for item in trends:
         title = item.get("title", "")
-        geo = str(item.get("geo", "US")).upper()
+        geo = str(item.get("geo", "")).upper()
         if config.get("rules", {}).get("us_first", False) and geo != "US":
             continue
         rel, matched = relevance_score(title, config.get("categories", []))
@@ -98,7 +98,7 @@ def main() -> None:
         })
 
     for item in gsc:
-        geo = str(item.get("geo", "US")).upper()
+        geo = str(item.get("geo", "")).upper()
         if config.get("rules", {}).get("us_first", False) and geo != "US":
             continue
         title = item.get("title", "")
