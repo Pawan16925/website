@@ -37,6 +37,9 @@ jobs:
       - name: Generate article
         run: python automation/generator/article_generator.py
 
+      - name: Build article index
+        run: python automation/generator/build_article_index.py
+
       - name: Rebuild sitemap
         run: python automation/generator/build_sitemap.py
 
