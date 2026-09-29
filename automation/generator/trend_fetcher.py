@@ -1,7 +1,7 @@
 """
 StaxTech Trend Fetcher
 
-Fetches Google Trends RSS topics for India and stores normalized
+Fetches Google Trends RSS topics for configured target markets and stores normalized
 trend candidates for the StaxTech topic discovery pipeline.
 
 Only topic metadata is collected. Source article content is not copied.
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG_FILE = ROOT / "automation" / "config" / "sources.json"
 OUTPUT_FILE = ROOT / "automation" / "data" / "trend-candidates.json"
 
-USER_AGENT = "StaxTech-TrendFetcher/1.0"
+USER_AGENT = "StaxTech-TrendFetcher/2.0"
 
 
 def load_config() -> dict:
@@ -33,7 +33,7 @@ def load_config() -> dict:
             "sources": [{
                 "name": "Google Trends India",
                 "type": "google_trends_rss",
-                "geo": "IN",
+                "geo": "US",
                 "enabled": True
             }]
         }
