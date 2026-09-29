@@ -31,6 +31,11 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip && pip install -r requirements.txt
 
+      - name: Preflight automation code
+        run: |
+          echo "Pipeline commit: $(git rev-parse HEAD)"
+          python -m py_compile automation/generator/*.py
+
       - name: Fetch current trends
         run: python automation/generator/trend_fetcher.py
 
