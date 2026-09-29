@@ -1,20 +1,8 @@
 {
-  "generated_at": "2026-09-29T08:29:55.688517+00:00",
-  "input_count": 10,
-  "shortlisted_count": 1,
-  "topics": [
-    {
-      "title": "coloros 17",
-      "score": 40,
-      "matched_keywords": [
-        "coloros",
-        "mobile-os-version"
-      ],
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=IN",
-      "approx_traffic": "5000+",
-      "published": "Mon, 28 Sep 2026 22:00:00 -0700",
-      "geo": "IN"
-    }
-  ]
+  "generated_at": "2026-09-29T08:42:32.803760+00:00",
+  "strategy": "demand + relevance + freshness + search-intent opportunity",
+  "trend_input_count": 10,
+  "search_console_input_count": 0,
+  "shortlisted_count": 0,
+  "topics": []
 }
