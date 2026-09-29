@@ -1,13 +1,8 @@
 """
 StaxTech topic discovery engine.
 
-Phase 1:
-- Loads configured StaxTech categories.
-- Accepts candidate topics from a JSON source.
-- Scores candidates for relevance.
-- Writes shortlisted topics to automation/data/topic-candidates.json.
-
-Live trend/API integrations will be added after the scoring pipeline is tested.
+Reads live trend candidates, scores them against StaxTech categories,
+and writes only relevant topics to topic-candidates.json.
 """
 
 from __future__ import annotations
@@ -18,18 +13,33 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "automation" / "config" / "topics.json"
+TREND_INPUT = ROOT / "automation" / "data" / "trend-candidates.json"
 OUTPUT = ROOT / "automation" / "data" / "topic-candidates.json"
 
 KEYWORDS = {
-    "AI & Technology": ["ai", "artificial intelligence", "technology", "tech", "automation"],
-    "Software & Tools": ["software", "tool", "app", "saas", "browser", "productivity"],
-    "Web Development": ["website", "web", "html", "css", "javascript", "developer"],
-    "Student Technology": ["student", "study", "education", "college", "career", "exam"],
+    "AI & Technology": [
+        "ai", "artificial intelligence", "technology", "tech", "automation"
+    ],
+    "Software & Tools": [
+        "software", "tool", "app", "saas", "browser", "productivity"
+    ],
+    "Web Development": [
+        "website", "web", "html", "css", "javascript", "developer"
+    ],
+    "Student Technology": [
+        "student", "study", "education", "college", "career", "exam"
+    ],
 }
 
 
-def load_config() -> dict:
-    return json.loads(CONFIG.read_text(encoding="utf-8"))
+def load_json(path: Path, default: dict) -> dict:
+    if not path.exists():
+        return default
+
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return default
 
 
 def score_topic(title: str, categories: list[str]) -> tuple[int, list[str]]:
@@ -47,44 +57,63 @@ def score_topic(title: str, categories: list[str]) -> tuple[int, list[str]]:
 
 
 def shortlist(candidates: list[dict], config: dict) -> list[dict]:
-    categories = config["categories"]
+    categories = config.get("categories", [])
     results = []
 
     for candidate in candidates:
         title = candidate.get("title", "").strip()
+
         if not title:
             continue
 
         score, matched = score_topic(title, categories)
 
-        if score >= 10:
-            results.append({
-                "title": title,
-                "score": score,
-                "matched_keywords": matched,
-                "source": candidate.get("source", "manual"),
-            })
+        if score < 10:
+            continue
 
-    return sorted(results, key=lambda item: item["score"], reverse=True)
+        results.append({
+            "title": title,
+            "score": score,
+            "matched_keywords": matched,
+            "source": candidate.get("source", "unknown"),
+            "source_url": candidate.get("source_url", ""),
+            "approx_traffic": candidate.get("approx_traffic", ""),
+        })
+
+    # Remove duplicate titles while preserving the highest score.
+    unique = {}
+
+    for item in results:
+        key = item["title"].lower()
+
+        if key not in unique or item["score"] > unique[key]["score"]:
+            unique[key] = item
+
+    return sorted(
+        unique.values(),
+        key=lambda item: item["score"],
+        reverse=True,
+    )
 
 
 def main() -> None:
-    config = load_config()
+    config = load_json(CONFIG, {})
+    trend_data = load_json(
+        TREND_INPUT,
+        {"topics": []},
+    )
 
-    # Temporary local input. A live trend provider will replace this later.
-    candidates = [
-        {"title": "AI tools for students", "source": "test"},
-        {"title": "Best productivity software", "source": "test"},
-        {"title": "HTML website optimization guide", "source": "test"},
-        {"title": "Random celebrity news", "source": "test"},
-    ]
-
+    candidates = trend_data.get("topics", [])
     topics = shortlist(candidates, config)
+
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
     OUTPUT.write_text(
         json.dumps(
             {
                 "generated_at": datetime.now(timezone.utc).isoformat(),
+                "input_count": len(candidates),
+                "shortlisted_count": len(topics),
                 "topics": topics,
             },
             indent=2,
@@ -94,7 +123,10 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print(f"Shortlisted {len(topics)} topics.")
+    print(
+        f"Processed {len(candidates)} trends; "
+        f"shortlisted {len(topics)} relevant topics."
+    )
 
 
 if __name__ == "__main__":
