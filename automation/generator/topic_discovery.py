@@ -86,12 +86,12 @@ def main() -> None:
         intent = infer_intent(title)
         intent_bonus = 10 if intent in {"how-to","update","comparison"} else 5
         candidates.append({
-            "title": title, "score": min(100, rel + demand + intent_bonus),
+            "title": title, "score": min(100, rel + demand + intent_bonus + (18 if geo == "US" else 0)),
             "relevance_score": rel, "demand_score": demand, "freshness_score": 20,
             "intent": intent, "matched_keywords": matched,
             "source": item.get("source","Google Trends"), "source_url": item.get("source_url",""),
             "approx_traffic": item.get("approx_traffic",""), "published": item.get("published",""),
-            "geo": item.get("geo","")
+            "geo": geo
         })
 
     for item in gsc:
@@ -124,7 +124,7 @@ def main() -> None:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "strategy": "demand + relevance + freshness + search-intent opportunity",
+        "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
         "trend_input_count": len(trends), "search_console_input_count": len(gsc),
         "shortlisted_count": len(topics), "topics": topics
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
