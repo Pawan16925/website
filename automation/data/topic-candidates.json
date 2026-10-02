@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-10-02T06:37:49.704054+00:00",
+  "generated_at": "2026-10-02T13:31:27.235250+00:00",
   "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
   "trend_input_count": 10,
   "search_console_input_count": 0,
-  "shortlisted_count": 1,
-  "topics": [
-    {
-      "title": "moonshot ai",
-      "score": 36,
-      "relevance_score": 13,
-      "demand_score": 0,
-      "freshness_score": 20,
-      "intent": "informational",
-      "matched_keywords": [
-        "ai"
-      ],
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "approx_traffic": "200+",
-      "published": "Thu, 1 Oct 2026 23:20:00 -0700",
-      "geo": "US"
-    }
-  ]
+  "shortlisted_count": 0,
+  "topics": []
 }
