@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-10-08T17:09:13.388133+00:00",
+  "generated_at": "2026-10-08T22:48:08.291772+00:00",
   "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
   "trend_input_count": 10,
   "search_console_input_count": 0,
-  "shortlisted_count": 1,
-  "topics": [
-    {
-      "title": "sean combs release date 2028",
-      "score": 59,
-      "relevance_score": 13,
-      "demand_score": 18,
-      "freshness_score": 20,
-      "intent": "update",
-      "matched_keywords": [
-        "release"
-      ],
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "approx_traffic": "5000+",
-      "published": "Thu, 8 Oct 2026 09:00:00 -0700",
-      "geo": "US"
-    }
-  ]
+  "shortlisted_count": 0,
+  "topics": []
 }
