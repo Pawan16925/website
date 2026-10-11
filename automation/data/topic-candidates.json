@@ -1,8 +1,25 @@
 {
-  "generated_at": "2026-10-11T03:41:09.920817+00:00",
+  "generated_at": "2026-10-11T10:32:29.174305+00:00",
   "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
   "trend_input_count": 10,
   "search_console_input_count": 0,
-  "shortlisted_count": 0,
-  "topics": []
+  "shortlisted_count": 1,
+  "topics": [
+    {
+      "title": "netflix new releases",
+      "score": 65,
+      "relevance_score": 13,
+      "demand_score": 24,
+      "freshness_score": 20,
+      "intent": "update",
+      "matched_keywords": [
+        "release"
+      ],
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "approx_traffic": "20000+",
+      "published": "Sun, 11 Oct 2026 02:30:00 -0700",
+      "geo": "US"
+    }
+  ]
 }
