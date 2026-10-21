@@ -1,7 +1,0 @@
-[functions]
-  directory = "netlify/functions"
-
-[[redirects]]
-  from = "/api/chat.php"
-  to = "/.netlify/functions/chat"
-  status = 200
