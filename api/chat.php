@@ -4,12 +4,15 @@ declare(strict_types=1);
 /**
  * StaxTech AI Assistant API proxy.
  *
- * Configure these environment variables on your hosting server:
- *   AI_API_URL  e.g. the chat-completions endpoint from your AI provider
- *   AI_API_KEY  provider secret key (never commit it to GitHub)
- *   AI_MODEL    provider model name
+ * CodeCraft API is OpenAI-compatible:
+ *   https://codecraftapi.com/v1/chat/completions
  *
- * This proxy expects an OpenAI-compatible chat-completions API.
+ * Configure the secret API key on the SERVER only:
+ *   AI_API_KEY=your_cc_key
+ *
+ * Optional overrides:
+ *   AI_API_URL=https://codecraftapi.com/v1/chat/completions
+ *   AI_MODEL=claude-opus-4.8
  */
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -30,11 +33,12 @@ if ($origin !== '' && $host !== '' && parse_url($origin, PHP_URL_HOST) !== $host
     exit;
 }
 
-$apiUrl = getenv('AI_API_URL') ?: '';
+// CodeCraft's chat-completions endpoint and a documented model are the defaults.
+$apiUrl = getenv('AI_API_URL') ?: 'https://codecraftapi.com/v1/chat/completions';
 $apiKey = getenv('AI_API_KEY') ?: '';
-$model = getenv('AI_MODEL') ?: '';
+$model = getenv('AI_MODEL') ?: 'claude-opus-4.8';
 
-if ($apiUrl === '' || $apiKey === '' || $model === '') {
+if ($apiKey === '') {
     http_response_code(503);
     echo json_encode(['error' => 'The AI assistant is not configured yet. Please contact the site administrator.']);
     exit;
