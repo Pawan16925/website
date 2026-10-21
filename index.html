@@ -1232,6 +1232,128 @@
             }
         });
     </script>
+
+<!-- StaxTech AI Help Assistant -->
+<button id="stax-ai-launcher" type="button" aria-label="Open AI help chat" aria-expanded="false"><i class="fas fa-comment-dots"></i></button>
+<section id="stax-ai-panel" role="dialog" aria-label="StaxTech AI Help Assistant" aria-modal="false">
+  <header class="stax-ai-head">
+    <div><strong><i class="fas fa-sparkles"></i> StaxTech AI Assistant</strong><small>Ask us about services, internships, and website help</small></div>
+    <button class="stax-ai-close" id="stax-ai-close" type="button" aria-label="Close chat">&times;</button>
+  </header>
+  <div class="stax-ai-messages" id="stax-ai-messages" aria-live="polite">
+    <div class="stax-ai-message bot">Hi! 👋 I’m the StaxTech assistant. How can I help you today?</div>
+  </div>
+  <div class="stax-ai-suggestions">
+    <button type="button" data-question="How do I apply for an internship?">Internships</button>
+    <button type="button" data-question="What services does StaxTech offer?">Our services</button>
+    <button type="button" data-question="How can I contact StaxTech?">Contact</button>
+  </div>
+  <form class="stax-ai-form" id="stax-ai-form">
+    <textarea id="stax-ai-input" rows="1" maxlength="1200" placeholder="Type your question…" aria-label="Your message" required></textarea>
+    <button id="stax-ai-send" type="submit" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+  </form>
+  <div class="stax-ai-note">AI can make mistakes. Do not share passwords or payment details.</div>
+</section>
+<style>
+/* StaxTech AI Help Chat */
+#stax-ai-launcher{position:fixed;right:24px;bottom:112px;z-index:1200;width:58px;height:58px;border:0;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;box-shadow:0 10px 30px rgba(79,70,229,.4);cursor:pointer;font-size:23px}
+#stax-ai-panel{position:fixed;right:24px;bottom:184px;z-index:1201;width:min(370px,calc(100vw - 32px));height: min(520px,calc(100vh - 220px));display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:#111b31;box-shadow:0 24px 70px rgba(0,0,0,.5);color:#f8fafc;font-family:Inter,sans-serif}
+#stax-ai-panel.open{display:flex}
+#stax-ai-panel *{box-sizing:border-box}
+.stax-ai-head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:linear-gradient(120deg,#4f46e5,#7c3aed)}
+.stax-ai-head strong{font-size:15px}
+.stax-ai-head small{display:block;font-size:11px;opacity:.85}
+.stax-ai-close{border:0;background:transparent;color:#fff;font-size:24px;cursor:pointer}
+.stax-ai-messages{flex:1;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:10px}
+.stax-ai-message{max-width:88%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.stax-ai-message.bot{align-self:flex-start;background:#1e293b;border:1px solid rgba(255,255,255,.08)}
+.stax-ai-message.user{align-self:flex-end;background:#4f46e5;color:#fff}
+.stax-ai-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px}
+.stax-ai-suggestions button{border:1px solid rgba(255,255,255,.18);background:#17243c;color:#e2e8f0;border-radius:20px;padding:7px 9px;font-size:11px;cursor:pointer}
+.stax-ai-form{display:flex;gap:8px;border-top:1px solid rgba(255,255,255,.12);padding:12px}
+#stax-ai-input{min-width:0;flex:1;resize:none;max-height:100px;border:1px solid rgba(255,255,255,.18);border-radius:11px;padding:10px;background:#0f172a;color:#fff;font:inherit;font-size:13px;outline:none}
+#stax-ai-input:focus{border-color:#818cf8}
+#stax-ai-send{width:42px;min-width:42px;border:0;border-radius:11px;background:#4f46e5;color:#fff;font-size:16px;cursor:pointer}
+#stax-ai-send:disabled{opacity:.5;cursor:wait}
+.stax-ai-note{padding:0 12px 10px;color:#94a3b8;font-size:10px}
+@media(max-width:480px){#stax-ai-launcher{right:16px;bottom:96px}#stax-ai-panel{right:16px;bottom:164px}}
+</style>
+<script>
+(() => {
+  const launcher = document.getElementById('stax-ai-launcher');
+  const panel = document.getElementById('stax-ai-panel');
+  const close = document.getElementById('stax-ai-close');
+  const form = document.getElementById('stax-ai-form');
+  const input = document.getElementById('stax-ai-input');
+  const messages = document.getElementById('stax-ai-messages');
+  const send = document.getElementById('stax-ai-send');
+  if (!launcher || !panel || !form || !input || !messages || !send) return;
+
+  const history = [];
+  const addMessage = (text, who) => {
+    const node = document.createElement('div');
+    node.className = 'stax-ai-message ' + (who === 'user' ? 'user' : 'bot');
+    node.textContent = text;
+    messages.appendChild(node);
+    messages.scrollTop = messages.scrollHeight;
+    return node;
+  };
+  const togglePanel = (open) => {
+    panel.classList.toggle('open', open);
+    launcher.setAttribute('aria-expanded', String(open));
+    if (open) input.focus();
+  };
+  launcher.addEventListener('click', () => togglePanel(!panel.classList.contains('open')));
+  close.addEventListener('click', () => togglePanel(false));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') togglePanel(false);
+  });
+  document.querySelectorAll('.stax-ai-suggestions [data-question]').forEach((button) => {
+    button.addEventListener('click', () => {
+      input.value = button.getAttribute('data-question') || '';
+      form.requestSubmit();
+    });
+  });
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      form.requestSubmit();
+    }
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question || send.disabled) return;
+    addMessage(question, 'user');
+    input.value = '';
+    history.push({ role: 'user', content: question });
+    send.disabled = true;
+    const thinking = addMessage('Thinking…', 'bot');
+    try {
+      // The server-side endpoint keeps the provider API key out of browser code.
+      const response = await fetch('/api/chat.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ messages: history.slice(-10) })
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'The assistant is temporarily unavailable.');
+      const answer = typeof data.reply === 'string' ? data.reply.trim() : '';
+      if (!answer) throw new Error('The assistant returned an empty response.');
+      thinking.textContent = answer;
+      history.push({ role: 'assistant', content: answer });
+    } catch (error) {
+      thinking.textContent = error.message || 'Sorry, something went wrong. Please try again later.';
+    } finally {
+      send.disabled = false;
+      messages.scrollTop = messages.scrollHeight;
+      input.focus();
+    }
+  });
+})();
+</script>
+
 </body>
 
 </html>
