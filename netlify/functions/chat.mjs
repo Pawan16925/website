@@ -1,13 +1,21 @@
 export default async (request) => {
+  if (request.method === "OPTIONS") {
+    return json({ ok: true }, 204);
+  }
+
   if (request.method !== "POST") {
     return json({ error: "Use POST for chat requests." }, 405);
   }
 
-  const apiKey = process.env.AI_API_KEY || "";
+  // Support the documented variable names plus common aliases so the
+  // function works even if the Netlify environment variable was named
+  // CODECRAFT_API_KEY instead of AI_API_KEY.
+  const apiKey = process.env.AI_API_KEY || process.env.CODECRAFT_API_KEY || "";
   const apiUrl = process.env.AI_API_URL || "https://codecraftapi.com/v1/chat/completions";
-  const model = process.env.AI_MODEL || "claude-opus-4.8";
+  const model = process.env.AI_MODEL || process.env.CODECRAFT_MODEL || "claude-opus-4.8";
 
   if (!apiKey) {
+    console.error("StaxTech AI: no API key configured. Set AI_API_KEY in Netlify environment variables.");
     return json({ error: "The AI assistant is not configured yet. Please contact the site administrator." }, 503);
   }
 
@@ -25,24 +33,24 @@ export default async (request) => {
   const system = "You are the helpful StaxTech website assistant. Answer clearly and politely. You may help with StaxTech services, internship applications, website navigation, and general questions. For official program details you are unsure about, direct users to https://staxtech.in or info@staxtech.in. Never claim to have completed an action you cannot perform. Do not ask users for passwords, OTPs, payment card details, or secret information. Keep responses concise.";
 
   const messages = [{ role: "system", content: system }];
-  let count = 0;
 
   for (const message of input.messages) {
     if (!message || typeof message !== "object") continue;
     const role = message.role;
     const text = message.content;
     if (!["user", "assistant"].includes(role) || typeof text !== "string") continue;
+
     const trimmed = text.trim();
     if (!trimmed) continue;
     messages.push({ role, content: trimmed.slice(0, 1200) });
-    count++;
   }
 
-  if (count === 0) {
+  if (messages.length === 1) {
     return json({ error: "Please send a question first." }, 400);
   }
 
-  if (count > 10) {
+  // Keep only the most recent 10 user/assistant messages plus the system prompt.
+  if (messages.length > 11) {
     messages.splice(1, messages.length - 11);
   }
 
@@ -68,8 +76,19 @@ export default async (request) => {
   }
 
   if (!providerResponse.ok) {
-    console.error("StaxTech AI provider returned HTTP", providerResponse.status);
-    return json({ error: "The AI service could not answer right now. Please try again later." }, 502);
+    // Log the provider's safe error response for Netlify Function logs.
+    // Never log the API key itself.
+    let providerError = "";
+    try {
+      providerError = (await providerResponse.text()).slice(0, 1000);
+    } catch {
+      providerError = "Unable to read provider error response.";
+    }
+    console.error(`StaxTech AI provider HTTP ${providerResponse.status}:`, providerError);
+
+    return json({
+      error: "The AI service could not answer right now. Please try again later."
+    }, 502);
   }
 
   let data;
@@ -79,8 +98,18 @@ export default async (request) => {
     return json({ error: "The AI service returned an unexpected response." }, 502);
   }
 
-  const reply = data?.choices?.[0]?.message?.content;
+  // OpenAI-compatible providers normally return a string here. Some
+  // compatible gateways return an array of content blocks, so handle both.
+  let reply = data?.choices?.[0]?.message?.content;
+  if (Array.isArray(reply)) {
+    reply = reply
+      .map((part) => typeof part === "string" ? part : part?.text || "")
+      .join("")
+      .trim();
+  }
+
   if (typeof reply !== "string" || !reply.trim()) {
+    console.error("StaxTech AI: unexpected provider response shape.");
     return json({ error: "The AI service returned an unexpected response." }, 502);
   }
 
