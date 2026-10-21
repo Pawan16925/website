@@ -6,16 +6,172 @@ permissions:
   contents: write
 jobs:
   fix:
-    if: github.event.head_commit.message != 'fix: CodeCraft chat token budget'
+    if: github.event.head_commit.message != 'feat: secure StaxTech AI chatbot with offer and certificate lookup'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Fix chat request
-        run: sed -i 's/max_tokens:500/max_tokens:4096/g' index.html
-      - name: Commit fix
+
+      - name: Install Python helper
+        run: python -V
+
+      - name: Update chatbot frontend safely
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Remove any browser-exposed CodeCraft credential and route the chat through our Netlify function.
+          s = re.sub(r"const CODECRAFT_API_KEY\s*=\s*['\"][^'\"]*['\"]\s*;", "const CODECRAFT_API_KEY='';", s, count=1)
+          s = re.sub(r"const CODECRAFT_API_URL\s*=\s*['\"]https://codecraftapi\.com/v1/chat/completions['\"]\s*;", "const CODECRAFT_API_URL='/api/chat';", s, count=1)
+
+          # Give the server the currently visible page content so the assistant can answer from the website itself.
+          marker = 'body: JSON.stringify({'
+          inject = "body: JSON.stringify({\\n              page_url: location.href,\\n              page_text: document.body.innerText.slice(0, 30000),"
+          if 'page_text: document.body.innerText.slice(0, 30000)' not in s and marker in s:
+              s = s.replace(marker, inject, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Create Netlify CodeCraft proxy
+        run: |
+          mkdir -p netlify/functions
+          cat > netlify/functions/chat.mjs <<'EOF'
+          const CODECRAFT_URL = 'https://codecraftapi.com/v1/chat/completions';
+          const OFFER_API = 'https://script.google.com/macros/s/AKfycbxKZLnhIYwEIouuTfxlyEehTyVMz14pcStu-3OPSEzprbH7HfD_N4_BOMX5ZwAhlRueFQ/exec';
+          const CERT_API = 'https://script.google.com/macros/s/AKfycbxUYEIb-ZdsMPUCsc9d8cKfm6OhFjwX4SxHPzRbCcwJN7pxtnXn9-tQfkeiuk3kiHvV/exec';
+
+          const SITE_ROUTES = [
+            '/', '/about', '/services', '/apply', '/offer', '/instructions',
+            '/project-submission', '/verifycert-new', '/server', '/terms',
+            '/articles', '/tools'
+          ];
+
+          function json(status, data) {
+            return {
+              statusCode: status,
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'Cache-Control': 'no-store',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+              },
+              body: JSON.stringify(data)
+            };
+          }
+
+          function lastUserText(messages = []) {
+            const m = [...messages].reverse().find(x => x?.role === 'user');
+            return typeof m?.content === 'string' ? m.content : '';
+          }
+
+          async function lookupOffer(query) {
+            const url = `${OFFER_API}?query=${encodeURIComponent(query)}`;
+            const r = await fetch(url, { signal: AbortSignal.timeout(10000) });
+            const text = await r.text();
+            return { status: r.status, text: text.slice(0, 12000) };
+          }
+
+          async function lookupCertificate(id) {
+            const url = `${CERT_API}?cert_id=${encodeURIComponent(id.toUpperCase())}`;
+            const r = await fetch(url, { signal: AbortSignal.timeout(10000) });
+            const text = await r.text();
+            return { status: r.status, text: text.slice(0, 12000) };
+          }
+
+          export default async (request) => {
+            if (request.method === 'OPTIONS') return json(204, {});
+            if (request.method !== 'POST') return json(405, { error: 'Method not allowed' });
+
+            const apiKey = process.env.CODECRAFT_API_KEY;
+            if (!apiKey) return json(500, { error: 'CODECRAFT_API_KEY is not configured in Netlify environment variables.' });
+
+            try {
+              const input = await request.json();
+              const messages = Array.isArray(input.messages) ? input.messages : [];
+              const userText = lastUserText(messages);
+              const lower = userText.toLowerCase();
+              let toolContext = '';
+
+              // Offer-letter finder: email or phone can be passed directly in chat.
+              if (/offer|offer letter|joining|internship letter/.test(lower)) {
+                const candidate = userText.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|\+?\d[\d\s()-]{7,}\d/i)?.[0];
+                if (candidate) {
+                  try {
+                    const result = await lookupOffer(candidate);
+                    toolContext += `\\nOFFER FINDER LIVE RESULT FOR ${candidate}: HTTP ${result.status}\\n${result.text}\\n`;
+                  } catch (e) {
+                    toolContext += `\\nOFFER FINDER ERROR: ${e.message}\\n`;
+                  }
+                } else {
+                  toolContext += '\\nOffer-letter finder: ask the user for their registered email or phone number. Direct portal: https://staxtech.in/offer\\n';
+                }
+              }
+
+              // Certificate verifier: detect common certificate ID formats.
+              if (/certificate|certificat|verify|verification/.test(lower)) {
+                const candidate = userText.match(/STAX[A-Z0-9-]{3,}/i)?.[0];
+                if (candidate) {
+                  try {
+                    const result = await lookupCertificate(candidate);
+                    toolContext += `\\nCERTIFICATE LIVE RESULT FOR ${candidate}: HTTP ${result.status}\\n${result.text}\\n`;
+                  } catch (e) {
+                    toolContext += `\\nCERTIFICATE LOOKUP ERROR: ${e.message}\\n`;
+                  }
+                } else {
+                  toolContext += '\\nCertificate verification portal: https://staxtech.in/verifycert-new.html . Ask for the Certificate ID if the user wants a live verification.\\n';
+                }
+              }
+
+              const pageText = typeof input.page_text === 'string' ? input.page_text.slice(0, 30000) : '';
+              const pageUrl = typeof input.page_url === 'string' ? input.page_url : '';
+
+              const system = `You are the official StaxTech website assistant. Answer using StaxTech website information first. Be concise, helpful, and accurate. Never invent internship, offer-letter, certificate, fee, eligibility, contact, or policy details. If the requested information is not in the supplied context, say you cannot confirm it and provide the relevant StaxTech page when possible. You can help users navigate the website, find offer letters, verify certificates, understand internship instructions, submit projects, and explain StaxTech services.\\n\\nImportant StaxTech pages: ${SITE_ROUTES.map(x => 'https://staxtech.in' + x).join(', ')}.\\nOffer Letter Finder: https://staxtech.in/offer\\nCertificate Verification: https://staxtech.in/verifycert-new.html\\nInstructions: https://staxtech.in/instructions\\nProject Submission: https://staxtech.in/project-submission\\n${pageUrl ? `Current page: ${pageUrl}\\n` : ''}${pageText ? `Current page text:\\n${pageText}\\n` : ''}${toolContext}`;
+
+              const body = {
+                model: input.model || 'claude-opus-4.8',
+                messages: [{ role: 'system', content: system }, ...messages.filter(m => m?.role !== 'system').slice(-12)],
+                temperature: 0.4,
+                max_tokens: 4096
+              };
+
+              const upstream = await fetch(CODECRAFT_URL, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(body),
+                signal: AbortSignal.timeout(60000)
+              });
+
+              const text = await upstream.text();
+              let data;
+              try { data = JSON.parse(text); } catch { data = { error: text }; }
+              return json(upstream.status, data);
+            } catch (error) {
+              return json(500, { error: error?.message || 'Chat proxy error' });
+            }
+          };
+          EOF
+
+          cat > netlify.toml <<'EOF'
+          [build]
+            functions = "netlify/functions"
+
+          [[redirects]]
+            from = "/api/chat"
+            to = "/.netlify/functions/chat"
+            status = 200
+          EOF
+
+      - name: Commit changes
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html
-          git commit -m 'fix: CodeCraft chat token budget' || exit 0
+          git add index.html netlify/functions/chat.mjs netlify.toml
+          git commit -m 'feat: secure StaxTech AI chatbot with offer and certificate lookup' || exit 0
           git push
