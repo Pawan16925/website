@@ -1,0 +1,21 @@
+name: Fix CodeCraft Chat
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix:
+    if: github.event.head_commit.message != 'fix: CodeCraft chat token budget'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Fix chat request
+        run: sed -i 's/max_tokens:500/max_tokens:4096/g' index.html
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'fix: CodeCraft chat token budget' || exit 0
+          git push
