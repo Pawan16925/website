@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-10-26T20:52:23.414131+00:00",
+  "generated_at": "2026-10-27T00:12:39.774223+00:00",
   "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
   "trend_input_count": 10,
   "search_console_input_count": 0,
-  "shortlisted_count": 1,
-  "topics": [
-    {
-      "title": "john harbaugh najee harris release",
-      "score": 59,
-      "relevance_score": 13,
-      "demand_score": 18,
-      "freshness_score": 20,
-      "intent": "update",
-      "matched_keywords": [
-        "release"
-      ],
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "approx_traffic": "5000+",
-      "published": "Mon, 26 Oct 2026 13:10:00 -0700",
-      "geo": "US"
-    }
-  ]
+  "shortlisted_count": 0,
+  "topics": []
 }
