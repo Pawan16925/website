@@ -1,26 +1,8 @@
 {
-  "generated_at": "2026-10-27T17:21:59.807471+00:00",
+  "generated_at": "2026-10-27T21:45:58.622811+00:00",
   "strategy": "US-first demand + relevance + freshness + search-intent opportunity",
   "trend_input_count": 10,
   "search_console_input_count": 0,
-  "shortlisted_count": 1,
-  "topics": [
-    {
-      "title": "apple support number",
-      "score": 51,
-      "relevance_score": 14,
-      "demand_score": 14,
-      "freshness_score": 20,
-      "intent": "informational",
-      "matched_keywords": [
-        "app",
-        "apple"
-      ],
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "approx_traffic": "2000+",
-      "published": "Tue, 27 Oct 2026 09:50:00 -0700",
-      "geo": "US"
-    }
-  ]
+  "shortlisted_count": 0,
+  "topics": []
 }
