@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy | LibStax</title>
+  <meta
+    name="description"
+    content="Read the LibStax Privacy Policy to understand how we collect, use, protect, and manage your information."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --background: #f8fafc;
+      --white: #ffffff;
+      --sidebar: #f9fafb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 72px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+      border-bottom: 1px solid var(--border);
+      padding: 70px 24px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .updated {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* Layout */
+    .page-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 50px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .sidebar h3 {
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 8px 10px;
+      margin: 2px 0;
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #eef2ff;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Content */
+    .content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 45px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      scroll-margin-top: 100px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 26px;
+      margin-bottom: 14px;
+      letter-spacing: -0.4px;
+    }
+
+    .section h3 {
+      font-size: 18px;
+      margin: 25px 0 10px;
+    }
+
+    .section p {
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+
+    .section ul {
+      padding-left: 22px;
+      color: #4b5563;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+    }
+
+    .info-box {
+      background: #f5f7ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+
+    .info-box p {
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: white;
+      margin-top: 60px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 800px) {
+      .page-container {
+        grid-template-columns: 1fr;
+        margin-top: 25px;
+      }
+
+      .sidebar {
+        position: static;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .sidebar a {
+        display: inline-block;
+      }
+
+      .content {
+        padding: 25px 20px;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .navbar {
+        height: 64px;
+        padding: 0 16px;
+      }
+
+      .nav-link {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .page-container {
+        padding: 0 14px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>LibStax</span>
+      </a>
+
+      <a href="/" class="nav-link">Back to Home</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Legal</span>
+
+      <h1>Privacy Policy</h1>
+
+      <p>
+        This Privacy Policy explains how LibStax collects, uses,
+        stores, and protects information when you use our services.
+      </p>
+
+      <div class="updated">
+        Last Updated: <strong>October 30, 2026</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="page-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>On this page</h3>
+
+      <a href="#introduction">Introduction</a>
+      <a href="#information">Information We Collect</a>
+      <a href="#usage">How We Use Information</a>
+      <a href="#sharing">Information Sharing</a>
+      <a href="#storage">Data Storage & Security</a>
+      <a href="#retention">Data Retention</a>
+      <a href="#rights">Your Rights</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#children">Children's Privacy</a>
+      <a href="#third-party">Third-Party Services</a>
+      <a href="#changes">Changes to Policy</a>
+      <a href="#contact">Contact Us</a>
+    </aside>
+
+    <!-- Content -->
+    <article class="content">
+
+      <section class="section" id="introduction">
+        <h2>1. Introduction</h2>
+
+        <p>
+          Welcome to LibStax. LibStax is a library and study-space
+          management platform that helps library owners and managers
+          manage students, seats, memberships, payments, and related
+          operational information.
+        </p>
+
+        <p>
+          We respect your privacy and are committed to protecting
+          the information you provide while using LibStax.
+        </p>
+      </section>
+
+      <section class="section" id="information">
+        <h2>2. Information We Collect</h2>
+
+        <p>
+          Depending on how you use LibStax, we may collect the following
+          categories of information:
+        </p>
+
+        <h3>Account Information</h3>
+        <ul>
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Login and authentication information</li>
+          <li>Library or organization information</li>
+        </ul>
+
+        <h3>Student / Member Information</h3>
+        <ul>
+          <li>Student or member name</li>
+          <li>Phone number</li>
+          <li>Email address, where provided</li>
+          <li>Gender, where provided</li>
+          <li>Address and other optional profile information</li>
+          <li>Membership and seat information</li>
+        </ul>
+
+        <h3>Payment Information</h3>
+        <p>
+          LibStax may store information related to payments and
+          collections entered by library owners or managers, such as
+          payment amounts, payment dates, payment modes, dues,
+          membership plans, and transaction references.
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>Important:</strong> LibStax does not intentionally
+            store complete credit/debit card numbers or card security
+            codes.
+          </p>
+        </div>
+
+        <h3>Technical Information</h3>
+        <ul>
+          <li>Device type</li>
+          <li>Operating system</li>
+          <li>Application version</li>
+          <li>IP address</li>
+          <li>Basic diagnostic and usage information</li>
+        </ul>
+      </section>
+
+      <section class="section" id="usage">
+        <h2>3. How We Use Information</h2>
+
+        <p>We may use collected information to:</p>
+
+        <ul>
+          <li>Create and manage user accounts.</li>
+          <li>Provide LibStax features and services.</li>
+          <li>Manage students, seats, memberships, and payments.</li>
+          <li>Generate reports and invoices.</li>
+          <li>Process account-related requests.</li>
+          <li>Maintain and improve application performance.</li>
+          <li>Detect fraud, abuse, and security threats.</li>
+          <li>Provide customer support.</li>
+          <li>Communicate important service-related information.</li>
+          <li>Comply with applicable legal requirements.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="sharing">
+        <h2>4. Information Sharing</h2>
+
+        <p>
+          We do not sell your personal information to third parties.
+        </p>
+
+        <p>
+          We may share information with trusted service providers
+          when necessary to operate LibStax, such as cloud hosting,
+          database, authentication, analytics, payment, or communication
+          providers.
+        </p>
+
+        <p>
+          We may also disclose information when required by law,
+          legal process, governmental request, or when reasonably
+          necessary to protect our users, services, or rights.
+        </p>
+      </section>
+
+      <section class="section" id="storage">
+        <h2>5. Data Storage & Security</h2>
+
+        <p>
+          We use reasonable technical and organizational measures
+          designed to protect your information against unauthorized
+          access, alteration, disclosure, or destruction.
+        </p>
+
+        <p>
+          However, no internet-based service can guarantee absolute
+          security. You should use strong passwords and keep your
+          account credentials confidential.
+        </p>
+      </section>
+
+      <section class="section" id="retention">
+        <h2>6. Data Retention</h2>
+
+        <p>
+          We retain information for as long as reasonably necessary
+          to provide the service, maintain business and financial
+          records, resolve disputes, enforce agreements, and comply
+          with applicable legal obligations.
+        </p>
+
+        <p>
+          When information is no longer required, we may delete or
+          anonymize it, subject to applicable legal and operational
+          requirements.
+        </p>
+      </section>
+
+      <section class="section" id="rights">
+        <h2>7. Your Rights</h2>
+
+        <p>
+          Depending on applicable law, you may have rights regarding
+          your personal information, including the right to:
+        </p>
+
+        <ul>
+          <li>Access information associated with your account.</li>
+          <li>Request correction of inaccurate information.</li>
+          <li>Request deletion of certain information.</li>
+          <li>Withdraw certain permissions where applicable.</li>
+          <li>Request information about how your data is processed.</li>
+        </ul>
+
+        <p>
+          Some information may need to be retained where required by
+          law or necessary for legitimate business purposes.
+        </p>
+      </section>
+
+      <section class="section" id="cookies">
+        <h2>8. Cookies and Similar Technologies</h2>
+
+        <p>
+          LibStax may use cookies, local storage, or similar technologies
+          to maintain sessions, remember preferences, improve security,
+          and understand how the service is used.
+        </p>
+
+        <p>
+          Disabling certain technologies may affect some functionality
+          of the service.
+        </p>
+      </section>
+
+      <section class="section" id="children">
+        <h2>9. Children's Privacy</h2>
+
+        <p>
+          LibStax is intended for library owners, managers, and other
+          authorized users of the service. The service is not designed
+          to knowingly collect personal information directly from
+          children without appropriate authorization.
+        </p>
+
+        <p>
+          If you believe that a child has provided personal information
+          to us improperly, please contact us so that we can investigate
+          and take appropriate action.
+        </p>
+      </section>
+
+      <section class="section" id="third-party">
+        <h2>10. Third-Party Services</h2>
+
+        <p>
+          LibStax may integrate with third-party services for
+          authentication, cloud infrastructure, analytics,
+          notifications, payments, or other functionality.
+        </p>
+
+        <p>
+          These services may process information according to their
+          own privacy policies and terms.
+        </p>
+      </section>
+
+      <section class="section" id="changes">
+        <h2>11. Changes to This Privacy Policy</h2>
+
+        <p>
+          We may update this Privacy Policy from time to time to
+          reflect changes to our services, technology, or legal
+          requirements.
+        </p>
+
+        <p>
+          When changes are made, we will update the "Last Updated"
+          date displayed at the beginning of this policy.
+        </p>
+      </section>
+
+      <section class="section" id="contact">
+        <h2>12. Contact Us</h2>
+
+        <p>
+          If you have questions, concerns, or requests regarding
+          this Privacy Policy or your personal information, please
+          contact us.
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>LibStax</strong><br />
+            Email:
+            <a href="mailto:support@libstax.com">
+              support@libstax.com
+            </a>
+          </p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+
+      <div>
+        © <span id="year"></span> LibStax. All rights reserved.
+      </div>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Highlight active section in sidebar
+    const sections = document.querySelectorAll(".section");
+    const links = document.querySelectorAll(".sidebar a");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((link) => {
+              link.classList.remove("active");
+
+              if (
+                link.getAttribute("href") ===
+                "#" + entry.target.id
+              ) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-100px 0px -60% 0px"
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Smooth scrolling for sidebar links
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+
+        if (targetId.startsWith("#")) {
+          event.preventDefault();
+
+          const target = document.querySelector(targetId);
+
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
