@@ -1,83 +1,83 @@
 {
-  "generated_at": "2026-11-19T01:39:49.015279+00:00",
+  "generated_at": "2026-11-19T09:48:25.299673+00:00",
   "count": 10,
   "topics": [
     {
-      "title": "silo",
-      "published": "Wed, 18 Nov 2026 17:20:00 -0800",
+      "title": "football",
+      "published": "Thu, 19 Nov 2026 01:30:00 -0800",
+      "approx_traffic": "100+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "soccer",
+      "published": "Thu, 19 Nov 2026 01:30:00 -0800",
+      "approx_traffic": "100+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "tiger",
+      "published": "Thu, 19 Nov 2026 01:20:00 -0800",
+      "approx_traffic": "100+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "ring",
+      "published": "Thu, 19 Nov 2026 01:20:00 -0800",
+      "approx_traffic": "200+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "sun",
+      "published": "Thu, 19 Nov 2026 01:20:00 -0800",
+      "approx_traffic": "100+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "price of gold today",
+      "published": "Thu, 19 Nov 2026 01:00:00 -0800",
       "approx_traffic": "1000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "joe neguse",
-      "published": "Wed, 18 Nov 2026 17:20:00 -0800",
-      "approx_traffic": "500+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "sammy kershaw",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "10000+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "jessica chastain",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "2000+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "heartland",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "1000+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "abc",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "1000+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "kyle kuzma",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "500+",
-      "source": "Google Trends",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "geo": "US"
-    },
-    {
-      "title": "miles sadler",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
+      "title": "john cornyn",
+      "published": "Thu, 19 Nov 2026 00:30:00 -0800",
       "approx_traffic": "5000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "devlin hodges",
-      "published": "Wed, 18 Nov 2026 17:10:00 -0800",
-      "approx_traffic": "500+",
+      "title": "the altruists",
+      "published": "Thu, 19 Nov 2026 00:30:00 -0800",
+      "approx_traffic": "1000+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
     },
     {
-      "title": "vince gill",
-      "published": "Wed, 18 Nov 2026 17:00:00 -0800",
-      "approx_traffic": "10000+",
+      "title": "trinidad",
+      "published": "Thu, 19 Nov 2026 00:20:00 -0800",
+      "approx_traffic": "200+",
+      "source": "Google Trends",
+      "source_url": "https://trends.google.com/trending/rss?geo=US",
+      "geo": "US"
+    },
+    {
+      "title": "gta 6 bigfoot",
+      "published": "Thu, 19 Nov 2026 00:10:00 -0800",
+      "approx_traffic": "200+",
       "source": "Google Trends",
       "source_url": "https://trends.google.com/trending/rss?geo=US",
       "geo": "US"
